@@ -5,6 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Startseite - 3D-Druck Service</title>
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Weicher Bildslider */
+    #slider {
+      position: relative;
+      max-width: 500px;
+      margin: 2rem auto;
+      height: auto;
+      overflow: hidden;
+    }
+
+    #slider img {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      border-radius: 10px;
+      z-index: 1;
+    }
+
+    #slider img.active {
+      opacity: 1;
+      z-index: 2;
+      position: relative;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -18,18 +44,31 @@
       </ul>
     </nav>
   </header>
+
   <main>
     <h2>Willkommen auf meiner 3D-Druck-Service Webseite</h2>
     <p>Wir drucken deine 3D-Modelle präzise, individuell und zu fairen Preisen.</p>
 
-    <!-- Beispiel Bildslider (optional) -->
-    <div id="slider" style="max-width: 500px; margin: auto; text-align: center;">
-      <img src="WhatsApp Image 2025-10-24 at 17.19.23 (3).jpeg" style="width: 100%; display: block;" alt="Beispiel 1" />
-      <img src="WhatsApp Image 2025-10-24 at 17.19.23 (4).jpeg" style="width: 100%; display: none;" alt="Beispiel 2" />
-      <img src="WhatsApp Image 2025-10-24 at 17.19.23.jpeg" style="width: 100%; display: none;" alt="Beispiel 3" />
+    <!-- Über mich -->
+    <section>
+      <h2>✨ Über mich</h2>
+      <p>Hey, schön dass du hier bist! 🙌</p>
+      <p>Ich betreibe ein kleines 3D-Druck-Kleingewerbe und fertige coole, praktische und individuelle 3D-Elemente. Egal ob Ersatzteile, Deko oder kreative Ideen – mit meinem 3D-Drucker wird aus deiner Vorstellung Realität. 🚀</p>
+      <p>Ich lege Wert auf saubere Verarbeitung, stabile Materialien und helfe dir gern, wenn du ein Teil nach Maß oder mit Sonderwunsch brauchst. Schreib mir einfach, und wir finden eine Lösung!</p>
+      <p>Da ich als Kleingewerbetreibender nach §19 UStG unterwegs bin, weise ich keine Umsatzsteuer aus.<br>
+      👉 Hinweis: Individuell angefertigte Sonderbestellungen sind vom Widerruf ausgeschlossen.</p>
+      <p>Ich freue mich auf deine Anfrage und darauf, dein Projekt mit meinen 3D-Drucken zu unterstützen! 🔧</p>
+    </section>
+
+    <!-- Bilderslider -->
+    <div id="slider">
+      <img src="WhatsApp Image 2025-10-24 at 17.19.23 (3).jpeg" alt="Beispiel 1" class="active" />
+      <img src="WhatsApp Image 2025-10-24 at 17.19.23 (4).jpeg" alt="Beispiel 2" />
+      <img src="WhatsApp Image 2025-10-24 at 17.19.23.jpeg" alt="Beispiel 3" />
     </div>
 
   </main>
+
   <footer>
     <p>&copy; 2025 3D-Druck Service Jan Pintak</p>
   </footer>
@@ -40,7 +79,7 @@
 
     function showSlide(index) {
       slides.forEach((slide, i) => {
-        slide.style.display = i === index ? 'block' : 'none';
+        slide.classList.toggle('active', i === index);
       });
     }
 
@@ -49,7 +88,7 @@
       showSlide(currentIndex);
     }
 
-    setInterval(nextSlide, 5000);
+    setInterval(nextSlide, 3000);
   </script>
 </body>
 </html>
