@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>3D-Druck Service – Startseite</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    #slider {
+      max-width: 800px;
+      margin: 2rem auto;
+      position: relative;
+    }
+    #slider img {
+      width: 100%;
+      display: none;
+      border-radius: 10px;
+    }
+    #slider img.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>3D-Druck Service</h1>
+  </header>
+  
+  <main>
+    <section>
+      <h2>Willkommen!</h2>
+      <p>Hier sind Beispiele für unsere Drucke.</p>
+    </section>
+    
+    <div id="slider">
+      <img src="WhatsApp Image 2025-10-24 at 17.19.23.jpeg" alt="Beispiel 1" class="active" />
+      <img src="WhatsApp Image 2025-10-24 at 17.19.23 (4).jpeg" alt="Beispiel 2" />
+      <img src="WhatsApp Image 2025-10-24 at 17.19.23 (3).jpeg" alt="Beispiel 3" />
+    </div>
+    
+  </main>
+  
+  <footer>
+    &copy; 2025 3D-Druck Service
+  </footer>
+
+  <script>
+    let currentIndex = 0;
+    const slides = document.querySelectorAll('#slider img');
+    
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
+    }
+    
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % slides.length;
+      showSlide(currentIndex);
+    }
+    
+    // Alle 3 Sekunden zum nächsten Bild sliden
+    setInterval(nextSlide, 3000);
+  </script>
+</body>
+</html>
