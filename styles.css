@@ -12,12 +12,11 @@ body::before {
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
   background: url("3dprintpro.png") no-repeat center center;
-  background-size: cover; 
+  background-size: cover;
   opacity: 0.1;
   z-index: -1;
   pointer-events: none;
 }
-
 
 /* Bestehendes Styling */
 
@@ -114,5 +113,3 @@ footer {
   padding: 1rem;
   font-size: 0.9rem;
 }
-
-
