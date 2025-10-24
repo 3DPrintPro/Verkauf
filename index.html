@@ -3,57 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Service - 3D-Druck Service</title>
+  <title>Startseite - 3D-Druck Service</title>
   <link rel="stylesheet" href="styles.css" />
-  <style>
-    /* Slider Styles */
-    #slider {
-      max-width: 800px;
-      margin: 2rem auto;
-      position: relative;
-      text-align: center;
-    }
-    #slider img {
-      width: 100%;
-      display: none;
-      border-radius: 10px;
-    }
-    #slider img.active {
-      display: block;
-    }
-  </style>
 </head>
 <body>
   <header>
     <h1>3D-Druck Service</h1>
     <nav>
       <ul>
-        <li><a href="index.html">Startseite</a></li>
-        <li><a href="service.html" class="active">Service</a></li>
+        <li><a href="index.html" class="active">Startseite</a></li>
+        <li><a href="service.html">Service</a></li>
         <li><a href="about.html">Über mich</a></li>
         <li><a href="contact.html">Kontakt</a></li>
       </ul>
     </nav>
   </header>
   <main>
-    <h2>Unser Service</h2>
-    <p>Du hast eine 3D-Datei (STL, 3MF, STEP) und möchtest diese in höchster Qualität drucken lassen?</p>
-    <ul>
-      <li>Max. Druckbereich: 256 × 256 × 256 mm</li>
-      <li>Materialvielfalt: PLA, PETG, TPU, ABS, ASA, Carbon-/Glasfaser-verstärkte Varianten (z. B. PLA-CF, PA-CF)</li>
-      <li>Mehrfarbige Drucke möglich</li>
-      <li>Flexible Preise ab 4ct/Gramm, abhängig von Größe, Material und Aufwand</li>
-      <li>Individuelle Beratung und schnelle Antwortzeiten innerhalb von 4 Stunden</li>
-      <li>Versand in 1-5 Werktagen je nach Aufwand</li>
-    </ul>
-    <p>Wichtig: 3D-Druck ist ein handwerklicher Prozess – kleine Unregelmäßigkeiten sind normal und machen jedes Stück zu einem Unikat.</p>
+    <h2>Willkommen auf meiner 3D-Druck-Service Webseite</h2>
+    <p>Wir drucken deine 3D-Modelle präzise, individuell und zu fairen Preisen.</p>
 
-    <!-- Bilderslider -->
-    <div id="slider">
-      <img src="WhatsApp Image 2025-10-24 at 17.19.23 (3).jpeg" alt="Beispiel Druck 1" class="active" />
-      <img src="WhatsApp Image 2025-10-24 at 17.19.23 (4).jpeg" alt="Beispiel Druck 2" />
-      <img src="WhatsApp Image 2025-10-24 at 17.19.23.jpeg" alt="Beispiel Druck 3" />
+    <!-- Beispiel Bildslider (optional) -->
+    <div id="slider" style="max-width: 500px; margin: auto; text-align: center;">
+      <img src="WhatsApp Image 2025-10-24 at 17.19.23 (3).jpeg" style="width: 100%; display: block;" alt="Beispiel 1" />
+      <img src="WhatsApp Image 2025-10-24 at 17.19.23 (4).jpeg" style="width: 100%; display: none;" alt="Beispiel 2" />
+      <img src="WhatsApp Image 2025-10-24 at 17.19.23.jpeg" style="width: 100%; display: none;" alt="Beispiel 3" />
     </div>
+
   </main>
   <footer>
     <p>&copy; 2025 3D-Druck Service Jan Pintak</p>
@@ -65,7 +40,7 @@
 
     function showSlide(index) {
       slides.forEach((slide, i) => {
-        slide.classList.toggle('active', i === index);
+        slide.style.display = i === index ? 'block' : 'none';
       });
     }
 
@@ -74,8 +49,7 @@
       showSlide(currentIndex);
     }
 
-    setInterval(nextSlide, 3000);
+    setInterval(nextSlide, 5000);
   </script>
 </body>
 </html>
-
