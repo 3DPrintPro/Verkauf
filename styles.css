@@ -11,8 +11,8 @@ body::before {
   content: "";
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: url("dein-logo.png") no-repeat center center;
-  background-size: cover; /* von contain auf cover ändern */
+  background: url("3dprintpro.png") no-repeat center center;
+  background-size: cover; 
   opacity: 0.1;
   z-index: -1;
   pointer-events: none;
@@ -114,4 +114,5 @@ footer {
   padding: 1rem;
   font-size: 0.9rem;
 }
+
 
