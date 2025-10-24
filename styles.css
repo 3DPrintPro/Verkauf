@@ -1,11 +1,10 @@
-body {
-  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+/* Hintergrundlogo als durchscheinendes Element */
+html, body {
+  height: 100%;
   margin: 0;
-  background: #fafafa;
-  color: #333;
-  line-height: 1.6;
+  padding: 0;
   position: relative;
-  /* neuer Code für Hintergrundlogo */
+  z-index: 0;
 }
 
 body::before {
@@ -14,9 +13,19 @@ body::before {
   top: 0; left: 0; right: 0; bottom: 0;
   background: url("3dprintpro.png") no-repeat center center;
   background-size: contain;
-  opacity: 0.1; /* Transparenz des Logos */
+  opacity: 0.1;
   z-index: -1;
   pointer-events: none;
+}
+
+/* Bestehendes Styling */
+
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: #fafafa;
+  color: #333;
+  line-height: 1.6;
+  /* position: relative;  entfernt, durch oben ersetzt */
 }
 
 /* HEADER */
