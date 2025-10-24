@@ -11,23 +11,19 @@ body::before {
   content: "";
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: url('dein-logo.png') no-repeat center center;
+  background: url('3dprintpro.png') no-repeat center center;
   background-size: cover; /* macht das Logo großflächig, kann auch contain sein */
   opacity: 0.1; /* Transparenz, anpassen je nach Wunsch */
   z-index: -1; /* hinter allen Inhalten */
   pointer-events: none; /* verhindert, dass das Logo klickbar ist */
 }
 
-}
-
 /* Bestehendes Styling */
-
 body {
   font-family: "Segoe UI", Roboto, Arial, sans-serif;
   background: #fafafa;
   color: #333;
   line-height: 1.6;
-  /* position: relative;  entfernt, durch oben ersetzt */
 }
 
 /* HEADER */
@@ -43,6 +39,8 @@ header {
 header h1 {
   margin: 0;
 }
+
+/* Navigation Menü */
 nav ul {
   list-style: none;
   display: flex;
