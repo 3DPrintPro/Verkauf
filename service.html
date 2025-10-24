@@ -5,6 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Service - 3D-Druck Service</title>
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Slider Styles */
+    #slider {
+      max-width: 400px;
+      margin: 2rem auto;
+      position: relative;
+      text-align: center;
+    }
+    #slider img {
+      width: 100%;
+      display: none;
+      border-radius: 10px;
+    }
+    #slider img.active {
+      display: block;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -31,18 +48,33 @@
     </ul>
     <p>Wichtig: 3D-Druck ist ein handwerklicher Prozess – kleine Unregelmäßigkeiten sind normal und machen jedes Stück zu einem Unikat.</p>
 
-<div style="display: flex; gap: 24px; flex-wrap: wrap; margin-top: 24px;">
-  <img src="rot.png" alt="Beispiel 3D-Druck Rot" style="max-width:360px; border-radius:10px;">
-  <img src="gelb.png" alt="Beispiel 3D-Druck Gelb" style="max-width:360px; border-radius:10px;">
-  <img src="lila.png" alt="Beispiel 3D-Druck Lila" style="max-width:360px; border-radius:10px;">
-  <img src="grün.png" alt="Beispiel 3D-Druck Grün" style="max-width:360px; border-radius:10px;">
-</div>
-
-
+    <!-- Bilderslider -->
+    <div id="slider">
+      <img src="WhatsApp Image 2025-10-24 at 17.19.23 (3).jpeg" alt="Beispiel Druck 1" class="active" />
+      <img src="WhatsApp Image 2025-10-24 at 17.19.23 (4).jpeg" alt="Beispiel Druck 2" />
+      <img src="WhatsApp Image 2025-10-24 at 17.19.23.jpeg" alt="Beispiel Druck 3" />
+    </div>
   </main>
   <footer>
     <p>&copy; 2025 3D-Druck Service Jan Pintak</p>
   </footer>
+
+  <script>
+    let currentIndex = 0;
+    const slides = document.querySelectorAll('#slider img');
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
+    }
+
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % slides.length;
+      showSlide(currentIndex);
+    }
+
+    setInterval(nextSlide, 4000);
+  </script>
 </body>
 </html>
-
