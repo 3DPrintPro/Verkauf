@@ -1,0 +1,117 @@
+/* Sicherstellen, dass html und body die volle Höhe haben */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+/* Das Logo als fixierten, transparenten Hintergrund setzen */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url('dein-logo.png') no-repeat center center;
+  background-size: cover; /* macht das Logo großflächig, kann auch contain sein */
+  opacity: 0.1; /* Transparenz, anpassen je nach Wunsch */
+  z-index: -1; /* hinter allen Inhalten */
+  pointer-events: none; /* verhindert, dass das Logo klickbar ist */
+}
+
+}
+
+/* Bestehendes Styling */
+
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: #fafafa;
+  color: #333;
+  line-height: 1.6;
+  /* position: relative;  entfernt, durch oben ersetzt */
+}
+
+/* HEADER */
+header {
+  background: #012a4a;
+  color: #fff;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+header h1 {
+  margin: 0;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+nav li {
+  margin-left: 1.5rem;
+}
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+nav a.active,
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  background: linear-gradient(135deg, #01497c, #89c2d9);
+  color: white;
+}
+.hero h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.hero p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+.hero .cta {
+  background: white;
+  color: #01497c;
+  padding: 0.8rem 1.6rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+.hero .cta:hover {
+  background: #d0e8f2;
+}
+
+/* FEATURES */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+}
+.features article {
+  background: white;
+  padding: 1.5rem;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+.features h3 {
+  color: #01497c;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  background: #012a4a;
+  color: white;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
