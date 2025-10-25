@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Service - 3D-Druck Service</title>
+  <title>Startseite - 3D-Druck Service</title>
   <style>
     :root {
       --color-primary: #33808d;
@@ -72,7 +72,27 @@
       max-width: 1100px;
       margin: 0 auto;
       padding: 2rem 1.5rem;
-      min-height: calc(100vh - 200px);
+    }
+
+    .hero {
+      text-align: center;
+      padding: 3rem 1rem;
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+      border-radius: 16px;
+      color: white;
+      margin-bottom: 3rem;
+      box-shadow: 0 4px 20px rgba(51, 128, 141, 0.2);
+    }
+
+    .hero h2 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      opacity: 0.95;
     }
 
     section {
@@ -98,72 +118,109 @@
       font-size: 1.3rem;
     }
 
-    p {
+    .intro {
+      font-size: 1.1rem;
       line-height: 1.8;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
     }
 
-    ul {
-      line-height: 1.8;
-      margin-left: 1.5rem;
-      margin-bottom: 1rem;
+    .equipment-list, .services-list {
+      list-style: none;
+      padding: 0;
     }
 
-    ul li {
-      margin-bottom: 0.5rem;
+    .equipment-list li, .services-list li {
+      padding: 0.8rem 0;
+      padding-left: 2rem;
+      position: relative;
+      line-height: 1.7;
     }
 
-    .service-grid {
+    .equipment-list li:before {
+      content: "⚙️";
+      position: absolute;
+      left: 0;
+      font-size: 1.2rem;
+    }
+
+    .services-list li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--color-accent);
+      font-weight: bold;
+      font-size: 1.4rem;
+    }
+
+    .steps {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 1.5rem;
       margin-top: 1.5rem;
     }
 
-    .service-card {
+    .step {
       background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
       padding: 1.5rem;
       border-radius: 10px;
-      border: 2px solid var(--color-border);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .service-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    }
-
-    .service-icon {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      display: block;
-    }
-
-    .service-card h3 {
-      color: var(--color-primary);
-      margin-top: 0;
-      margin-bottom: 0.8rem;
-      font-size: 1.3rem;
-    }
-
-    .price-box {
-      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
-      color: white;
-      padding: 2rem;
-      border-radius: 12px;
       text-align: center;
-      margin-top: 2rem;
+      border: 2px solid var(--color-border);
     }
 
-    .price-box h3 {
+    .step-number {
+      background: var(--color-primary);
       color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
       font-size: 1.5rem;
-      margin-bottom: 1rem;
+      font-weight: bold;
     }
 
-    .price-box p {
-      font-size: 1.1rem;
-      opacity: 0.95;
+    .step h4 {
+      color: var(--color-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    #slider {
+      position: relative;
+      max-width: 600px;
+      margin: 2rem auto;
+      height: 400px;
+      overflow: hidden;
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    #slider img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1.2s ease-in-out;
+      z-index: 1;
+    }
+
+    #slider img.active {
+      opacity: 1;
+      z-index: 2;
+    }
+
+    .legal-note {
+      background: #fff3cd;
+      border-left: 4px solid #ffc107;
+      padding: 1rem;
+      margin-top: 2rem;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      line-height: 1.6;
     }
 
     footer {
@@ -175,15 +232,23 @@
     }
 
     @media (max-width: 768px) {
-      main {
-        padding: 1rem;
+      .hero h2 {
+        font-size: 1.6rem;
       }
-      
+
+      .hero p {
+        font-size: 1rem;
+      }
+
       section {
         padding: 1.5rem;
       }
 
-      .service-grid {
+      #slider {
+        height: 300px;
+      }
+
+      .steps {
         grid-template-columns: 1fr;
       }
     }
@@ -203,99 +268,102 @@
   </header>
 
   <main>
+    <!-- Hero Section -->
+    <div class="hero">
+      <h2>Von der Idee zum fertigen Teil</h2>
+      <p>Professioneller 3D-Druck – präzise, individuell & zu fairen Preisen</p>
+    </div>
+
+    <!-- Über mich -->
     <section>
-      <h2>🎯 Meine Leistungen im Detail</h2>
-      <p>Ich biete dir professionellen 3D-Druck für die verschiedensten Anwendungsbereiche. Ob du ein Einzelteil oder eine kleine Serie brauchst – ich setze dein Projekt um!</p>
-
-      <div class="service-grid">
-        <div class="service-card">
-          <span class="service-icon">🔧</span>
-          <h3>Ersatzteile</h3>
-          <p>Dein Gerät ist kaputt und das Teil gibt's nicht mehr zu kaufen? Ich fertige passgenaue Ersatzteile nach deinen Maßen oder Fotos.</p>
-        </div>
-
-        <div class="service-card">
-          <span class="service-icon">🎨</span>
-          <h3>Deko & Geschenke</h3>
-          <p>Individuelle Dekorationen, personalisierte Geschenke oder besondere Figuren – ich drucke deine kreativen Ideen in verschiedenen Farben.</p>
-        </div>
-
-        <div class="service-card">
-          <span class="service-icon">⚙️</span>
-          <h3>Prototypen</h3>
-          <p>Du entwickelst ein Produkt? Ich erstelle funktionierende Prototypen, damit du deine Idee testen und präsentieren kannst.</p>
-        </div>
-
-        <div class="service-card">
-          <span class="service-icon">🏠</span>
-          <h3>Haushaltshelfer</h3>
-          <p>Praktische Alltagslösungen wie Halterungen, Organizer, Adapter oder Werkzeuge – individuell auf deine Bedürfnisse zugeschnitten.</p>
-        </div>
-
-        <div class="service-card">
-          <span class="service-icon">🎮</span>
-          <h3>Modellbau & Hobby</h3>
-          <p>Miniatur-Teile, Figuren, Zubehör für RC-Modelle, Tabletop-Gelände oder andere Hobby-Projekte in höchster Detailgenauigkeit.</p>
-        </div>
-
-        <div class="service-card">
-          <span class="service-icon">📐</span>
-          <h3>Design-Beratung</h3>
-          <p>Du hast eine Idee, aber keine 3D-Datei? Ich helfe dir bei der Umsetzung und optimiere Designs für den 3D-Druck.</p>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <h2>📦 Materialien</h2>
-      <p>Ich verwende hochwertige Filamente für unterschiedliche Anforderungen:</p>
+      <h2>✨ Über mich</h2>
+      <p class="intro">Hi! Ich bin Jan und drucke mit Leidenschaft 3D-Teile aller Art.</p>
+      <p class="intro">Was als Hobby begann, ist heute mein Kleingewerbe – und das merkt man: Ich nehme mir Zeit für jedes Projekt, berate dich ehrlich und drucke erst, wenn alles passt.</p>
       
-      <h3>PLA (Standard)</h3>
-      <p>✓ Umweltfreundlich und biologisch abbaubar<br>
-         ✓ Ideal für Deko, Prototypen und Haushaltsartikel<br>
-         ✓ Große Farbauswahl verfügbar</p>
-
-      <h3>PETG (Robust)</h3>
-      <p>✓ Sehr stabil und schlagfest<br>
-         ✓ Temperaturfest und lebensmittelecht<br>
-         ✓ Perfekt für funktionale Teile</p>
-
-      <h3>TPU (Flexibel)</h3>
-      <p>✓ Gummiartig und elastisch<br>
-         ✓ Stoßdämpfend und abriebfest<br>
-         ✓ Ideal für Handyhüllen, Dichtungen, etc.</p>
+      <h3>Mein Equipment</h3>
+      <ul class="equipment-list">
+        <li><strong>Bambu Lab P1S</strong> – Profi-Drucker für höchste Qualität</li>
+        <li><strong>Anycubic Kobra S1</strong> – Zuverlässiger Arbeitsdrucker</li>
+        <li><strong>Große Filament-Auswahl</strong> – PLA, PETG, TPU & mehr</li>
+        <li><strong>Präzision bis ins Detail</strong> – Saubere Verarbeitung garantiert</li>
+      </ul>
     </section>
 
-    <section>
-      <h2>💰 Preise & Ablauf</h2>
-      <p>Die Kosten hängen von mehreren Faktoren ab:</p>
-      <ul>
-        <li><strong>Größe des Objekts</strong> – Je größer, desto mehr Material und Zeit</li>
-        <li><strong>Material</strong> – PLA ist günstiger als Spezialfilamente</li>
-        <li><strong>Komplexität</strong> – Detailreiche Designs benötigen mehr Druckzeit</li>
-        <li><strong>Menge</strong> – Bei mehreren Teilen gibt's Mengenrabatt</li>
-      </ul>
+    <!-- Bilderslider -->
+    <div id="slider">
+      <img src="WhatsApp Image 2025-10-24 at 17.19.23 (3).jpeg" alt="3D-Druck Beispiel 1" class="active" />
+      <img src="WhatsApp Image 2025-10-24 at 17.19.23 (4).jpeg" alt="3D-Druck Beispiel 2" />
+      <img src="WhatsApp Image 2025-10-24 at 17.19.23.jpeg" alt="3D-Druck Beispiel 3" />
+    </div>
 
-      <div class="price-box">
-        <h3>📬 Kostenlose Anfrage</h3>
-        <p>Schick mir einfach deine STL-Datei oder eine Beschreibung deines Projekts – ich erstelle dir ein unverbindliches Angebot mit Preis und Lieferzeit!</p>
+    <!-- Ablauf -->
+    <section>
+      <h2>📋 In 3 Schritten zu deinem 3D-Druck</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h4>Anfrage schicken</h4>
+          <p>Beschreib dein Projekt oder schick mir die STL-Datei</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h4>Angebot erhalten</h4>
+          <p>Ich kalkuliere Preis & Lieferzeit für dich</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h4>Druck & Versand</h4>
+          <p>Dein Teil wird gedruckt und kommt sicher bei dir an</p>
+        </div>
       </div>
     </section>
 
+    <!-- Leistungen -->
     <section>
-      <h2>⏱️ Lieferzeit</h2>
-      <p>Die Bearbeitungszeit hängt von der aktuellen Auftragslage ab:</p>
-      <ul>
-        <li><strong>Kleine Teile (bis 5 cm)</strong> – Meist 2-4 Tage</li>
-        <li><strong>Mittlere Teile (5-15 cm)</strong> – Ca. 4-7 Tage</li>
-        <li><strong>Große Teile (über 15 cm)</strong> – 7-14 Tage</li>
+      <h2>🎯 Meine Leistungen</h2>
+      <ul class="services-list">
+        <li><strong>Ersatzteile</strong> – Wenn's nirgends mehr zu kaufen gibt</li>
+        <li><strong>Deko & Geschenke</strong> – Individuelle Designs nach Wunsch</li>
+        <li><strong>Prototypen</strong> – Teste deine Idee bevor sie in Serie geht</li>
+        <li><strong>Haushaltshelfer</strong> – Praktische Lösungen für den Alltag</li>
+        <li><strong>Modellbau & Hobby</strong> – Miniaturteile, Figuren, Zubehör</li>
       </ul>
-      <p>Bei dringenden Projekten frag einfach nach Express-Bearbeitung!</p>
+
+      <div class="legal-note">
+        <p><strong>📌 Rechtlicher Hinweis:</strong></p>
+        <p>Da ich als Kleingewerbetreibender nach §19 UStG unterwegs bin, weise ich keine Umsatzsteuer aus.</p>
+        <p>👉 Individuell angefertigte Sonderbestellungen sind vom Widerruf ausgeschlossen.</p>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section style="text-align: center; background: linear-gradient(135deg, #f8f9fa 0%, #e3f2fd 100%);">
+      <h2>🚀 Bereit für dein Projekt?</h2>
+      <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">Ich freue mich auf deine Anfrage und darauf, dein Projekt mit meinen 3D-Drucken zu unterstützen!</p>
+      <a href="contact.html" style="display: inline-block; background: var(--color-primary); color: white; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 1.1rem; transition: all 0.3s ease;">Jetzt Anfrage stellen</a>
     </section>
   </main>
 
   <footer>
     <p>&copy; 2025 3DPrintPro – Jan's 3D-Druck Service</p>
   </footer>
+
+  <script>
+    let currentIndex = 0;
+    const slides = document.querySelectorAll('#slider img');
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
+    }
+
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % slides.length;
+      showSlide(currentIndex);
+    }
+
+    setInterval(nextSlide, 3000);
+  </script>
 </body>
 </html>
