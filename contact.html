@@ -4,42 +4,279 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Kontakt - 3D-Druck Service</title>
-  <link rel="stylesheet" href="styles.css" />
+  <style>
+    :root {
+      --color-primary: #33808d;
+      --color-primary-hover: #1d7480;
+      --color-background: #fcfcf9;
+      --color-surface: #fffffe;
+      --color-text: #13343b;
+      --color-text-secondary: #626c71;
+      --color-border: rgba(94, 82, 64, 0.2);
+      --color-accent: #32b8c6;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--color-background);
+      color: var(--color-text);
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--color-surface);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    header h1 {
+      text-align: center;
+      color: var(--color-primary);
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      list-style: none;
+      padding: 0 1rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--color-text);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      background: var(--color-primary);
+      color: white;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+      min-height: calc(100vh - 200px);
+    }
+
+    section {
+      background: var(--color-surface);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    section h2 {
+      color: var(--color-primary);
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+      border-bottom: 3px solid var(--color-accent);
+      padding-bottom: 0.5rem;
+    }
+
+    section h3 {
+      color: var(--color-text);
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+
+    p {
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .contact-methods {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .contact-card {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      padding: 2rem;
+      border-radius: 12px;
+      border: 2px solid var(--color-border);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .contact-card h3 {
+      color: var(--color-primary);
+      margin-top: 0;
+      margin-bottom: 0.8rem;
+    }
+
+    .contact-card a {
+      color: var(--color-primary);
+      text-decoration: none;
+      font-weight: 500;
+      word-break: break-all;
+    }
+
+    .contact-card a:hover {
+      color: var(--color-primary-hover);
+      text-decoration: underline;
+    }
+
+    .info-box {
+      background: #e3f2fd;
+      border-left: 4px solid var(--color-primary);
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-radius: 8px;
+    }
+
+    .info-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .info-list li {
+      padding: 0.8rem 0;
+      padding-left: 2rem;
+      position: relative;
+      line-height: 1.7;
+    }
+
+    .info-list li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--color-accent);
+      font-weight: bold;
+      font-size: 1.4rem;
+    }
+
+    footer {
+      background: var(--color-text);
+      color: white;
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 768px) {
+      main {
+        padding: 1rem;
+      }
+      
+      section {
+        padding: 1.5rem;
+      }
+
+      .contact-methods {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
-    <h1>3D-Druck Service</h1>
-   <nav>
-  <ul>
-    <li><a href="index.html">Startseite</a></li>
-    <li><a href="service.html">Service</a></li>
-    <li><a href="about.html">Über mich</a></li>
-    <li><a href="impressum.html">Impressum</a></li>
-    <li><a href="contact.html">Kontakt</a></li>
-  </ul>
-</nav>
-
+    <h1>🖨️ 3D-Druck Service</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Startseite</a></li>
+        <li><a href="service.html">Service</a></li>
+        <li><a href="impressum.html">Impressum</a></li>
+        <li><a href="contact.html">Kontakt</a></li>
+      </ul>
+    </nav>
   </header>
+
   <main>
-    <h2>Kontakt</h2>
-    <form action="mailto:3DPrintPro@gmx.de" method="post" enctype="text/plain">
-      <label for="name">Name:</label><br/>
-      <input type="text" id="name" name="name" required><br/>
-      <label for="email">E-Mail:</label><br/>
-      <input type="email" id="email" name="email" required><br/>
-      <label for="message">Nachricht:</label><br/>
-      <textarea id="message" name="message" rows="5" required></textarea><br/>
-      <button type="submit">Absenden</button>
-    </form>
-    <p>Telefon: 01726216751</p>
-    <p>E-Mail: 3DPrintPro@gmx.de</p>
+    <section>
+      <h2>📬 Kontakt</h2>
+      <p>Du hast eine Projektidee oder Fragen? Dann melde dich einfach bei mir! Ich antworte in der Regel innerhalb von 24 Stunden.</p>
+
+      <div class="contact-methods">
+        <div class="contact-card">
+          <span class="contact-icon">📧</span>
+          <h3>E-Mail</h3>
+          <p>Der beste Weg für Anfragen mit STL-Dateien</p>
+          <a href="mailto:3DPrintPro@gmx.de">deine-email@beispiel.de</a>
+        </div>
+
+        <div class="contact-card">
+          <span class="contact-icon">💬</span>
+          <h3>WhatsApp</h3>
+          <p>Für schnelle Fragen und Abstimmungen</p>
+          <a href="https://www.kleinanzeigen.de/s-anzeige/3d-druck-service-schnell-individuell-gerecht-/3199274587-298-2857">+49 1726216751</a>
+        </div>
+
+        <div class="contact-card">
+          <span class="contact-icon">🛒</span>
+          <h3>Kleinanzeigen</h3>
+          <p>Finde meine aktuellen Angebote</p>
+          <a href="#">Zum Profil</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>📝 Was ich von dir brauche</h2>
+      <p>Für ein schnelles und präzises Angebot helfen mir folgende Informationen:</p>
+      
+      <ul class="info-list">
+        <li><strong>STL-Datei</strong> – Falls vorhanden, schick mir die 3D-Datei direkt</li>
+        <li><strong>Projektbeschreibung</strong> – Was soll gedruckt werden? Wofür wird es genutzt?</li>
+        <li><strong>Maße</strong> – Falls keine Datei vorhanden: Größenangaben oder Fotos</li>
+        <li><strong>Material-Wunsch</strong> – PLA, PETG, TPU oder keine Präferenz?</li>
+        <li><strong>Farbe</strong> – Welche Farbe bevorzugst du?</li>
+        <li><strong>Menge</strong> – Wie viele Teile brauchst du?</li>
+        <li><strong>Zeitrahmen</strong> – Wann brauchst du das Teil?</li>
+      </ul>
+
+      <div class="info-box">
+        <p><strong>💡 Tipp:</strong> Je mehr Infos du mir gibst, desto genauer kann ich dir ein Angebot machen und desto schneller geht's!</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>⏰ Antwortzeiten</h2>
+      <p><strong>Montag bis Freitag:</strong> Antwort innerhalb von 24 Stunden<br>
+         <strong>Wochenende:</strong> Antwort spätestens am Montag</p>
+      
+      <p style="margin-top: 1.5rem;">Nach deiner Anfrage erstelle ich dir ein <strong>kostenloses und unverbindliches Angebot</strong> mit Preis, Material-Empfehlung und voraussichtlicher Lieferzeit.</p>
+    </section>
+
+    <section style="text-align: center; background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%); color: white;">
+      <h2 style="color: white; border-bottom: none;">🚀 Bereit loszulegen?</h2>
+      <p style="font-size: 1.1rem; margin-bottom: 0;">Ich freue mich auf dein Projekt und helfe dir gerne weiter!</p>
+    </section>
   </main>
+
   <footer>
-    <p>&copy; 2025 3DPrintPro</p>
+    <p>&copy; 2025 3DPrintPro – Jan's 3D-Druck Service</p>
   </footer>
 </body>
 </html>
-
-
-
-
