@@ -61,11 +61,28 @@
       border-radius: 8px;
       transition: all 0.3s ease;
       font-weight: 500;
+      position: relative;
     }
 
     nav a:hover {
       background: var(--color-primary);
       color: white;
+    }
+
+    nav a.active {
+      color: var(--color-primary);
+      font-weight: 600;
+    }
+
+    nav a.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0.5rem;
+      right: 0.5rem;
+      height: 3px;
+      background: var(--color-primary);
+      border-radius: 2px;
     }
 
     main {
@@ -141,7 +158,7 @@
       <ul>
         <li><a href="index.html">Startseite</a></li>
         <li><a href="service.html">Service</a></li>
-        <li><a href="impressum.html">Impressum</a></li>
+        <li><a href="impressum.html" class="active">Impressum</a></li>
         <li><a href="contact.html">Kontakt</a></li>
       </ul>
     </nav>
@@ -153,16 +170,16 @@
       
       <h3>Angaben gemäß § 5 TMG</h3>
       <div class="info-box">
-        <p><strong>Jan [Pintak]</strong></p>
+        <p><strong>Jan [Nachname]</strong></p>
         <p>3DPrintPro</p>
-        <p>[Freiengericht 28]</p>
-        <p>[31303] [Burgdorf]</p>
+        <p>[Deine Straße und Hausnummer]</p>
+        <p>[PLZ] [Deine Stadt]</p>
       </div>
 
       <h3>Kontakt</h3>
       <div class="info-box">
-        <p><strong>E-Mail:</strong> [3DPrintPro@gmx.de]</p>
-        <p><strong>Telefon:</strong> [01726216751] (optional)</p>
+        <p><strong>E-Mail:</strong> 3DPrintPro@gmx.de</p>
+        <p><strong>Telefon:</strong> [Deine Telefonnummer] (optional)</p>
       </div>
 
       <h3>Kleinunternehmerregelung</h3>
@@ -170,9 +187,9 @@
 
       <h3>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h3>
       <div class="info-box">
-        <p><strong>Jan [Pintak]</strong></p>
-        <p>[Freiengericht 28]</p>
-        <p>[31303] [Burgdorf]</p>
+        <p><strong>Jan [Nachname]</strong></p>
+        <p>[Deine Straße und Hausnummer]</p>
+        <p>[PLZ] [Deine Stadt]</p>
       </div>
 
       <h3>Haftungsausschluss</h3>
