@@ -1,449 +1,142 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Service - 3D-Druck Service</title>
-  <style>
-    :root {
-      --color-primary: #33808d;
-      --color-primary-hover: #1d7480;
-      --color-background: #fcfcf9;
-      --color-surface: #fffffe;
-      --color-text: #13343b;
-      --color-text-secondary: #626c71;
-      --color-border: rgba(94, 82, 64, 0.2);
-      --color-accent: #32b8c6;
-    }
+  <div class="service-grid">
+    <div class="service-card">
+      <span class="service-icon">🔧</span>
+      <h3>Ersatzteile</h3>
+      <p>Dein Gerät ist kaputt und das Teil gibt's nicht mehr zu kaufen? Ich fertige passgenaue Ersatzteile nach deinen Maßen oder Fotos.</p>
+    </div>
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <div class="service-card">
+      <span class="service-icon">🎨</span>
+      <h3>Deko & Geschenke</h3>
+      <p>Individuelle Dekorationen, personalisierte Geschenke oder besondere Figuren – ich drucke deine kreativen Ideen in verschiedenen Farben.</p>
+    </div>
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background-color: var(--color-background);
-      color: var(--color-text);
-      line-height: 1.6;
-    }
+    <div class="service-card">
+      <span class="service-icon">⚙️</span>
+      <h3>Prototypen</h3>
+      <p>Du entwickelst ein Produkt? Ich erstelle funktionierende Prototypen, damit du deine Idee testen und präsentieren kannst.</p>
+    </div>
 
-    header {
-      background: var(--color-surface);
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-      padding: 1rem 0;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
+    <div class="service-card">
+      <span class="service-icon">🏠</span>
+      <h3>Haushaltshelfer</h3>
+      <p>Praktische Alltagslösungen wie Halterungen, Organizer, Adapter oder Werkzeuge – individuell auf deine Bedürfnisse zugeschnitten.</p>
+    </div>
 
-    header h1 {
-      text-align: center;
-      color: var(--color-primary);
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-    }
+    <div class="service-card">
+      <span class="service-icon">🎮</span>
+      <h3>Modellbau & Hobby</h3>
+      <p>Miniatur-Teile, Figuren, Zubehör für RC-Modelle, Tabletop-Gelände oder andere Hobby-Projekte in höchster Detailgenauigkeit.</p>
+    </div>
 
-    nav ul {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-      list-style: none;
-      padding: 0 1rem;
-    }
+    <div class="service-card">
+      <span class="service-icon">📐</span>
+      <h3>Design-Beratung</h3>
+      <p>Du hast eine Idee, aber keine 3D-Datei? Ich helfe dir bei der Umsetzung und optimiere Designs für den 3D-Druck.</p>
+    </div>
+  </div>
+</section>
 
-    nav a {
-      text-decoration: none;
-      color: var(--color-text);
-      padding: 0.75rem 1.25rem;
-      border-radius: 8px;
-      transition: all 0.3s ease;
-      font-weight: 500;
-      position: relative;
-      min-height: 48px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+<section>
+  <h2>📦 Materialien</h2>
+  <p>Ich verwende hochwertige Filamente für unterschiedliche Anforderungen:</p>
+  
+  <h3>PLA (Standard)</h3>
+  <p>✓ Umweltfreundlich und biologisch abbaubar<br>
+     ✓ Ideal für Deko, Prototypen und Haushaltsartikel<br>
+     ✓ Große Farbauswahl verfügbar</p>
 
-    nav a:hover {
-      background: var(--color-primary);
-      color: white;
-    }
+  <h3>PETG (Robust)</h3>
+  <p>✓ Sehr stabil und schlagfest<br>
+     ✓ Temperaturfest und lebensmittelecht<br>
+     ✓ Perfekt für funktionale Teile</p>
 
-    nav a.active {
-      color: var(--color-primary);
-      font-weight: 600;
-    }
+  <h3>TPU (Flexibel)</h3>
+  <p>✓ Gummiartig und elastisch<br>
+     ✓ Stoßdämpfend und abriebfest<br>
+     ✓ Ideal für Handyhüllen, Dichtungen, etc.</p>
 
-    nav a.active::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0.5rem;
-      right: 0.5rem;
-      height: 3px;
-      background: var(--color-primary);
-      border-radius: 2px;
-    }
+  <h3>ASA (Außenbereich)</h3>
+  <p>✓ Sehr stabil und schlagfest<br>
+     ✓ Temperaturfest und für den Außenbereich<br>
+     ✓ Chemisch resistent<br>
+     ✓ Perfekt für funktionale Teile</p>
 
-    main {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 2rem 1.5rem;
-      min-height: calc(100vh - 200px);
-    }
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-top: 2rem;">
+    <div style="text-align: center;">
+      <img src="gelb.png" alt="Gelbes Filament" style="width: 100%; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+    </div>
+    <div style="text-align: center;">
+      <img src="grün.png" alt="Grünes Filament" style="width: 100%; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+    </div>
+    <div style="text-align: center;">
+      <img src="braun.png" alt="Braunes Filament" style="width: 100%; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+    </div>
+    <div style="text-align: center;">
+      <img src="lila.png" alt="Lila Filament" style="width: 100%; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+    </div>
+    <div style="text-align: center;">
+      <img src="rot.png" alt="Rotes Filament" style="width: 100%; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+    </div>
+  </div>
+</section>
 
-    section {
-      background: var(--color-surface);
-      border-radius: 12px;
-      padding: 2rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    }
+<section>
+  <h2>💰 Preise & Ablauf</h2>
+  <p>Die Kosten hängen von mehreren Faktoren ab:</p>
+  <ul>
+    <li><strong>Größe des Objekts</strong> – Je größer, desto mehr Material und Zeit</li>
+    <li><strong>Material</strong> – PLA ist günstiger als Spezialfilamente</li>
+    <li><strong>Komplexität</strong> – Detailreiche Designs benötigen mehr Druckzeit</li>
+    <li><strong>Menge</strong> – Bei mehreren Teilen gibt's Mengenrabatt</li>
+  </ul>
 
-    section h2 {
-      color: var(--color-primary);
-      margin-bottom: 1.5rem;
-      font-size: 1.8rem;
-      border-bottom: 3px solid var(--color-accent);
-      padding-bottom: 0.5rem;
-    }
+  <h3>📦 Versandkosten</h3>
+  <ul>
+    <li><strong>Bis 1 kg</strong> – 2,70 € (Büchersendung)</li>
+    <li><strong>Bis 2 kg</strong> – 3,55 € (Büchersendung)</li>
+    <li><strong>Bis 5 kg</strong> – 7,69 € (Paket mit Sendungsverfolgung)</li>
+  </ul>
+  <p style="margin-top: 1rem;">Die genauen Versandkosten werden im individuellen Angebot berücksichtigt.</p>
 
-    section h3 {
-      color: var(--color-text);
-      margin-top: 1.5rem;
-      margin-bottom: 1rem;
-      font-size: 1.3rem;
-    }
+  <div class="price-box">
+    <h3>📬 Kostenlose Anfrage</h3>
+    <p>Schick mir einfach deine STL, OBJ, 3MF -Datei oder eine Beschreibung deines Projekts – ich erstelle dir ein unverbindliches Angebot mit Preis und Lieferzeit!</p>
+    <a href="contact.html" style="display: inline-block; margin-top: 1.5rem; background: white; color: var(--color-primary); font-weight: bold; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; font-size: 1.1rem; transition: all 0.3s ease; border: 2px solid white;">Jetzt Kontakt aufnehmen</a>
+  </div>
+</section>
 
-    p {
-      line-height: 1.8;
-      margin-bottom: 1rem;
-    }
+<section>
+  <h2>⏱️ Lieferzeit</h2>
+  <p>Die Bearbeitungszeit hängt von der aktuellen Auftragslage ab:</p>
+  <ul>
+    <li><strong>Kleine Teile (bis 5 cm)</strong> – Meist 1-3 Tage</li>
+    <li><strong>Mittlere Teile (5-15 cm)</strong> – Ca. 2-4 Tage</li>
+    <li><strong>Große Teile (über 15 cm)</strong> – 4-7 Tage</li>
+  </ul>
+  <p>Bei dringenden Projekten frag einfach nach Express-Bearbeitung!</p>
+</section>
 
-    ul {
-      line-height: 1.8;
-      margin-left: 1.5rem;
-      margin-bottom: 1rem;
-    }
-
-    ul li {
-      margin-bottom: 0.5rem;
-    }
-
-    .service-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1.5rem;
-    }
-
-    .service-card {
-      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-      padding: 1.5rem;
-      border-radius: 10px;
-      border: 2px solid var(--color-border);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .service-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    }
-
-    .service-icon {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      display: block;
-    }
-
-    .service-card h3 {
-      color: var(--color-primary);
-      margin-top: 0;
-      margin-bottom: 0.8rem;
-      font-size: 1.3rem;
-    }
-
-    .price-box {
-      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
-      color: white;
-      padding: 2rem;
-      border-radius: 12px;
-      text-align: center;
-      margin-top: 2rem;
-    }
-
-    .price-box h3 {
-      color: white;
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .price-box p {
-      font-size: 1.1rem;
-      opacity: 0.95;
-    }
-
-    footer {
-      background: var(--color-text);
-      color: white;
-      text-align: center;
-      padding: 1.5rem;
-      margin-top: 3rem;
-    }
-
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 1.5rem;
-      }
-
-      nav ul {
-        gap: 0.5rem;
-      }
-
-      nav a {
-        padding: 0.75rem 1rem;
-        font-size: 0.95rem;
-      }
-
-      main {
-        padding: 1rem;
-      }
-
-      section {
-        padding: 1.5rem;
-      }
-
-      section h2 {
-        font-size: 1.5rem;
-      }
-
-      section h3 {
-        font-size: 1.2rem;
-      }
-
-      .service-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .service-icon {
-        font-size: 2rem;
-      }
-
-      .price-box {
-        padding: 1.5rem;
-      }
-
-      .price-box h3 {
-        font-size: 1.3rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      header h1 {
-        font-size: 1.3rem;
-      }
-
-      nav ul {
-        flex-direction: column;
-        gap: 0.5rem;
-      }
-
-      nav a {
-        width: 100%;
-      }
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>🖨️ 3D-Druck Service</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Startseite</a></li>
-        <li><a href="service.html" class="active">Service</a></li>
-        <li><a href="impressum.html">Impressum</a></li>
-        <li><a href="contact.html">Kontakt</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main>
-    <section>
-      <h2>🎯 Meine Leistungen im Detail</h2>
-      <p>Ich biete dir professionellen 3D-Druck für die verschiedensten Anwendungsbereiche. Ob du ein Einzelteil oder eine kleine Serie brauchst – ich setze dein Projekt um!</p>
-
-      <div class="service-grid">
-        <div class="service-card">
-          <span class="service-icon">🔧</span>
-          <h3>Ersatzteile</h3>
-          <p>Dein Gerät ist kaputt und das Teil gibt's nicht mehr zu kaufen? Ich fertige passgenaue Ersatzteile nach deinen Maßen oder Fotos.</p>
-        </div>
-
-        <div class="service-card">
-          <span class="service-icon">🎨</span>
-          <h3>Deko & Geschenke</h3>
-          <p>Individuelle Dekorationen, personalisierte Geschenke oder besondere Figuren – ich drucke deine kreativen Ideen in verschiedenen Farben.</p>
-        </div>
-
-        <div class="service-card">
-          <span class="service-icon">⚙️</span>
-          <h3>Prototypen</h3>
-          <p>Du entwickelst ein Produkt? Ich erstelle funktionierende Prototypen, damit du deine Idee testen und präsentieren kannst.</p>
-        </div>
-
-        <div class="service-card">
-          <span class="service-icon">🏠</span>
-          <h3>Haushaltshelfer</h3>
-          <p>Praktische Alltagslösungen wie Halterungen, Organizer, Adapter oder Werkzeuge – individuell auf deine Bedürfnisse zugeschnitten.</p>
-        </div>
-
-        <div class="service-card">
-          <span class="service-icon">🎮</span>
-          <h3>Modellbau & Hobby</h3>
-          <p>Miniatur-Teile, Figuren, Zubehör für RC-Modelle, Tabletop-Gelände oder andere Hobby-Projekte in höchster Detailgenauigkeit.</p>
-        </div>
-
-        <div class="service-card">
-          <span class="service-icon">📐</span>
-          <h3>Design-Beratung</h3>
-          <p>Du hast eine Idee, aber keine 3D-Datei? Ich helfe dir bei der Umsetzung und optimiere Designs für den 3D-Druck.</p>
-        </div>
+<section>
+  <h2>🧮 Preis-Rechner</h2>
+  <p>Schick mir deine 3D-Datei und deine E-Mail-Adresse, um ein unverbindliches Angebot zu bekommen:</p>
+  
+  <div style="background: #f8f9fa; padding: 2rem; border-radius: 12px; margin-top: 1.5rem;">
+    <form id="priceCalculator" style="display: grid; gap: 1rem;">
+      <div>
+        <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">📁 Datei hochladen (STL, OBJ, 3MF):</label>
+        <input type="file" id="fileUpload" accept=".stl,.obj,.3mf" style="width: 100%; padding: 0.5rem; border: 1px solid var(--color-border); border-radius: 6px; background: white;" required>
       </div>
-    </section>
-
-    <section>
-      <h2>📦 Materialien</h2>
-      <p>Ich verwende hochwertige Filamente für unterschiedliche Anforderungen:</p>
-      
-      <h3>PLA (Standard)</h3>
-      <p>✓ Umweltfreundlich und biologisch abbaubar<br>
-         ✓ Ideal für Deko, Prototypen und Haushaltsartikel<br>
-         ✓ Große Farbauswahl verfügbar</p>
-
-      <h3>PETG (Robust)</h3>
-      <p>✓ Sehr stabil und schlagfest<br>
-         ✓ Temperaturfest und lebensmittelecht<br>
-         ✓ Perfekt für funktionale Teile</p>
-
-      <h3>TPU (Flexibel)</h3>
-      <p>✓ Gummiartig und elastisch<br>
-         ✓ Stoßdämpfend und abriebfest<br>
-         ✓ Ideal für Handyhüllen, Dichtungen, etc.</p>
-
-      <h3>ASA (Außenbereich)</h3>
-      <p>✓ Sehr stabil und schlagfest<br>
-         ✓ Temperaturfest und für den Außenbereich<br>
-         ✓ Chemisch resistent<br>
-         ✓ Perfekt für funktionale Teile</p>
-
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-top: 2rem;">
-        <div style="text-align: center;">
-          <img src="gelb.png" alt="Gelbes Filament" style="width: 100%; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-        </div>
-        <div style="text-align: center;">
-          <img src="grün.png" alt="Grünes Filament" style="width: 100%; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-        </div>
-        <div style="text-align: center;">
-          <img src="braun.png" alt="Braunes Filament" style="width: 100%; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-        </div>
-        <div style="text-align: center;">
-          <img src="lila.png" alt="Lila Filament" style="width: 100%; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-        </div>
-        <div style="text-align: center;">
-          <img src="rot.png" alt="Rotes Filament" style="width: 100%; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-        </div>
+      <div>
+        <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">📧 Deine E-Mail-Adresse:</label>
+        <input type="email" id="buyerEmail" placeholder="deine@email.de" style="width: 100%; padding: 0.5rem; border: 1px solid var(--color-border); border-radius: 6px;" required>
       </div>
-    </section>
 
-    <section>
-      <h2>💰 Preise & Ablauf</h2>
-      <p>Die Kosten hängen von mehreren Faktoren ab:</p>
-      <ul>
-        <li><strong>Größe des Objekts</strong> – Je größer, desto mehr Material und Zeit</li>
-        <li><strong>Material</strong> – PLA ist günstiger als Spezialfilamente</li>
-        <li><strong>Komplexität</strong> – Detailreiche Designs benötigen mehr Druckzeit</li>
-        <li><strong>Menge</strong> – Bei mehreren Teilen gibt's Mengenrabatt</li>
-      </ul>
+      <button type="button" onclick="sendRequest()" style="background: var(--color-primary); color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 1rem; margin-top: 1rem;">Anfrage abschicken</button>
+    </form>
 
-      <h3>📦 Versandkosten</h3>
-      <ul>
-        <li><strong>Bis 1 kg</strong> – 2,70 € (Büchersendung)</li>
-        <li><strong>Bis 2 kg</strong> – 3,55 € (Büchersendung)</li>
-        <li><strong>Bis 5 kg</strong> – 7,69 € (Paket mit Sendungsverfolgung)</li>
-      </ul>
-      <p style="margin-top: 1rem;">Die genauen Versandkosten werden im individuellen Angebot berücksichtigt.</p>
-
-      <div class="price-box">
-        <h3>📬 Kostenlose Anfrage</h3>
-        <p>Schick mir einfach deine STL, OBJ, 3MF -Datei oder eine Beschreibung deines Projekts – ich erstelle dir ein unverbindliches Angebot mit Preis und Lieferzeit!</p>
-        <a href="contact.html" style="display: inline-block; margin-top: 1.5rem; background: white; color: var(--color-primary); font-weight: bold; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; font-size: 1.1rem; transition: all 0.3s ease; border: 2px solid white;">Jetzt Kontakt aufnehmen</a>
-      </div>
-    </section>
-
-    <section>
-      <h2>⏱️ Lieferzeit</h2>
-      <p>Die Bearbeitungszeit hängt von der aktuellen Auftragslage ab:</p>
-      <ul>
-        <li><strong>Kleine Teile (bis 5 cm)</strong> – Meist 1-3 Tage</li>
-        <li><strong>Mittlere Teile (5-15 cm)</strong> – Ca. 2-4 Tage</li>
-        <li><strong>Große Teile (über 15 cm)</strong> – 4-7 Tage</li>
-      </ul>
-      <p>Bei dringenden Projekten frag einfach nach Express-Bearbeitung!</p>
-    </section>
-
-    <section>
-      <h2>🧮 Preis-Rechner</h2>
-      <p>Schick mir deine 3D-Datei und deine E-Mail-Adresse, um ein unverbindliches Angebot zu bekommen:</p>
-      
-      <div style="background: #f8f9fa; padding: 2rem; border-radius: 12px; margin-top: 1.5rem;">
-        <form id="priceCalculator" style="display: grid; gap: 1rem;">
-          <div>
-            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">📁 Datei hochladen (STL, OBJ, 3MF):</label>
-            <input type="file" id="fileUpload" accept=".stl,.obj,.3mf" style="width: 100%; padding: 0.5rem; border: 1px solid var(--color-border); border-radius: 6px; background: white;" required>
-          </div>
-          <div>
-            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">📧 Deine E-Mail-Adresse:</label>
-            <input type="email" id="buyerEmail" placeholder="deine@email.de" style="width: 100%; padding: 0.5rem; border: 1px solid var(--color-border); border-radius: 6px;" required>
-          </div>
-
-          <button type="button" onclick="sendRequest()" style="background: var(--color-primary); color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 1rem; margin-top: 1rem;">Anfrage abschicken</button>
-        </form>
-
-        <div id="requestConfirmation" style="margin-top: 1rem; padding: 1rem; background: #d4edda; border-radius: 8px; color: #155724; display: none;">
-          Deine Anfrage wurde erfolgreich abgeschickt. Ich melde mich so schnell wie möglich bei dir!
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 3DPrintPro – Jan's 3D-Druck Service</p>
-  </footer>
-
-  <script>
-  function sendRequest() {
-    const fileInput = document.getElementById('fileUpload');
-    const email = document.getElementById('buyerEmail').value.trim();
-
-    if (fileInput.files.length === 0) {
-      alert('Bitte lade deine 3D-Datei hoch.');
-      return;
-    }
-    if (!email) {
-      alert('Bitte gib deine E-Mail-Adresse an.');
-      return;
-    }
-
-    // Hier müsste serverseitig die Datei und E-Mail verarbeitet werden.
-    // Diese Demo zeigt nur die Bestätigung.
-
-    document.getElementById('requestConfirmation').style.display = 'block';
-    document.getElementById('priceCalculator').reset();
-  }
-  </script>
-</body>
-</html>
+    <div id="requestConfirmation" style="margin-top: 1rem; padding: 1rem; background: #d4edda; border-radius: 8px; color: #155724; display: none;">
+      Deine Anfrage wurde erfolgreich abgeschickt. Ich melde mich so schnell wie möglich bei dir!
+    </div>
+  </div>
+</section>
