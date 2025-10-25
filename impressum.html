@@ -1,74 +1,195 @@
 <!DOCTYPE html>
 <html lang="de">
-<!DOCTYPE html>
-<html lang="de">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Impressum - 3D-Druck Service</title>
-<link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Impressum - 3D-Druck Service</title>
+  <style>
+    :root {
+      --color-primary: #33808d;
+      --color-primary-hover: #1d7480;
+      --color-background: #fcfcf9;
+      --color-surface: #fffffe;
+      --color-text: #13343b;
+      --color-text-secondary: #626c71;
+      --color-border: rgba(94, 82, 64, 0.2);
+      --color-accent: #32b8c6;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--color-background);
+      color: var(--color-text);
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--color-surface);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    header h1 {
+      text-align: center;
+      color: var(--color-primary);
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      list-style: none;
+      padding: 0 1rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--color-text);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      background: var(--color-primary);
+      color: white;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+      min-height: calc(100vh - 200px);
+    }
+
+    section {
+      background: var(--color-surface);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    section h2 {
+      color: var(--color-primary);
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+      border-bottom: 3px solid var(--color-accent);
+      padding-bottom: 0.5rem;
+    }
+
+    section h3 {
+      color: var(--color-text);
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+
+    p {
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .info-box {
+      background: #f8f9fa;
+      border-left: 4px solid var(--color-primary);
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 8px;
+    }
+
+    .info-box p {
+      margin-bottom: 0.5rem;
+    }
+
+    footer {
+      background: var(--color-text);
+      color: white;
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 768px) {
+      main {
+        padding: 1rem;
+      }
+      
+      section {
+        padding: 1.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
-<header>
-  <h1>Impressum / Rechtliche Angaben</h1>
-  <nav>
-    <ul>
-      <li><a href="index.html">Startseite</a></li>
-      <li><a href="service.html">Service</a></li>
-      <li><a href="about.html">Über mich</a></li>
-      <li><a href="impressum.html" class="active">Impressum</a></li>
-      <li><a href="contact.html">Kontakt</a></li>
-    </ul>
-  </nav>
-</header>
+  <header>
+    <h1>🖨️ 3D-Druck Service</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Startseite</a></li>
+        <li><a href="service.html">Service</a></li>
+        <li><a href="impressum.html">Impressum</a></li>
+        <li><a href="contact.html">Kontakt</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<main>
-  <!-- Impressumstext hier -->
-</main>
+  <main>
+    <section>
+      <h2>📋 Impressum</h2>
+      
+      <h3>Angaben gemäß § 5 TMG</h3>
+      <div class="info-box">
+        <p><strong>Jan [Pintak]</strong></p>
+        <p>3DPrintPro</p>
+        <p>[Freiengericht 28]</p>
+        <p>[31303] [Burgdorf]</p>
+      </div>
 
-<footer>
-  <p>&copy; 2025 3DPrintPro</p>
-</footer>
+      <h3>Kontakt</h3>
+      <div class="info-box">
+        <p><strong>E-Mail:</strong> [3DPrintPro@gmx.de]</p>
+        <p><strong>Telefon:</strong> [01726216751] (optional)</p>
+      </div>
+
+      <h3>Kleinunternehmerregelung</h3>
+      <p>Gemäß § 19 UStG wird keine Umsatzsteuer ausgewiesen.</p>
+
+      <h3>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h3>
+      <div class="info-box">
+        <p><strong>Jan [Pintak]</strong></p>
+        <p>[Freiengericht 28]</p>
+        <p>[31303] [Burgdorf]</p>
+      </div>
+
+      <h3>Haftungsausschluss</h3>
+      
+      <h3>Haftung für Inhalte</h3>
+      <p>Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen.</p>
+
+      <h3>Haftung für Links</h3>
+      <p>Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.</p>
+
+      <h3>Urheberrecht</h3>
+      <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 3DPrintPro – Jan's 3D-Druck Service</p>
+  </footer>
 </body>
 </html>
-<main>
-  <section>
-    <h2>Angaben gemäß § 5 TMG</h2>
-    <p><strong>Jan Pintak</strong><br />
-    Freiengericht 28<br />
-    31303 Burgdorf<br />
-    Deutschland</p>
-    <p><strong>Telefon:</strong> 01726 216751<br />
-    <strong>E-Mail:</strong> 3DPrintPro@gmx.de</p>
-    <p>Kleingewerbe nach §19 UStG – Umsatzsteuer wird nicht ausgewiesen.</p>
-  </section>
-
-  <section>
-    <h2>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
-    <p><strong>Jan Pintak</strong><br />
-    Freiengericht 28<br />
-    31303 Burgdorf<br />
-    Deutschland</p>
-  </section>
-
-  <section>
-    <h2>Widerrufsbelehrung</h2>
-    <h3>Widerrufsrecht</h3>
-    <p>Sie haben das Recht, binnen vierzehn Tagen ohne Angabe von Gründen diesen Vertrag zu widerrufen.</p>
-    <p>Die Widerrufsfrist beträgt vierzehn Tage ab dem Tag, an dem Sie oder ein von Ihnen benannter Dritter die Ware in Besitz genommen haben.</p>
-    <p>Um Ihr Widerrufsrecht auszuüben, müssen Sie uns mittels einer eindeutigen Erklärung (z. B. Brief oder E-Mail) über Ihren Entschluss, diesen Vertrag zu widerrufen, informieren.</p>
-
-    <h3>Folgen des Widerrufs</h3>
-    <p>Wenn Sie den Vertrag widerrufen, erstatten wir Ihnen alle Zahlungen, einschließlich der Lieferkosten, unverzüglich innerhalb von 14 Tagen nach Eingang Ihres Widerrufs. Wir verwenden für die Rückzahlung dasselbe Zahlungsmittel, das Sie bei der ursprünglichen Transaktion eingesetzt haben.</p>
-    <p>Die Rückzahlung kann verweigert werden, bis wir die Waren zurückerhalten oder Sie den Nachweis der Rücksendung erbracht haben.</p>
-    <p>Sie tragen die unmittelbaren Kosten der Rücksendung der Waren.</p>
-  </section>
-</main>
-<footer>
-  <p>&copy; 2025 3DPrintPro</p>
-</footer>
-</body>
-</html>
-
-
-
