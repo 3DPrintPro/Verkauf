@@ -15,20 +15,17 @@
       --color-border: rgba(94, 82, 64, 0.2);
       --color-accent: #32b8c6;
     }
-
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       background-color: var(--color-background);
       color: var(--color-text);
       line-height: 1.6;
     }
-
     header {
       background: var(--color-surface);
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
@@ -37,14 +34,12 @@
       top: 0;
       z-index: 100;
     }
-
     header h1 {
       text-align: center;
       color: var(--color-primary);
       font-size: 1.8rem;
       margin-bottom: 1rem;
     }
-
     nav ul {
       display: flex;
       justify-content: center;
@@ -53,27 +48,24 @@
       list-style: none;
       padding: 0 1rem;
     }
-
     nav a {
       text-decoration: none;
       color: var(--color-text);
-      padding: 0.5rem 1rem;
+      padding: 0.75rem 1.2rem;
       border-radius: 8px;
       transition: all 0.3s ease;
       font-weight: 500;
       position: relative;
+      font-size: 1.1rem;
     }
-
     nav a:hover {
       background: var(--color-primary);
       color: white;
     }
-
     nav a.active {
       color: var(--color-primary);
       font-weight: 600;
     }
-
     nav a.active::after {
       content: '';
       position: absolute;
@@ -84,14 +76,12 @@
       background: var(--color-primary);
       border-radius: 2px;
     }
-
     main {
       max-width: 1100px;
       margin: 0 auto;
       padding: 2rem 1.5rem;
       min-height: calc(100vh - 200px);
     }
-
     section {
       background: var(--color-surface);
       border-radius: 12px;
@@ -99,7 +89,6 @@
       margin-bottom: 2rem;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     }
-
     section h2 {
       color: var(--color-primary);
       margin-bottom: 1.5rem;
@@ -107,19 +96,16 @@
       border-bottom: 3px solid var(--color-accent);
       padding-bottom: 0.5rem;
     }
-
     section h3 {
       color: var(--color-text);
       margin-top: 1.5rem;
       margin-bottom: 1rem;
       font-size: 1.3rem;
     }
-
     p {
       line-height: 1.8;
       margin-bottom: 1rem;
     }
-
     .info-box {
       background: #f8f9fa;
       border-left: 4px solid var(--color-primary);
@@ -127,11 +113,9 @@
       margin: 1.5rem 0;
       border-radius: 8px;
     }
-
     .info-box p {
       margin-bottom: 0.5rem;
     }
-
     footer {
       background: var(--color-text);
       color: white;
@@ -139,14 +123,28 @@
       padding: 1.5rem;
       margin-top: 3rem;
     }
-
     @media (max-width: 768px) {
-      main {
-        padding: 1rem;
+      nav a {
+        padding: 0.85rem 1.5rem;
+        font-size: 1.2rem;
       }
-      
       section {
         padding: 1.5rem;
+      }
+      section h2 {
+        font-size: 1.5rem;
+      }
+      section h3 {
+        font-size: 1.2rem;
+      }
+    }
+    @media (max-width: 480px) {
+      nav ul {
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+      nav a {
+        font-size: 1.4rem;
       }
     }
   </style>
@@ -163,11 +161,9 @@
       </ul>
     </nav>
   </header>
-
   <main>
     <section>
       <h2>📋 Impressum</h2>
-      
       <h3>Angaben gemäß § 5 TMG</h3>
       <div class="info-box">
         <p><strong>Jan [Nachname]</strong></p>
@@ -175,36 +171,28 @@
         <p>[Deine Straße und Hausnummer]</p>
         <p>[PLZ] [Deine Stadt]</p>
       </div>
-
       <h3>Kontakt</h3>
       <div class="info-box">
         <p><strong>E-Mail:</strong> 3DPrintPro@gmx.de</p>
         <p><strong>Telefon:</strong> [Deine Telefonnummer] (optional)</p>
       </div>
-
       <h3>Kleinunternehmerregelung</h3>
       <p>Gemäß § 19 UStG wird keine Umsatzsteuer ausgewiesen.</p>
-
       <h3>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h3>
       <div class="info-box">
         <p><strong>Jan [Nachname]</strong></p>
         <p>[Deine Straße und Hausnummer]</p>
         <p>[PLZ] [Deine Stadt]</p>
       </div>
-
       <h3>Haftungsausschluss</h3>
-      
       <h3>Haftung für Inhalte</h3>
       <p>Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen.</p>
-
       <h3>Haftung für Links</h3>
       <p>Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.</p>
-
       <h3>Urheberrecht</h3>
       <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.</p>
     </section>
   </main>
-
   <footer>
     <p>&copy; 2025 3DPrintPro – Jan's 3D-Druck Service</p>
   </footer>
