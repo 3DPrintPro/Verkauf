@@ -369,6 +369,14 @@
         <li><strong>Menge</strong> – Bei mehreren Teilen gibt's Mengenrabatt</li>
       </ul>
 
+      <h3>📦 Versandkosten</h3>
+      <ul>
+        <li><strong>Bis 1 kg</strong> – 2,70 € (Büchersendung)</li>
+        <li><strong>Bis 2 kg</strong> – 3,55 € (Büchersendung)</li>
+        <li><strong>Bis 5 kg</strong> – 7,69 € (Paket mit Sendungsverfolgung)</li>
+      </ul>
+      <p style="margin-top: 1rem;">Die genauen Versandkosten werden im individuellen Angebot berücksichtigt.</p>
+
       <div class="price-box">
         <h3>📬 Kostenlose Anfrage</h3>
         <p>Schick mir einfach deine STL, OBJ, 3MF -Datei oder eine Beschreibung deines Projekts – ich erstelle dir ein unverbindliches Angebot mit Preis und Lieferzeit!</p>
@@ -386,10 +394,138 @@
       </ul>
       <p>Bei dringenden Projekten frag einfach nach Express-Bearbeitung!</p>
     </section>
+
+    <section>
+      <h2>🧮 Preis-Rechner</h2>
+      <p>Berechne einen ungefähren Preis für dein 3D-Druck-Projekt:</p>
+      
+      <div style="background: #f8f9fa; padding: 2rem; border-radius: 12px; margin-top: 1.5rem;">
+        <form id="priceCalculator" style="display: grid; gap: 1rem;">
+          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem;">
+            <div>
+              <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Länge (cm):</label>
+              <input type="number" id="length" min="0" step="0.1" style="width: 100%; padding: 0.5rem; border: 1px solid var(--color-border); border-radius: 6px;" required>
+            </div>
+            <div>
+              <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Breite (cm):</label>
+              <input type="number" id="width" min="0" step="0.1" style="width: 100%; padding: 0.5rem; border: 1px solid var(--color-border); border-radius: 6px;" required>
+            </div>
+            <div>
+              <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Höhe (cm):</label>
+              <input type="number" id="height" min="0" step="0.1" style="width: 100%; padding: 0.5rem; border: 1px solid var(--color-border); border-radius: 6px;" required>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem;">
+            <div>
+              <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Material:</label>
+              <select id="material" style="width: 100%; padding: 0.5rem; border: 1px solid var(--color-border); border-radius: 6px;" required>
+                <option value="" disabled selected>Bitte wählen</option>
+                <option value="PLA" data-price="20">PLA (€20/kg)</option>
+                <option value="PETG" data-price="25">PETG (€25/kg)</option>
+                <option value="TPU" data-price="30">TPU (€30/kg)</option>
+                <option value="ASA" data-price="35">ASA (€35/kg)</option>
+              </select>
+            </div>
+            <div>
+              <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Farbe:</label>
+              <input type="text" id="color" placeholder="z.B. Rot" style="width: 100%; padding: 0.5rem; border: 1px solid var(--color-border); border-radius: 6px;">
+            </div>
+            <div>
+              <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Menge:</label>
+              <input type="number" id="quantity" min="1" value="1" style="width: 100%; padding: 0.5rem; border: 1px solid var(--color-border); border-radius: 6px;" required>
+            </div>
+          </div>
+
+          <div>
+            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">📁 Datei hochladen (optional):</label>
+            <input type="file" id="fileUpload" accept=".stl,.obj,.3mf" style="width: 100%; padding: 0.5rem; border: 1px solid var(--color-border); border-radius: 6px; background: white;">
+            <small style="color: var(--color-text-secondary);">Unterstützte Formate: STL, OBJ, 3MF</small>
+          </div>
+
+          <button type="button" onclick="calculatePrice()" style="background: var(--color-primary); color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 1rem; margin-top: 1rem;">Preis berechnen</button>
+        </form>
+
+        <div id="priceOutput" style="margin-top: 1.5rem; padding: 1rem; background: white; border-radius: 8px; display: none;">
+          <p style="font-size: 1.2rem; font-weight: bold; color: var(--color-primary); margin-bottom: 1rem;">Geschätzter Preis: <span id="priceValue">0.00</span> €</p>
+          <p style="font-size: 0.9rem; color: var(--color-text-secondary); margin-bottom: 1.5rem;">Dies ist eine ungefähre Schätzung. Der finale Preis inkl. Versandkosten wird im persönlichen Angebot mitgeteilt.</p>
+          
+          <div id="orderButtons" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <button onclick="sendWhatsApp()" style="flex: 1; background: #25D366; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+              💬 WhatsApp Anfrage
+            </button>
+            <button onclick="sendEmail()" style="flex: 1; background: var(--color-primary); color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+              📧 E-Mail Anfrage
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>
     <p>&copy; 2025 3DPrintPro – Jan's 3D-Druck Service</p>
   </footer>
+
+  <script>
+    function calculatePrice() {
+      const length = parseFloat(document.getElementById('length').value);
+      const width = parseFloat(document.getElementById('width').value);
+      const height = parseFloat(document.getElementById('height').value);
+      const materialSelect = document.getElementById('material');
+      const materialPrice = parseFloat(materialSelect.options[materialSelect.selectedIndex]?.getAttribute('data-price'));
+      const quantity = parseInt(document.getElementById('quantity').value);
+      
+      if (isNaN(length) || isNaN(width) || isNaN(height) || isNaN(materialPrice) || isNaN(quantity)) {
+        alert('Bitte alle Pflichtfelder ausfüllen.');
+        return;
+      }
+      
+      // Volumen berechnen (in cm³)
+      const volCm = length * width * height;
+      // Annahme: Durchschnittliche Dichte 1.24 g/cm³ für Filament
+      const density = 1.24;
+      const weightKg = (volCm * density) / 1000;
+      
+      // Preis berechnen
+      const pricePerPiece = weightKg * materialPrice;
+      const totalPrice = pricePerPiece * quantity;
+      
+      // Ergebnis anzeigen
+      document.getElementById('priceValue').textContent = totalPrice.toFixed(2);
+      document.getElementById('priceOutput').style.display = 'block';
+    }
+
+    function sendWhatsApp() {
+      const length = document.getElementById('length').value;
+      const width = document.getElementById('width').value;
+      const height = document.getElementById('height').value;
+      const material = document.getElementById('material').value;
+      const color = document.getElementById('color').value;
+      const quantity = document.getElementById('quantity').value;
+      const priceEstimate = document.getElementById('priceValue').textContent;
+      
+      const message = `Hallo, ich möchte gerne eine Bestellung aufgeben:\n\nMaße:\nLänge: ${length} cm\nBreite: ${width} cm\nHöhe: ${height} cm\n\nMaterial: ${material}\nFarbe: ${color}\nMenge: ${quantity}\n\nGeschätzter Preis: €${priceEstimate}\n\nBitte erstellen Sie mir ein genaues Angebot mit Versandkosten.`;
+      const phone = '491726216751';
+      const url = `https://wa.me/${phone}?text=` + encodeURIComponent(message);
+      window.open(url, '_blank');
+    }
+
+    function sendEmail() {
+      const length = document.getElementById('length').value;
+      const width = document.getElementById('width').value;
+      const height = document.getElementById('height').value;
+      const material = document.getElementById('material').value;
+      const color = document.getElementById('color').value;
+      const quantity = document.getElementById('quantity').value;
+      const priceEstimate = document.getElementById('priceValue').textContent;
+      
+      const subject = 'Bestellanfrage 3D-Druck';
+      const body = `Hallo,%0D%0A%0D%0Aich möchte gerne eine Bestellung aufgeben:%0D%0A%0D%0AMaße:%0D%0ALänge: ${length} cm%0D%0ABreite: ${width} cm%0D%0AHöhe: ${height} cm%0D%0A%0D%0AMaterial: ${material}%0D%0AFarbe: ${color}%0D%0AMenge: ${quantity}%0D%0A%0D%0AGeschätzter Preis: €${priceEstimate}%0D%0A%0D%0ABitte erstellen Sie mir ein genaues Angebot mit Versandkosten.%0D%0A%0D%0AMit freundlichen Grüßen`;
+      
+      window.location.href = `mailto:3DPrintPro@gmx.de?subject=${encodeURIComponent(subject)}&body=${body}`;
+    }
+  </script>
 </body>
 </html>
+
