@@ -15,20 +15,17 @@
       --color-border: rgba(94, 82, 64, 0.2);
       --color-accent: #32b8c6;
     }
-
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       background-color: var(--color-background);
       color: var(--color-text);
       line-height: 1.6;
     }
-
     header {
       background: var(--color-surface);
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
@@ -37,14 +34,12 @@
       top: 0;
       z-index: 100;
     }
-
     header h1 {
       text-align: center;
       color: var(--color-primary);
       font-size: 1.8rem;
       margin-bottom: 1rem;
     }
-
     nav ul {
       display: flex;
       justify-content: center;
@@ -53,27 +48,24 @@
       list-style: none;
       padding: 0 1rem;
     }
-
     nav a {
       text-decoration: none;
       color: var(--color-text);
-      padding: 0.5rem 1rem;
+      padding: 0.75rem 1.2rem; /* größere Touch-Flächen */
       border-radius: 8px;
       transition: all 0.3s ease;
       font-weight: 500;
       position: relative;
+      font-size: 1.1rem; /* größere Schrift auf Mobilgeräten */
     }
-
     nav a:hover {
       background: var(--color-primary);
       color: white;
     }
-
     nav a.active {
       color: var(--color-primary);
       font-weight: 600;
     }
-
     nav a.active::after {
       content: '';
       position: absolute;
@@ -84,13 +76,11 @@
       background: var(--color-primary);
       border-radius: 2px;
     }
-
     main {
       max-width: 1100px;
       margin: 0 auto;
       padding: 2rem 1.5rem;
     }
-
     .hero {
       text-align: center;
       padding: 3rem 1rem;
@@ -100,18 +90,15 @@
       margin-bottom: 3rem;
       box-shadow: 0 4px 20px rgba(51, 128, 141, 0.2);
     }
-
     .hero h2 {
       font-size: 2.2rem;
       margin-bottom: 1rem;
       line-height: 1.2;
     }
-
     .hero p {
       font-size: 1.2rem;
       opacity: 0.95;
     }
-
     section {
       background: var(--color-surface);
       border-radius: 12px;
@@ -119,7 +106,6 @@
       margin-bottom: 2rem;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     }
-
     section h2 {
       color: var(--color-primary);
       margin-bottom: 1.5rem;
@@ -127,39 +113,33 @@
       border-bottom: 3px solid var(--color-accent);
       padding-bottom: 0.5rem;
     }
-
     section h3 {
       color: var(--color-text);
       margin-top: 1.5rem;
       margin-bottom: 1rem;
       font-size: 1.3rem;
     }
-
     .intro {
       font-size: 1.1rem;
       line-height: 1.8;
       margin-bottom: 1.5rem;
     }
-
     .equipment-list, .services-list {
       list-style: none;
       padding: 0;
     }
-
     .equipment-list li, .services-list li {
       padding: 0.8rem 0;
       padding-left: 2rem;
       position: relative;
       line-height: 1.7;
     }
-
     .equipment-list li:before {
       content: "⚙️";
       position: absolute;
       left: 0;
       font-size: 1.2rem;
     }
-
     .services-list li:before {
       content: "✓";
       position: absolute;
@@ -168,14 +148,12 @@
       font-weight: bold;
       font-size: 1.4rem;
     }
-
     .steps {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 1.5rem;
       margin-top: 1.5rem;
     }
-
     .step {
       background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
       padding: 1.5rem;
@@ -183,7 +161,6 @@
       text-align: center;
       border: 2px solid var(--color-border);
     }
-
     .step-number {
       background: var(--color-primary);
       color: white;
@@ -197,12 +174,10 @@
       font-size: 1.5rem;
       font-weight: bold;
     }
-
     .step h4 {
       color: var(--color-primary);
       margin-bottom: 0.5rem;
     }
-
     #slider {
       position: relative;
       max-width: 600px;
@@ -212,7 +187,6 @@
       border-radius: 16px;
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
     }
-
     #slider img {
       position: absolute;
       top: 0;
@@ -224,12 +198,10 @@
       transition: opacity 1.2s ease-in-out;
       z-index: 1;
     }
-
     #slider img.active {
       opacity: 1;
       z-index: 2;
     }
-
     .legal-note {
       background: #fff3cd;
       border-left: 4px solid #ffc107;
@@ -239,7 +211,6 @@
       font-size: 0.95rem;
       line-height: 1.6;
     }
-
     footer {
       background: var(--color-text);
       color: white;
@@ -247,26 +218,42 @@
       padding: 1.5rem;
       margin-top: 3rem;
     }
-
+    /* Mobile-Optimierungen */
     @media (max-width: 768px) {
+      nav a {
+        padding: 0.85rem 1.5rem;
+        font-size: 1.2rem;
+        min-width: 60px;
+        text-align: center;
+      }
       .hero h2 {
         font-size: 1.6rem;
       }
-
       .hero p {
         font-size: 1rem;
       }
-
       section {
         padding: 1.5rem;
       }
-
       #slider {
         height: 300px;
       }
-
       .steps {
         grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 480px) {
+      nav ul {
+        flex-direction: column;
+        gap: 0.8rem;
+        padding: 0 1rem;
+      }
+      nav a {
+        font-size: 1.4rem;
+        min-width: auto;
+      }
+      #slider {
+        height: 250px;
       }
     }
   </style>
@@ -283,36 +270,31 @@
       </ul>
     </nav>
   </header>
-
   <main>
     <!-- Hero Section -->
     <div class="hero">
       <h2>Von der Idee zum fertigen Teil</h2>
       <p>Professioneller 3D-Druck – präzise, individuell & zu fairen Preisen</p>
     </div>
-
     <!-- Über mich -->
     <section>
       <h2>✨ Über mich</h2>
       <p class="intro">Hi! Ich bin Jan und drucke mit Leidenschaft 3D-Teile aller Art.</p>
       <p class="intro">Was als Hobby begann, ist heute mein Kleingewerbe – und das merkt man: Ich nehme mir Zeit für jedes Projekt, berate dich ehrlich und drucke erst, wenn alles passt.</p>
-      
       <h3>Mein Equipment</h3>
       <ul class="equipment-list">
-        <li><strong>Bambu Lab P2S</strong> – Profi-Drucker für höchste Qualität</li>
-        <li><strong>Anycubic Kobra S1</strong> – Zuverlässiger Arbeitsdrucker</li>
-        <li><strong>Große Filament-Auswahl</strong> – PLA, PETG, TPU, ASA & mehr</li>
-        <li><strong>Präzision bis ins Detail</strong> – Saubere Verarbeitung garantiert</li>
+        <li><strong>Bambu Lab P2S</strong>– Profi-Drucker für höchste Qualität</li>
+        <li><strong>Anycubic Kobra S1</strong>– Zuverlässiger Arbeitsdrucker</li>
+        <li><strong>Große Filament-Auswahl</strong>– PLA, PETG, TPU,ASA &amp; mehr</li>
+        <li><strong>Präzision bis ins Detail</strong>– Saubere Verarbeitung garantiert</li>
       </ul>
     </section>
-
     <!-- Bilderslider -->
     <div id="slider">
       <img src="WhatsApp Image 2025-10-24 at 17.19.23 (3).jpeg" alt="3D-Druck Beispiel 1" class="active" />
       <img src="WhatsApp Image 2025-10-24 at 17.19.23 (4).jpeg" alt="3D-Druck Beispiel 2" />
       <img src="WhatsApp Image 2025-10-24 at 17.19.23.jpeg" alt="3D-Druck Beispiel 3" />
     </div>
-
     <!-- Ablauf -->
     <section>
       <h2>📋 In 3 Schritten zu deinem 3D-Druck</h2>
@@ -334,25 +316,22 @@
         </div>
       </div>
     </section>
-
     <!-- Leistungen -->
     <section>
       <h2>🎯 Meine Leistungen</h2>
       <ul class="services-list">
-        <li><strong>Ersatzteile</strong> – Wenn's nirgends mehr zu kaufen gibt</li>
-        <li><strong>Deko & Geschenke</strong> – Individuelle Designs nach Wunsch</li>
-        <li><strong>Prototypen</strong> – Teste deine Idee bevor sie in Serie geht</li>
-        <li><strong>Haushaltshelfer</strong> – Praktische Lösungen für den Alltag</li>
-        <li><strong>Modellbau & Hobby</strong> – Miniaturteile, Figuren, Zubehör</li>
+        <li><strong>Ersatzteile</strong>– Wenn's nirgends mehr zu kaufen gibt</li>
+        <li><strong>Deko & Geschenke</strong>– Individuelle Designs nach Wunsch</li>
+        <li><strong>Prototypen</strong>– Teste deine Idee bevor sie in Serie geht</li>
+        <li><strong>Haushaltshelfer</strong>– Praktische Lösungen für den Alltag</li>
+        <li><strong>Modellbau & Hobby</strong>– Miniaturteile, Figuren, Zubehör</li>
       </ul>
-
       <div class="legal-note">
         <p><strong>📌 Rechtlicher Hinweis:</strong></p>
         <p>Da ich als Kleingewerbetreibender nach §19 UStG unterwegs bin, weise ich keine Umsatzsteuer aus.</p>
         <p>👉 Individuell angefertigte Sonderbestellungen sind vom Widerruf ausgeschlossen.</p>
       </div>
     </section>
-
     <!-- Call to Action -->
     <section style="text-align: center; background: linear-gradient(135deg, #f8f9fa 0%, #e3f2fd 100%);">
       <h2>🚀 Bereit für dein Projekt?</h2>
@@ -360,26 +339,21 @@
       <a href="contact.html" style="display: inline-block; background: var(--color-primary); color: white; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 1.1rem; transition: all 0.3s ease;">Jetzt Anfrage stellen</a>
     </section>
   </main>
-
   <footer>
     <p>&copy; 2025 3DPrintPro – Jan's 3D-Druck Service</p>
   </footer>
-
   <script>
     let currentIndex = 0;
     const slides = document.querySelectorAll('#slider img');
-
     function showSlide(index) {
       slides.forEach((slide, i) => {
         slide.classList.toggle('active', i === index);
       });
     }
-
     function nextSlide() {
       currentIndex = (currentIndex + 1) % slides.length;
       showSlide(currentIndex);
     }
-
     setInterval(nextSlide, 3000);
   </script>
 </body>
