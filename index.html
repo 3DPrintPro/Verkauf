@@ -174,9 +174,11 @@
       font-size: 1.5rem;
       font-weight: bold;
     }
-    .step h4 {
-      color: var(--color-primary);
-      margin-bottom: 0.5rem;
+    a.step-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      cursor: pointer;
     }
     
     /* Media Container für Slider + Video */
@@ -299,12 +301,10 @@
     </nav>
   </header>
   <main>
-    <!-- Hero Section -->
     <div class="hero">
       <h2>Von der Idee zum fertigen Teil</h2>
       <p>Professioneller 3D-Druck – präzise, individuell & zu fairen Preisen</p>
     </div>
-    <!-- Über mich -->
     <section>
       <h2>✨ Über mich</h2>
       <p class="intro">Hi! Ich bin Jan und drucke mit Leidenschaft 3D-Teile aller Art.</p>
@@ -317,15 +317,12 @@
         <li><strong>Präzision bis ins Detail</strong>– Saubere Verarbeitung garantiert</li>
       </ul>
     </section>
-    
-    <!-- Bilderslider + Video nebeneinander -->
     <div class="media-container">
       <div id="slider">
         <img src="WhatsApp Image 2025-10-24 at 17.19.23 (3).jpeg" alt="3D-Druck Beispiel 1" class="active" />
         <img src="WhatsApp Image 2025-10-24 at 17.19.23 (4).jpeg" alt="3D-Druck Beispiel 2" />
         <img src="WhatsApp Image 2025-10-24 at 17.19.23.jpeg" alt="3D-Druck Beispiel 3" />
       </div>
-      
       <div class="video-wrapper">
         <video controls autoplay muted loop>
           <source src="WhatsApp Video 2025-10-25 at 17.21.35.mp4" type="video/mp4">
@@ -333,16 +330,16 @@
         </video>
       </div>
     </div>
-    
-    <!-- Ablauf -->
     <section>
       <h2>📋 In 3 Schritten zu deinem 3D-Druck</h2>
       <div class="steps">
-        <div class="step">
-          <div class="step-number">1</div>
-          <h4>Anfrage schicken</h4>
-          <p>Beschreib dein Projekt oder schick mir die STL-Datei</p>
-        </div>
+        <a href="contact.html" class="step-link">
+          <div class="step">
+            <div class="step-number">1</div>
+            <h4>Anfrage schicken</h4>
+            <p>Beschreib dein Projekt oder schick mir die STL-Datei</p>
+          </div>
+        </a>
         <div class="step">
           <div class="step-number">2</div>
           <h4>Angebot erhalten</h4>
@@ -355,7 +352,6 @@
         </div>
       </div>
     </section>
-    <!-- Leistungen -->
     <section>
       <h2>🎯 Meine Leistungen</h2>
       <ul class="services-list">
@@ -371,7 +367,6 @@
         <p>👉 Individuell angefertigte Sonderbestellungen sind vom Widerruf ausgeschlossen.</p>
       </div>
     </section>
-    <!-- Call to Action -->
     <section style="text-align: center; background: linear-gradient(135deg, #f8f9fa 0%, #e3f2fd 100%);">
       <h2>🚀 Bereit für dein Projekt?</h2>
       <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">Ich freue mich auf deine Anfrage und darauf, dein Projekt mit meinen 3D-Drucken zu unterstützen!</p>
