@@ -77,10 +77,9 @@
       border-radius: 2px;
     }
     main {
-      max-width: 1100px;
+      max-width: 800px;
       margin: 0 auto;
       padding: 2rem 1.5rem;
-      min-height: calc(100vh - 200px);
     }
     section {
       background: var(--color-surface);
@@ -96,59 +95,22 @@
       border-bottom: 3px solid var(--color-accent);
       padding-bottom: 0.5rem;
     }
-    p {
-      line-height: 1.8;
-      margin-bottom: 1rem;
-    }
-    .contact-methods {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
-    .contact-card {
-      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-      padding: 2rem;
-      border-radius: 12px;
-      border: 2px solid var(--color-border);
-      text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .contact-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    }
-    .contact-icon {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      display: block;
-    }
-    .contact-card h3 {
-      color: var(--color-primary);
-      margin-top: 0;
-      margin-bottom: 0.8rem;
-    }
-    .contact-card p {
-      margin-bottom: 1rem;
-      color: var(--color-text-secondary);
-    }
-    .contact-link {
-      display: inline-block;
-      color: var(--color-primary);
-      text-decoration: none;
+    label {
       font-weight: 600;
-      padding: 0.8rem 1.5rem;
-      background: white;
-      border-radius: 8px;
-      border: 2px solid var(--color-primary);
-      transition: all 0.3s ease;
-      min-height: 48px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+      display: block;
+      margin-bottom: 0.3rem;
     }
-    .contact-link:hover {
-      background: var(--color-primary);
-      color: white;
+    input, select, textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      margin-bottom: 1.25rem;
+      font-family: inherit;
+    }
+    textarea {
+      resize: vertical;
     }
     button {
       background-color: var(--color-primary);
@@ -158,6 +120,7 @@
       border-radius: 8px;
       cursor: pointer;
       font-size: 1rem;
+      font-weight: 600;
     }
   </style>
 </head>
@@ -175,41 +138,22 @@
   </header>
   <main>
     <section>
-      <h2>📬 Kontakt</h2>
-      <div class="contact-methods">
-        <div class="contact-card">
-          <span class="contact-icon">📧</span>
-          <h3>E-Mail</h3>
-          <p>Der Kontakt per E-Mail</p>
-          <a href="mailto:3DPrintPro@gmx.de" class="contact-link">3DPrintPro@gmx.de</a>
-        </div>
-        <div class="contact-card">
-          <span class="contact-icon">💬</span>
-          <h3>WhatsApp</h3>
-          <p>Für schnelle Fragen und Abstimmungen</p>
-          <a href="https://wa.me/491726216751" class="contact-link" target="_blank" rel="noopener noreferrer">Nachricht senden</a>
-        </div>
-        <div class="contact-card">
-          <span class="contact-icon">🛒</span>
-          <h3>Kleinanzeigen</h3>
-          <p>Finde meine aktuellen Angebote</p>
-          <a href="https://www.kleinanzeigen.de/s-anzeige/3d-druck-service-schnell-individuell-gerecht-/3199274587-298-2857" class="contact-link" target="_blank" rel="noopener noreferrer">Zum Profil</a>
-        </div>
-      </div>
-    </section>
-    <section>
-      <h2>🛒 3D-Druck Anfrage</h2>
-      <form action="https://formspree.io/f/xovpvawr" method="POST" enctype="multipart/form-data" style="max-width: 600px; margin: auto; background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.1); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-        <label for="name" style="font-weight: 600; margin-bottom: 0.5rem; display: block;">Name</label>
-        <input type="text" id="name" name="name" placeholder="Dein voller Name" required style="padding: 0.75rem; border-radius: 8px; border: 1px solid #ccc; font-size: 1rem; margin-bottom: 1rem;" />
-        <label for="email" style="font-weight: 600; margin-bottom: 0.5rem; display: block;">E-Mail</label>
-        <input type="email" id="email" name="email" placeholder="name@example.com" required style="padding: 0.75rem; border-radius: 8px; border: 1px solid #ccc; font-size: 1rem; margin-bottom: 1rem;" />
-        <label for="phone" style="font-weight: 600; margin-bottom: 0.5rem; display: block;">Telefonnummer</label>
-        <input type="tel" id="phone" name="phone" pattern="[0-9\s+-]*" placeholder="z.B. 01578 1234567" required style="padding: 0.75rem; border-radius: 8px; border: 1px solid #ccc; font-size: 1rem; margin-bottom: 1rem;" />
-        <label for="file" style="font-weight: 600; margin-bottom: 0.5rem; display: block;">3D Datei (STL, 3MF)</label>
-        <input type="file" id="file" name="3dfile" accept=".stl,.3mf" required style="margin-bottom: 1rem;" />
-        <label for="filament" style="font-weight: 600; margin-bottom: 0.5rem; display: block;">Filament</label>
-        <select id="filament" name="filament" required style="padding: 0.75rem; border-radius: 8px; border: 1px solid #ccc; font-size: 1rem; margin-bottom: 1rem;">
+      <h2>🛒 3D-Druck Bestellung</h2>
+      <form action="https://formspree.io/f/xovpvawr" method="POST" enctype="multipart/form-data">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" />
+
+        <label for="email">E-Mail <span style="color: red;">*</span></label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="phone">Telefonnummer</label>
+        <input type="tel" id="phone" name="phone" placeholder="z. B. 01578 1234567" pattern="[0-9\s+-]*" />
+
+        <label for="file">3D Datei (STL, 3MF) <span style="color: red;">*</span></label>
+        <input type="file" id="file" name="3dfile" accept=".stl,.3mf" required />
+
+        <label for="filament">Filament</label>
+        <select id="filament" name="filament">
           <option value="PLA">PLA</option>
           <option value="PETG">PETG</option>
           <option value="TPU">TPU</option>
@@ -217,17 +161,19 @@
           <option value="Nylon">Nylon</option>
           <option value="ASA">ASA</option>
           <option value="PC">Polycarbonat (PC)</option>
+          <option value="PVA">PVA (Wasserlöslich)</option>
+          <option value="HIPS">HIPS</option>
           <option value="Wood">Holz-Filament</option>
           <option value="CarbonFiber">Carbonfaser-Verstärkt</option>
         </select>
-        <label for="color" style="font-weight: 600; margin: 0.5rem 0 1rem 0; display: block;">Farbe</label>
-        <input type="text" id="color" name="color" placeholder="Farbe eingeben" required style="padding: 0.75rem; border-radius: 8px; border: 1px solid #ccc; font-size: 1rem; margin-bottom: 1rem;" />
-        <p style="font-style: italic; color: #555; margin-top: 1rem;">
-          Nach Absenden des Formulars erstelle ich dir ein individuelles Angebot und werde dich kontaktieren.
-        </p>
-        <button type="submit" style="background-color: var(--color-primary); color: white; font-weight: 700; padding: 1rem; border: none; border-radius: 12px; font-size: 1.2rem; cursor: pointer; transition: background-color 0.3s ease;">
-          Anfrage abschicken
-        </button>
+
+        <label for="color">Farbe</label>
+        <input type="text" id="color" name="color" placeholder="Farbe eingeben" />
+
+        <label for="customer_info">Zusätzliche Informationen</label>
+        <textarea id="customer_info" name="customer_info" rows="5" placeholder="Beschreibe hier dein Projekt, besondere Anforderungen oder Fragen..."></textarea>
+
+        <button type="submit">Bestellung abschicken</button>
       </form>
     </section>
   </main>
@@ -236,4 +182,3 @@
   </footer>
 </body>
 </html>
-
