@@ -180,8 +180,6 @@
       display: block;
       cursor: pointer;
     }
-
-    /* Media Container für Slider + Video */
     .media-container {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -189,7 +187,6 @@
       margin: 2rem auto;
       max-width: 1100px;
     }
-
     #slider {
       position: relative;
       width: 100%;
@@ -213,7 +210,6 @@
       opacity: 1;
       z-index: 2;
     }
-
     .video-wrapper {
       position: relative;
       width: 100%;
@@ -222,12 +218,38 @@
       overflow: hidden;
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
     }
-
     .video-wrapper video {
       width: 100%;
       height: 100%;
       object-fit: cover;
       border-radius: 16px;
+    }
+    
+    /* Neuer 4-Bilder Slider */
+    #slider-4 {
+      position: relative;
+      width: 100%;
+      height: 300px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+      margin: 2rem auto;
+      max-width: 1100px;
+    }
+    #slider-4 img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      z-index: 1;
+    }
+    #slider-4 img.active {
+      opacity: 1;
+      z-index: 2;
     }
 
     .legal-note {
@@ -247,7 +269,6 @@
       margin-top: 3rem;
     }
 
-    /* Mobile-Optimierungen */
     @media (max-width: 768px) {
       nav a {
         padding: 0.85rem 1.5rem;
@@ -272,6 +293,9 @@
       .steps {
         grid-template-columns: 1fr;
       }
+      #slider-4 {
+        height: 200px;
+      }
     }
     @media (max-width: 480px) {
       nav ul {
@@ -284,6 +308,9 @@
       }
       #slider, .video-wrapper {
         height: 250px;
+      }
+      #slider-4 {
+        height: 150px;
       }
     }
   </style>
@@ -325,11 +352,23 @@
       </div>
       <div class="video-wrapper">
         <video controls autoplay muted loop>
-          <source src="WhatsApp Video 2025-10-25 at 17.21.35.mp4" type="video/mp4">
+          <source src="WhatsApp Video 2025-10-25 at 17.21.35.mp4" type="video/mp4" />
           Dein Browser unterstützt keine Videos.
         </video>
       </div>
     </div>
+    
+    <!-- Neuer 4-Bilder Slider -->
+    <section>
+      <h2>📷 Weitere Galerie</h2>
+      <div id="slider-4">
+        <img src="WhatsApp Image 2025-10-26 at 17.38.09 (1).jpeg" alt="Foto 1" class="active" />
+        <img src="WhatsApp Image 2025-10-26 at 17.38.09.jpeg" alt="Foto 2" />
+        <img src="WhatsApp Image 2025-10-26 at 17.38.09 (3).jpeg" />
+        <img src="WhatsApp Image 2025-10-26 at 17.38.09 (2).jpeg" alt="Foto 4" />
+      </div>
+    </section>
+
     <section>
       <h2>📋 In 3 Schritten zu deinem 3D-Druck</h2>
       <div class="steps">
@@ -379,16 +418,33 @@
   <script>
     let currentIndex = 0;
     const slides = document.querySelectorAll('#slider img');
+    const slides4 = document.querySelectorAll('#slider-4 img');
+    
     function showSlide(index) {
       slides.forEach((slide, i) => {
         slide.classList.toggle('active', i === index);
       });
     }
+    
     function nextSlide() {
       currentIndex = (currentIndex + 1) % slides.length;
       showSlide(currentIndex);
     }
+    
+    function showSlide4(index) {
+      slides4.forEach((slide, i) => {
+        slide.style.opacity = i === index ? '1' : '0';
+        slide.style.zIndex = i === index ? '2' : '1';
+      });
+    }
+    
+    function nextSlide4() {
+      currentIndex = (currentIndex + 1) % slides4.length;
+      showSlide4(currentIndex);
+    }
+    
     setInterval(nextSlide, 3000);
+    setInterval(nextSlide4, 4000);
   </script>
 </body>
 </html>
