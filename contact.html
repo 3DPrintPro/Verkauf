@@ -279,12 +279,21 @@
       <p style="margin-top: 1.5rem;">Nach deiner Anfrage erstelle ich dir ein <strong>kostenloses und unverbindliches Angebot</strong> mit Preis, Material-Empfehlung und voraussichtlicher Lieferzeit.</p>
     </section>
 
-    <!-- Neue Bestellsektion mit Formular -->
+    <!-- Neue Bestellsektion mit Formular und automatische Gewichtsschätzung -->
     <section>
       <h2>🛒 3D-Druck Bestellung</h2>
       <form action="https://formspree.io/f/xovpvawr" method="POST" enctype="multipart/form-data" style="max-width: 600px; margin: auto;">
+        <label for="name">Name:</label><br />
+        <input type="text" id="name" name="name" required /><br /><br />
+
+        <label for="email">E-Mail:</label><br />
+        <input type="email" id="email" name="email" required /><br /><br />
+
+        <label for="phone">Telefonnummer:</label><br />
+        <input type="tel" id="phone" name="phone" placeholder="z.B. 01578 1234567" pattern="[0-9\s+-]*" required /><br /><br />
+
         <label for="file">3D Datei (STL, 3MF):</label><br />
-        <input type="file" id="file" name="3dfile" accept=".stl,.3mf" required><br /><br />
+        <input type="file" id="file" name="3dfile" accept=".stl,.3mf" required /><br /><br />
 
         <label for="filament">Filament:</label><br />
         <select id="filament" name="filament" required>
@@ -294,24 +303,28 @@
         </select><br /><br />
 
         <label for="color">Farbe:</label><br />
-        <input type="text" id="color" name="color" placeholder="Farbe eingeben" required><br /><br />
+        <input type="text" id="color" name="color" placeholder="Farbe eingeben" required /><br /><br />
 
         <label for="weight">Gewicht in Gramm:</label><br />
-        <input type="number" id="weight" name="weight" min="1" required><br /><br />
+        <input type="number" id="weight" name="weight" min="1" required /><br /><br />
 
         <label for="price">Preis (€):</label><br />
-        <input type="text" id="price" name="price" readonly><br /><br />
+        <input type="text" id="price" name="price" readonly /><br /><br />
 
         <button type="submit" style="background-color: var(--color-primary); color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 8px; cursor: pointer;">
           Bestellung abschicken
         </button>
       </form>
 
+      <script src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/three@0.158.0/examples/js/loaders/STLLoader.js"></script>
+
       <script>
         const prices = { PLA: 40, PETG: 60, TPU: 80 };
         const filamentSelect = document.getElementById('filament');
         const weightInput = document.getElementById('weight');
         const priceInput = document.getElementById('price');
+        const fileInput = document.getElementById('file');
 
         function updatePrice() {
           const filament = filamentSelect.value;
@@ -323,11 +336,73 @@
           }
         }
 
-        filamentSelect.addEventListener('change', updatePrice);
+        function calculateVolumeFromSTL(file) {
+          return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+              const contents = e.target.result;
+              const loader = new THREE.STLLoader();
+              const geometry = loader.parse(contents);
+              geometry.computeBoundingBox();
+
+              let volume = 0;
+              if (geometry.isBufferGeometry) {
+                volume = computeGeometryVolume(geometry);
+              }
+              resolve(volume);
+            };
+            reader.onerror = function () {
+              reject('Fehler beim Lesen der Datei');
+            };
+            reader.readAsArrayBuffer(file);
+          });
+        }
+
+        function computeGeometryVolume(geometry) {
+          let volume = 0;
+          const pos = geometry.attributes.position;
+          for (let i = 0; i < pos.count; i += 3) {
+            const p1 = new THREE.Vector3().fromBufferAttribute(pos, i);
+            const p2 = new THREE.Vector3().fromBufferAttribute(pos, i + 1);
+            const p3 = new THREE.Vector3().fromBufferAttribute(pos, i + 2);
+            volume += signedVolumeOfTriangle(p1, p2, p3);
+          }
+          return Math.abs(volume);
+        }
+
+        function signedVolumeOfTriangle(p1, p2, p3) {
+          return p1.dot(p2.cross(p3)) / 6.0;
+        }
+
+        fileInput.addEventListener('change', () => {
+          const file = fileInput.files[0];
+          if (!file) return;
+
+          calculateVolumeFromSTL(file)
+            .then(volume => {
+              const densityMap = { PLA: 1.24, PETG: 1.27, TPU: 1.21 };
+              const filament = filamentSelect.value;
+              const density = densityMap[filament] || 1.24;
+              const weight = volume * density * 1000; 
+              weightInput.value = weight.toFixed(2);
+              updatePrice();
+            })
+            .catch(err => {
+              console.error(err);
+            });
+        });
+
+        filamentSelect.addEventListener('change', () => {
+          if (fileInput.files.length > 0) {
+            fileInput.dispatchEvent(new Event('change'));
+          } else {
+            updatePrice();
+          }
+        });
+
         weightInput.addEventListener('input', updatePrice);
       </script>
     </section>
-
   </main>
   <footer>
     <p>&copy; 2025 3DPrintPro – Jan's 3D-Druck Service</p>
