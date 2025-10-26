@@ -25,6 +25,23 @@
       background-color: var(--color-background);
       color: var(--color-text);
       line-height: 1.6;
+      position: relative;
+    }
+
+    /* Transparentes Firmenlogo als wiederholter Hintergrund */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('WhatsApp Image 2025-10-26 at 20.09.01.jpeg'); /* Dein Firmenlogo */
+      background-repeat: repeat;
+      background-size: 350px; /* Größe anpassen, 300–400px sieht gut aus */
+      opacity: 0.05; /* Transparenz: 0.03 sehr dezent – 0.1 sichtbar */
+      z-index: -1;
+      pointer-events: none; /* Keine Klicks blockieren */
     }
     .site-header {
       background: linear-gradient(135deg, #32b8c6, #1f5669);
