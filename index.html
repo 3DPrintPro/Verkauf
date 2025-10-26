@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Service - 3D-Druck Service</title>
+  <title>Startseite - 3D-Druck Service</title>
   <style>
     :root {
       --color-primary: #33808d;
@@ -25,7 +25,7 @@
       line-height: 1.6;
     }
 
-    /* Wiederholter Hintergrund mit Firmenlogo */
+    /* Transparentes Firmenlogo im wiederholten Hintergrund */
     body::before {
       content: "";
       position: fixed;
@@ -35,7 +35,7 @@
       height: 100%;
       background-image: url('WhatsApp Image 2025-10-26 at 20.09.01.jpeg');
       background-repeat: repeat;
-      background-size: 350px;
+      background-size: 340px;
       opacity: 0.05;
       z-index: -1;
       pointer-events: none;
@@ -107,7 +107,7 @@
     }
 
     main {
-      max-width: 900px;
+      max-width: 1100px;
       margin: 0 auto;
       padding: 2rem 1.5rem;
       background: rgba(255,255,255,0.88);
@@ -115,16 +115,53 @@
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
 
-    h2 {
-      color: var(--color-primary);
-      border-bottom: 2px solid var(--color-accent);
-      padding-bottom: 0.3rem;
-      margin-bottom: 1.5rem;
+    .hero {
+      text-align: center;
+      margin-bottom: 3rem;
     }
 
-    h3 {
+    .hero h2 {
+      font-size: 2.5rem;
       color: var(--color-primary);
-      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #333;
+      margin-bottom: 1rem;
+    }
+    
+    #slider {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+      margin: 2rem 0;
+    }
+
+    #slider img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
+    }
+
+    #slider img.active {
+      opacity: 1;
+    }
+
+    section h2 {
+      color: var(--color-primary);
+      border-bottom: 2px solid var(--color-accent);
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.3rem;
     }
 
     footer {
@@ -135,12 +172,20 @@
       margin-top: 3rem;
     }
 
-    p, ul {
-      margin-bottom: 1rem;
+    a.button {
+      display: inline-block;
+      background-color: var(--color-primary);
+      color: white;
+      padding: 0.8rem 1.6rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 1rem;
+      transition: background-color 0.3s ease;
     }
 
-    ul {
-      list-style: square inside;
+    a.button:hover {
+      background-color: var(--color-accent);
     }
   </style>
 </head>
@@ -153,8 +198,8 @@
     </div>
     <nav>
       <ul>
-        <li><a href="index.html">Startseite</a></li>
-        <li><a href="service.html" class="active">Service</a></li>
+        <li><a href="index.html" class="active">Startseite</a></li>
+        <li><a href="service.html">Service</a></li>
         <li><a href="impressum.html">Impressum</a></li>
         <li><a href="contact.html">Kontakt</a></li>
       </ul>
@@ -162,63 +207,47 @@
   </header>
 
   <main>
-    <h2>🎯 Meine Leistungen im Detail</h2>
-    <p>Ich biete dir professionellen 3D-Druck für verschiedenste Anwendungen. Ob du ein Einzelteil oder eine kleine Serie benötigst – ich setze dein Projekt präzise und zuverlässig um!</p>
+    <section class="hero">
+      <h2>Von der Idee zum fertigen Teil</h2>
+      <p>Professioneller 3D-Druck – präzise, individuell & zu fairen Preisen.</p>
+    </section>
 
-    <h3>Ersatzteile</h3>
-    <p>Dein Gerät ist defekt und Ersatzteile gibt’s nicht mehr zu kaufen? Ich fertige passgenaue Teile nach Maß oder Foto.</p>
+    <div id="slider">
+      <img src="WhatsApp Image 2025-10-24 at 17.19.23 (3).jpeg" alt="3D Druck Beispiel 1" class="active" />
+      <img src="WhatsApp Image 2025-10-24 at 17.19.23 (4).jpeg" alt="3D Druck Beispiel 2" />
+      <img src="WhatsApp Image 2025-10-24 at 17.19.23.jpeg" alt="3D Druck Beispiel 3" />
+    </div>
 
-    <h3>Deko & Geschenke</h3>
-    <p>Individuelle Dekorationen, personalisierte Geschenke oder besondere Figuren – ich drucke deine Ideen in vielen Farben und Materialien.</p>
+    <section>
+      <h2>✨ Über mich</h2>
+      <p>Hi! Ich bin Jan und drucke mit Leidenschaft 3D-Teile aller Art. Was als Hobby begann, ist heute meine Berufung. 
+      Ich nehme mir Zeit für jedes Projekt, berate dich ehrlich und drucke erst, wenn alles passt.</p>
+      <p><strong>Ausstattung:</strong> Bambu Lab P2S, Anycubic Kobra S1, große Filamentauswahl (PLA, PETG, TPU, ASA), präzise Verarbeitung bis ins Detail.</p>
+    </section>
 
-    <h3>Prototypen</h3>
-    <p>Du arbeitest an einem neuen Produkt? Ich drucke funktionale Prototypen, um deine Idee in die Realität zu bringen.</p>
-
-    <h3>Haushaltshelfer</h3>
-    <p>Praktische Alltagslösungen wie Halterungen, Organizer, Adapter oder Werkzeuge – maßgeschneidert für dich.</p>
-
-    <h3>Modellbau & Hobby</h3>
-    <p>Miniaturteile, Tabletop-Gelände oder Zubehör für RC-Modelle – höchste Präzision für dein Hobby.</p>
-
-    <h3>Design-Beratung</h3>
-    <p>Du hast eine Idee, aber keine 3D-Datei? Ich helfe bei der Umsetzung oder optimiere vorhandene Modelle für den Druck.</p>
-
-    <h2>📦 Materialien</h2>
-    <p>Ich verwende hochwertige Filamente für unterschiedliche Anforderungen:</p>
-    <ul>
-      <li><strong>PLA:</strong> Günstig, vielseitig, biologisch abbaubar.</li>
-      <li><strong>PETG:</strong> Robust, temperaturfest und lebensmittelecht.</li>
-      <li><strong>TPU:</strong> Elastisch, gummiartig, stoßdämpfend.</li>
-      <li><strong>ASA:</strong> Stabil, wetterfest, perfekt für Außenbereiche.</li>
-    </ul>
-
-    <h2>💰 Preise & Ablauf</h2>
-    <ul>
-      <li><strong>Objektgröße:</strong> Je größer, desto mehr Material und Zeit nötig.</li>
-      <li><strong>Material:</strong> Spezialfilamente wie TPU oder ASA sind aufpreispflichtig.</li>
-      <li><strong>Komplexität:</strong> Aufwendige Details = längere Druckzeit.</li>
-      <li><strong>Menge:</strong> Mengenrabatte bei mehreren gleichen Teilen.</li>
-    </ul>
-
-    <h3>📦 Versandkosten</h3>
-    <p>Je nach Gewicht und Versandart zwischen 2,70 € und 7,69 € (inkl. Sendungsverfolgung).</p>
-
-    <h2>📬 Anfrage</h2>
-    <p>Schick mir einfach deine 3D-Datei (STL, 3MF, OBJ) oder eine Projektbeschreibung.<br>
-       Ich erstelle dir kostenlos ein individuelles Angebot mit Preis & Lieferzeit.<br>
-       <a href="contact.html" style="color: var(--color-accent); text-decoration: none; font-weight:bold;">➡ Jetzt Kontakt aufnehmen</a></p>
-
-    <h2>⏱ Lieferzeiten</h2>
-    <ul>
-      <li><strong>Kleine Teile (bis 5 cm):</strong> 1–3 Tage</li>
-      <li><strong>Mittlere Teile (5–15 cm):</strong> 2–4 Tage</li>
-      <li><strong>Große Teile (über 15 cm):</strong> 4–7 Tage</li>
-    </ul>
-    <p>Bei dringenden Projekten sind Express-Drucke auf Anfrage möglich.</p>
+    <section style="text-align:center; margin-top:2rem;">
+      <h2>🚀 Bereit für dein Projekt?</h2>
+      <p>Ich freue mich auf deine Anfrage und darauf, dein Projekt mit exzellentem 3D-Druck zu realisieren!</p>
+      <a href="contact.html" class="button">Jetzt Anfrage stellen</a>
+    </section>
   </main>
 
   <footer>
     <p>&copy; 2025 3DPrintPro – Jan Pintak</p>
   </footer>
+
+  <script>
+    const slides = document.querySelectorAll("#slider img");
+    let currentIndex = 0;
+
+    function nextSlide() {
+      slides[currentIndex].classList.remove("active");
+      currentIndex = (currentIndex + 1) % slides.length;
+      slides[currentIndex].classList.add("active");
+    }
+
+    setInterval(nextSlide, 4000);
+  </script>
+
 </body>
 </html>
