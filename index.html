@@ -57,13 +57,30 @@
       0%, 100% {transform: scale(1); color: #32b8c6;}
       50% {transform: scale(1.1); color: #7ad7e6;}
     }
-    @media (max-width: 480px) {
-      .header-icon {
-        font-size: 2rem;
-      }
-      .header-content h1 {
-        font-size: 1.8rem;
-      }
+    nav {
+      margin-top: 0.5rem;
+    }
+    nav ul {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      list-style: none;
+      padding: 0;
+    }
+    nav a {
+      text-decoration: none;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+      font-weight: 600;
+    }
+    nav a:hover {
+      background-color: rgba(255, 255, 255, 0.15);
+    }
+    nav a.active {
+      background-color: rgba(255, 255, 255, 0.3);
     }
     main {
       max-width: 1100px;
@@ -333,6 +350,14 @@
       <span class="header-icon">🖨️</span>
       <h1>3D-Druck Service</h1>
     </div>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="active">Startseite</a></li>
+        <li><a href="service.html">Service</a></li>
+        <li><a href="impressum.html">Impressum</a></li>
+        <li><a href="contact.html">Kontakt</a></li>
+      </ul>
+    </nav>
   </header>
   <main>
     <section class="hero-section">
