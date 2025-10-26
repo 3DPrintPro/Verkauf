@@ -278,10 +278,56 @@
          <strong>Wochenende:</strong> Antwort spätestens am Montag</p>
       <p style="margin-top: 1.5rem;">Nach deiner Anfrage erstelle ich dir ein <strong>kostenloses und unverbindliches Angebot</strong> mit Preis, Material-Empfehlung und voraussichtlicher Lieferzeit.</p>
     </section>
-    <section style="text-align: center; background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%); color: white;">
-      <h2 style="color: white; border-bottom: none;">🚀 Bereit loszulegen?</h2>
-      <p style="font-size: 1.1rem; margin-bottom: 0;">Ich freue mich auf dein Projekt und helfe dir gerne weiter!</p>
+
+    <!-- Neue Bestellsektion mit Formular -->
+    <section>
+      <h2>🛒 3D-Druck Bestellung</h2>
+      <form action="https://formspree.io/f/xovpvawr" method="POST" enctype="multipart/form-data" style="max-width: 600px; margin: auto;">
+        <label for="file">3D Datei (STL, 3MF):</label><br />
+        <input type="file" id="file" name="3dfile" accept=".stl,.3mf" required><br /><br />
+
+        <label for="filament">Filament:</label><br />
+        <select id="filament" name="filament" required>
+          <option value="PLA">PLA (40 €/kg)</option>
+          <option value="PETG">PETG (60 €/kg)</option>
+          <option value="TPU">TPU (80 €/kg)</option>
+        </select><br /><br />
+
+        <label for="color">Farbe:</label><br />
+        <input type="text" id="color" name="color" placeholder="Farbe eingeben" required><br /><br />
+
+        <label for="weight">Gewicht in Gramm:</label><br />
+        <input type="number" id="weight" name="weight" min="1" required><br /><br />
+
+        <label for="price">Preis (€):</label><br />
+        <input type="text" id="price" name="price" readonly><br /><br />
+
+        <button type="submit" style="background-color: var(--color-primary); color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 8px; cursor: pointer;">
+          Bestellung abschicken
+        </button>
+      </form>
+
+      <script>
+        const prices = { PLA: 40, PETG: 60, TPU: 80 };
+        const filamentSelect = document.getElementById('filament');
+        const weightInput = document.getElementById('weight');
+        const priceInput = document.getElementById('price');
+
+        function updatePrice() {
+          const filament = filamentSelect.value;
+          const weight = parseFloat(weightInput.value);
+          if (!isNaN(weight) && filament in prices) {
+            priceInput.value = (prices[filament] * weight / 1000).toFixed(2);
+          } else {
+            priceInput.value = '';
+          }
+        }
+
+        filamentSelect.addEventListener('change', updatePrice);
+        weightInput.addEventListener('input', updatePrice);
+      </script>
     </section>
+
   </main>
   <footer>
     <p>&copy; 2025 3DPrintPro – Jan's 3D-Druck Service</p>
