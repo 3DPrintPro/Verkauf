@@ -81,23 +81,50 @@
       margin: 0 auto;
       padding: 2rem 1.5rem;
     }
-    .hero {
-      text-align: center;
-      padding: 3rem 1rem;
-      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
-      border-radius: 16px;
+    .hero-section {
+      position: relative;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       color: white;
+      text-align: center;
+      border-radius: 20px;
       margin-bottom: 3rem;
-      box-shadow: 0 4px 20px rgba(51, 128, 141, 0.2);
+      background-image: url('dein-hintergrundbild.jpg');
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      overflow: hidden;
     }
-    .hero h2 {
-      font-size: 2.2rem;
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(51, 128, 141, 0.8) 0%, rgba(50, 184, 198, 0.6) 100%);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      padding: 1rem 2rem;
+      animation: fadeInUp 1.2s ease forwards;
+    }
+    .hero-content h2 {
+      font-size: 3rem;
+      font-weight: 700;
       margin-bottom: 1rem;
-      line-height: 1.2;
+      text-shadow: 0 3px 6px rgba(0,0,0,0.4);
     }
-    .hero p {
-      font-size: 1.2rem;
-      opacity: 0.95;
+    .hero-content p {
+      font-size: 1.3rem;
+      font-weight: 400;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    @keyframes fadeInUp {
+      from {opacity: 0; transform: translateY(25px);}
+      to {opacity: 1; transform: translateY(0);}
     }
     section {
       background: var(--color-surface);
@@ -224,8 +251,6 @@
       object-fit: cover;
       border-radius: 16px;
     }
-    
-    /* Neuer 4-Bilder Slider */
     #slider-4 {
       position: relative;
       width: 100%;
@@ -251,7 +276,6 @@
       opacity: 1;
       z-index: 2;
     }
-
     .legal-note {
       background: #fff3cd;
       border-left: 4px solid #ffc107;
@@ -268,7 +292,6 @@
       padding: 1.5rem;
       margin-top: 3rem;
     }
-
     @media (max-width: 768px) {
       nav a {
         padding: 0.85rem 1.5rem;
@@ -328,10 +351,12 @@
     </nav>
   </header>
   <main>
-    <div class="hero">
-      <h2>Von der Idee zum fertigen Teil</h2>
-      <p>Professioneller 3D-Druck – präzise, individuell & zu fairen Preisen</p>
-    </div>
+    <section class="hero-section">
+      <div class="hero-content">
+        <h2>Von der Idee zum fertigen Teil</h2>
+        <p>Professioneller 3D-Druck – präzise, individuell & zu fairen Preisen</p>
+      </div>
+    </section>
     <section>
       <h2>✨ Über mich</h2>
       <p class="intro">Hi! Ich bin Jan und drucke mit Leidenschaft 3D-Teile aller Art.</p>
@@ -346,70 +371,67 @@
     </section>
     <div class="media-container">
       <div id="slider">
-        <img src="WhatsApp Image 2025-10-24 at 17.19.23 (3).jpeg" alt="3D-Druck Beispiel 1" class="active" />
-        <img src="WhatsApp Image 2025-10-24 at 17.19.23 (4).jpeg" alt="3D-Druck Beispiel 2" />
-        <img src="WhatsApp Image 2025-10-24 at 17.19.23.jpeg" alt="3D-Druck Beispiel 3" />
+        <img src="WhatsApp Image 2025-10-24 at 17.19.23 (3).jpeg" alt="[translate:3D-Druck Beispiel 1]" class="active" />
+        <img src="WhatsApp Image 2025-10-24 at 17.19.23 (4).jpeg" alt="[translate:3D-Druck Beispiel 2]" />
+        <img src="WhatsApp Image 2025-10-24 at 17.19.23.jpeg" alt="[translate:3D-Druck Beispiel 3]" />
       </div>
       <div class="video-wrapper">
         <video controls autoplay muted loop>
           <source src="WhatsApp Video 2025-10-25 at 17.21.35.mp4" type="video/mp4" />
-          Dein Browser unterstützt keine Videos.
+          [translate:Dein Browser unterstützt keine Videos.]
         </video>
       </div>
     </div>
-    
-    <!-- Neuer 4-Bilder Slider -->
     <section>
-      <h2>📷 Strukturplatten</h2>
+      <h2>📷 Weitere Galerie</h2>
       <div id="slider-4">
-        <img src="WhatsApp Image 2025-10-26 at 17.38.09 (1).jpeg" alt="Foto 1" class="active" />
-        <img src="WhatsApp Image 2025-10-26 at 17.38.09.jpeg" alt="Foto 2" />
-        <img src="WhatsApp Image 2025-10-26 at 17.38.09 (3).jpeg" />
-        <img src="WhatsApp Image 2025-10-26 at 17.38.09 (2).jpeg" alt="Foto 4" />
+        <img src="photo1.jpg" alt="[translate:Foto 1]" class="active" />
+        <img src="photo2.jpg" alt="[translate:Foto 2]" />
+        <img src="photo3.jpg" alt="[translate:Foto 3]" />
+        <img src="photo4.jpg" alt="[translate:Foto 4]" />
       </div>
     </section>
-
     <section>
       <h2>📋 In 3 Schritten zu deinem 3D-Druck</h2>
       <div class="steps">
         <a href="contact.html" class="step-link">
           <div class="step">
             <div class="step-number">1</div>
-            <h4>Anfrage schicken</h4>
-            <p>Beschreib dein Projekt oder schick mir die STL-Datei</p>
+            <h4>[translate:Anfrage schicken]</h4>
+            <p>[translate:Beschreib dein Projekt oder schick mir die STL-Datei]</p>
           </div>
         </a>
         <div class="step">
           <div class="step-number">2</div>
-          <h4>Angebot erhalten</h4>
-          <p>Ich kalkuliere Preis & Lieferzeit für dich</p>
+          <h4>[translate:Angebot erhalten]</h4>
+          <p>[translate:Ich kalkuliere Preis & Lieferzeit für dich]</p>
         </div>
         <div class="step">
           <div class="step-number">3</div>
-          <h4>Druck & Versand</h4>
-          <p>Dein Teil wird gedruckt und kommt sicher bei dir an</p>
+          <h4>[translate:Druck & Versand]</h4>
+          <p>[translate:Dein Teil wird gedruckt und kommt sicher bei dir an]</p>
         </div>
       </div>
     </section>
     <section>
       <h2>🎯 Meine Leistungen</h2>
       <ul class="services-list">
-        <li><strong>Ersatzteile</strong>– Wenn's nirgends mehr zu kaufen gibt</li>
-        <li><strong>Deko & Geschenke</strong>– Individuelle Designs nach Wunsch</li>
-        <li><strong>Prototypen</strong>– Teste deine Idee bevor sie in Serie geht</li>
-        <li><strong>Haushaltshelfer</strong>– Praktische Lösungen für den Alltag</li>
-        <li><strong>Modellbau & Hobby</strong>– Miniaturteile, Figuren, Zubehör</li>
+        <li><strong>[translate:Ersatzteile]</strong>[translate:– Wenn's nirgends mehr zu kaufen gibt]</li>
+        <li><strong>[translate:Deko & Geschenke]</strong>[translate:– Individuelle Designs nach Wunsch]</li>
+        <li><strong>[translate:Prototypen]</strong>[translate:– Teste deine Idee bevor sie in Serie geht]</li>
+        <li><strong>[translate:Haushaltshelfer]</strong>[translate:– Praktische Lösungen für den Alltag]</li>
+        <li><strong>[translate:Modellbau & Hobby]</strong>[translate:– Miniaturteile, Figuren, Zubehör]</li>
       </ul>
       <div class="legal-note">
-        <p><strong>📌 Rechtlicher Hinweis:</strong></p>
-        <p>Da ich als Kleingewerbetreibender nach §19 UStG unterwegs bin, weise ich keine Umsatzsteuer aus.</p>
-        <p>👉 Individuell angefertigte Sonderbestellungen sind vom Widerruf ausgeschlossen.</p>
+        <p><strong>📌 [translate:Rechtlicher Hinweis]:</strong></p>
+        <p>[translate:Da ich als Kleingewerbetreibender nach §19 UStG unterwegs bin, weise ich keine Umsatzsteuer aus.]</p>
+        <p>[translate:👉 Individuell angefertigte Sonderbestellungen sind vom Widerruf ausgeschlossen.]</p>
       </div>
     </section>
     <section style="text-align: center; background: linear-gradient(135deg, #f8f9fa 0%, #e3f2fd 100%);">
-      <h2>🚀 Bereit für dein Projekt?</h2>
-      <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">Ich freue mich auf deine Anfrage und darauf, dein Projekt mit meinen 3D-Drucken zu unterstützen!</p>
-      <a href="contact.html" style="display: inline-block; background: var(--color-primary); color: white; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 1.1rem; transition: all 0.3s ease;">Jetzt Anfrage stellen</a>
+      <h2>🚀 [translate:Bereit für dein Projekt?]</h2>
+      <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">[translate:Ich freue mich auf deine Anfrage und darauf, dein Projekt mit meinen 3D-Drucken zu unterstützen!]</p>
+      <a href="contact.html" style="display: inline-block; background: var(--color-primary); color: white; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 1.1rem; transition: all 0.3s ease;">[translate:Jetzt Anfrage stellen]</a>
     </section>
   </main>
   <footer>
@@ -419,30 +441,25 @@
     let currentIndex = 0;
     const slides = document.querySelectorAll('#slider img');
     const slides4 = document.querySelectorAll('#slider-4 img');
-    
     function showSlide(index) {
       slides.forEach((slide, i) => {
         slide.classList.toggle('active', i === index);
       });
     }
-    
     function nextSlide() {
       currentIndex = (currentIndex + 1) % slides.length;
       showSlide(currentIndex);
     }
-    
     function showSlide4(index) {
       slides4.forEach((slide, i) => {
         slide.style.opacity = i === index ? '1' : '0';
         slide.style.zIndex = i === index ? '2' : '1';
       });
     }
-    
     function nextSlide4() {
       currentIndex = (currentIndex + 1) % slides4.length;
       showSlide4(currentIndex);
     }
-    
     setInterval(nextSlide, 3000);
     setInterval(nextSlide4, 4000);
   </script>
