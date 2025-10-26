@@ -96,126 +96,18 @@
       border-bottom: 3px solid var(--color-accent);
       padding-bottom: 0.5rem;
     }
-    section h3 {
-      color: var(--color-text);
-      margin-top: 1.5rem;
-      margin-bottom: 1rem;
-      font-size: 1.3rem;
-    }
     p {
       line-height: 1.8;
       margin-bottom: 1rem;
     }
-    .contact-methods {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-    .contact-card {
-      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-      padding: 2rem;
-      border-radius: 12px;
-      border: 2px solid var(--color-border);
-      text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .contact-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    }
-    .contact-icon {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      display: block;
-    }
-    .contact-card h3 {
-      color: var(--color-primary);
-      margin-top: 0;
-      margin-bottom: 0.8rem;
-    }
-    .contact-card p {
-      margin-bottom: 1rem;
-      color: var(--color-text-secondary);
-    }
-    .contact-link {
-      display: inline-block;
-      color: var(--color-primary);
-      text-decoration: none;
-      font-weight: 600;
-      padding: 0.8rem 1.5rem;
-      background: white;
-      border-radius: 8px;
-      border: 2px solid var(--color-primary);
-      transition: all 0.3s ease;
-      min-height: 48px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .contact-link:hover {
-      background: var(--color-primary);
+    button {
+      background-color: var(--color-primary);
       color: white;
-    }
-    .info-box {
-      background: #e3f2fd;
-      border-left: 4px solid var(--color-primary);
-      padding: 1.5rem;
-      margin: 2rem 0;
+      padding: 0.75rem 1.5rem;
+      border: none;
       border-radius: 8px;
-    }
-    .info-list {
-      list-style: none;
-      padding: 0;
-    }
-    .info-list li {
-      padding: 0.8rem 0;
-      padding-left: 2rem;
-      position: relative;
-      line-height: 1.7;
-    }
-    .info-list li:before {
-      content: "✓";
-      position: absolute;
-      left: 0;
-      color: var(--color-accent);
-      font-weight: bold;
-      font-size: 1.4rem;
-    }
-    footer {
-      background: var(--color-text);
-      color: white;
-      text-align: center;
-      padding: 1.5rem;
-      margin-top: 3rem;
-    }
-    @media (max-width: 768px) {
-      nav a {
-        padding: 0.85rem 1.5rem;
-        font-size: 1.2rem;
-      }
-      section {
-        padding: 1.5rem;
-      }
-      .contact-methods {
-        grid-template-columns: 1fr;
-      }
-      .contact-icon {
-        font-size: 2.5rem;
-      }
-    }
-    @media (max-width: 480px) {
-      nav ul {
-        flex-direction: column;
-        gap: 0.8rem;
-      }
-      nav a {
-        font-size: 1.4rem;
-      }
-      .contact-link {
-        font-size: 1.1rem;
-        padding: 1rem 1.5rem;
-      }
+      cursor: pointer;
+      font-size: 1rem;
     }
   </style>
 </head>
@@ -233,54 +125,6 @@
   </header>
   <main>
     <section>
-      <h2>📬 Kontakt</h2>
-      <p>Du hast eine Projektidee oder Fragen? Dann melde dich einfach bei mir! Ich antworte in der Regel innerhalb von 24 Stunden.</p>
-      <div class="contact-methods">
-        <div class="contact-card">
-          <span class="contact-icon">📧</span>
-          <h3>E-Mail</h3>
-          <p>Der beste Weg für Anfragen mit STL-Dateien</p>
-          <a href="mailto:3DPrintPro@gmx.de" class="contact-link">3DPrintPro@gmx.de</a>
-        </div>
-        <div class="contact-card">
-          <span class="contact-icon">💬</span>
-          <h3>WhatsApp</h3>
-          <p>Für schnelle Fragen und Abstimmungen</p>
-          <a href="https://wa.me/491726216751" class="contact-link" target="_blank" rel="noopener noreferrer">Nachricht senden</a>
-        </div>
-        <div class="contact-card">
-          <span class="contact-icon">🛒</span>
-          <h3>Kleinanzeigen</h3>
-          <p>Finde meine aktuellen Angebote</p>
-          <a href="https://www.kleinanzeigen.de/s-anzeige/3d-druck-service-schnell-individuell-gerecht-/3199274587-298-2857" class="contact-link" target="_blank" rel="noopener noreferrer">Zum Profil</a>
-        </div>
-      </div>
-    </section>
-    <section>
-      <h2>📝 Was ich von dir brauche</h2>
-      <p>Für ein schnelles und präzises Angebot helfen mir folgende Informationen:</p>
-      <ul class="info-list">
-        <li><strong>STL-Datei</strong> – Falls vorhanden, schick mir die 3D-Datei direkt</li>
-        <li><strong>Projektbeschreibung</strong> – Was soll gedruckt werden? Wofür wird es genutzt?</li>
-        <li><strong>Maße</strong> – Falls keine Datei vorhanden: Größenangaben oder Fotos</li>
-        <li><strong>Material-Wunsch</strong> – PLA, PETG, TPU oder keine Präferenz?</li>
-        <li><strong>Farbe</strong> – Welche Farbe bevorzugst du?</li>
-        <li><strong>Menge</strong> – Wie viele Teile brauchst du?</li>
-        <li><strong>Zeitrahmen</strong> – Wann brauchst du das Teil?</li>
-      </ul>
-      <div class="info-box">
-        <p><strong>💡 Tipp:</strong> Je mehr Infos du mir gibst, desto genauer kann ich dir ein Angebot machen und desto schneller geht's!</p>
-      </div>
-    </section>
-    <section>
-      <h2>⏰ Antwortzeiten</h2>
-      <p><strong>Montag bis Freitag:</strong> Antwort innerhalb von 24 Stunden<br>
-         <strong>Wochenende:</strong> Antwort spätestens am Montag</p>
-      <p style="margin-top: 1.5rem;">Nach deiner Anfrage erstelle ich dir ein <strong>kostenloses und unverbindliches Angebot</strong> mit Preis, Material-Empfehlung und voraussichtlicher Lieferzeit.</p>
-    </section>
-
-    <!-- Neue Bestellsektion mit Formular und automatische Gewichtsschätzung -->
-    <section>
       <h2>🛒 3D-Druck Bestellung</h2>
       <form action="https://formspree.io/f/xovpvawr" method="POST" enctype="multipart/form-data" style="max-width: 600px; margin: auto;">
         <label for="name">Name:</label><br />
@@ -297,111 +141,18 @@
 
         <label for="filament">Filament:</label><br />
         <select id="filament" name="filament" required>
-          <option value="PLA">PLA (40 €/kg)</option>
-          <option value="PETG">PETG (60 €/kg)</option>
-          <option value="TPU">TPU (80 €/kg)</option>
+          <option value="PLA">PLA</option>
+          <option value="PETG">PETG</option>
+          <option value="TPU">TPU</option>
         </select><br /><br />
 
         <label for="color">Farbe:</label><br />
         <input type="text" id="color" name="color" placeholder="Farbe eingeben" required /><br /><br />
 
-        <label for="weight">Gewicht in Gramm:</label><br />
-        <input type="number" id="weight" name="weight" min="1" required /><br /><br />
+        <p>Nach Absenden des Formulars erstelle ich dir ein individuelles Angebot und werde dich kontaktieren.</p>
 
-        <label for="price">Preis (€):</label><br />
-        <input type="text" id="price" name="price" readonly /><br /><br />
-
-        <button type="submit" style="background-color: var(--color-primary); color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 8px; cursor: pointer;">
-          Bestellung abschicken
-        </button>
+        <button type="submit">Bestellung abschicken</button>
       </form>
-
-      <script src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/three@0.158.0/examples/js/loaders/STLLoader.js"></script>
-
-      <script>
-        const prices = { PLA: 40, PETG: 60, TPU: 80 };
-        const filamentSelect = document.getElementById('filament');
-        const weightInput = document.getElementById('weight');
-        const priceInput = document.getElementById('price');
-        const fileInput = document.getElementById('file');
-
-        function updatePrice() {
-          const filament = filamentSelect.value;
-          const weight = parseFloat(weightInput.value);
-          if (!isNaN(weight) && filament in prices) {
-            priceInput.value = (prices[filament] * weight / 1000).toFixed(2);
-          } else {
-            priceInput.value = '';
-          }
-        }
-
-        function calculateVolumeFromSTL(file) {
-          return new Promise((resolve, reject) => {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-              const contents = e.target.result;
-              const loader = new THREE.STLLoader();
-              const geometry = loader.parse(contents);
-              geometry.computeBoundingBox();
-
-              let volume = 0;
-              if (geometry.isBufferGeometry) {
-                volume = computeGeometryVolume(geometry);
-              }
-              resolve(volume);
-            };
-            reader.onerror = function () {
-              reject('Fehler beim Lesen der Datei');
-            };
-            reader.readAsArrayBuffer(file);
-          });
-        }
-
-        function computeGeometryVolume(geometry) {
-          let volume = 0;
-          const pos = geometry.attributes.position;
-          for (let i = 0; i < pos.count; i += 3) {
-            const p1 = new THREE.Vector3().fromBufferAttribute(pos, i);
-            const p2 = new THREE.Vector3().fromBufferAttribute(pos, i + 1);
-            const p3 = new THREE.Vector3().fromBufferAttribute(pos, i + 2);
-            volume += signedVolumeOfTriangle(p1, p2, p3);
-          }
-          return Math.abs(volume);
-        }
-
-        function signedVolumeOfTriangle(p1, p2, p3) {
-          return p1.dot(p2.cross(p3)) / 6.0;
-        }
-
-        fileInput.addEventListener('change', () => {
-          const file = fileInput.files[0];
-          if (!file) return;
-
-          calculateVolumeFromSTL(file)
-            .then(volume => {
-              const densityMap = { PLA: 1.24, PETG: 1.27, TPU: 1.21 };
-              const filament = filamentSelect.value;
-              const density = densityMap[filament] || 1.24;
-              const weight = volume * density * 1000; 
-              weightInput.value = weight.toFixed(2);
-              updatePrice();
-            })
-            .catch(err => {
-              console.error(err);
-            });
-        });
-
-        filamentSelect.addEventListener('change', () => {
-          if (fileInput.files.length > 0) {
-            fileInput.dispatchEvent(new Event('change'));
-          } else {
-            updatePrice();
-          }
-        });
-
-        weightInput.addEventListener('input', updatePrice);
-      </script>
     </section>
   </main>
   <footer>
