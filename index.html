@@ -237,6 +237,13 @@
       margin: 2rem auto;
       max-width: 1100px;
     }
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin: 2rem auto;
+      max-width: 1100px;
+    }
     #slider {
       position: relative;
       width: 100%;
@@ -299,15 +306,6 @@
       opacity: 1;
       z-index: 2;
     }
-    .legal-note {
-      background: #fff3cd;
-      border-left: 4px solid #ffc107;
-      padding: 1rem;
-      margin-top: 2rem;
-      border-radius: 8px;
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
     footer {
       background: var(--color-text);
       color: white;
@@ -332,6 +330,9 @@
       .media-container {
         grid-template-columns: 1fr;
         gap: 1.5rem;
+      }
+      .video-grid {
+        grid-template-columns: 1fr;
       }
       #slider, .video-wrapper {
         height: 300px;
@@ -408,12 +409,34 @@
         </video>
       </div>
     </div>
+    <div class="video-grid">
+      <div class="video-wrapper">
+        <video autoplay muted loop playsinline>
+          <source src="WhatsApp Video 2025-10-25 at 17.21.35.mp4" type="video/mp4" />
+          Dein Browser unterstützt keine Videos.
+        </video>
+      </div>
+      <div class="video-wrapper">
+        <video autoplay muted loop playsinline>
+          <source src="video2.mp4" type="video/mp4" />
+          Dein Browser unterstützt keine Videos.
+        </video>
+      </div>
+      <div class="video-wrapper">
+        <video autoplay muted loop playsinline>
+          <source src="video3.mp4" type="video/mp4" />
+          Dein Browser unterstützt keine Videos.
+        </video>
+      </div>
+    </div>
     <section>
       <h2>📷 Weitere Galerie</h2>
       <div id="slider-4">
         <img src="WhatsApp Image 2025-10-26 at 17.38.09 (1).jpeg" alt="Foto 1" class="active" />
         <img src="WhatsApp Image 2025-10-26 at 17.38.09.jpeg" alt="Foto 2" />
         <img src="WhatsApp Image 2025-10-26 at 17.38.09 (3).jpeg" alt="Foto 3" />
+        <img src="WhatsApp Image 2025-10-26 at 17.38.09 (2).jpeg" alt="Foto 4" />
+        <img src="WhatsApp Image 2025-10-26 at 17.38.09 (2).jpeg" alt="Foto 4" />
         <img src="WhatsApp Image 2025-10-26 at 17.38.09 (2).jpeg" alt="Foto 4" />
       </div>
     </section>
@@ -424,7 +447,7 @@
           <div class="step">
             <div class="step-number">1</div>
             <h4>Anfrage schicken</h4>
-            <p>Beschreib dein Projekt oder schick mir die STL,3MF-Datei</p>
+            <p>Beschreib dein Projekt oder schick mir die STL, 3MF-Datei</p>
           </div>
         </a>
         <div class="step">
