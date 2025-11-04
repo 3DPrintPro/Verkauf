@@ -267,6 +267,13 @@
       opacity: 1;
       z-index: 2;
     }
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin: 2rem auto;
+      max-width: 1100px;
+    }
     .video-wrapper {
       position: relative;
       width: 100%;
@@ -326,6 +333,10 @@
       }
       section {
         padding: 1.5rem;
+      }
+      .media-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
       }
       .video-grid {
         grid-template-columns: 1fr;
@@ -392,19 +403,14 @@
         <li><strong>Präzision bis ins Detail</strong> – Saubere Verarbeitung garantiert</li>
       </ul>
     </section>
-    <div class="media-container">
-      <div id="slider">
-        <img src="WhatsApp Image 2025-10-24 at 17.19.23 (3).jpeg" alt="3D-Druck Beispiel 1" class="active" />
-        <img src="WhatsApp Image 2025-10-24 at 17.19.23 (4).jpeg" alt="3D-Druck Beispiel 2" />
-        <img src="WhatsApp Image 2025-10-24 at 17.19.23.jpeg" alt="3D-Druck Beispiel 3" />
-      </div>
-      <div class="video-wrapper">
-        <video autoplay muted loop playsinline>
-          <source src="WhatsApp Video 2025-10-25 at 17.21.35.mp4" type="video/mp4" />
-          Dein Browser unterstützt keine Videos.
-        </video>
-      </div>
+    <div id="slider">
+      <img src="WhatsApp Image 2025-10-24 at 17.19.23 (3).jpeg" alt="3D-Druck Beispiel 1" class="active" />
+      <img src="WhatsApp Image 2025-10-24 at 17.19.23 (4).jpeg" alt="3D-Druck Beispiel 2" />
+      <img src="WhatsApp Image 2025-10-24 at 17.19.23.jpeg" alt="3D-Druck Beispiel 3" />
+      <img src="WhatsApp Image 2025-11-04 at 22.27.21 (1).jpeg" alt="3D-Druck Beispiel 4" />
+      <img src="WhatsApp Image 2025-11-04 at 22.27.21.jpeg" alt="3D-Druck Beispiel 5" />
     </div>
+    
     <div class="video-grid">
       <div class="video-wrapper">
         <video autoplay muted loop playsinline>
@@ -414,13 +420,13 @@
       </div>
       <div class="video-wrapper">
         <video autoplay muted loop playsinline>
-          <source src="video2.mp4" type="video/mp4" />
+          <source src="WhatsApp Video 2025-11-04 at 22.24.31 (1).mp4" type="video/mp4" />
           Dein Browser unterstützt keine Videos.
         </video>
       </div>
       <div class="video-wrapper">
         <video autoplay muted loop playsinline>
-          <source src="video3.mp4" type="video/mp4" />
+          <source src="WhatsApp Video 2025-11-04 at 22.24.31.mp4" type="video/mp4" />
           Dein Browser unterstützt keine Videos.
         </video>
       </div>
