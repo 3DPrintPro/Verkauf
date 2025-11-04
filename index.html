@@ -36,12 +36,12 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-image: url('WhatsApp Image 2025-10-26 at 20.09.01.jpeg'); /* Dein Firmenlogo */
+      background-image: url('WhatsApp Image 2025-10-26 at 20.09.01.jpeg');
       background-repeat: repeat;
-      background-size: 350px; /* Größe anpassen, 300–400px sieht gut aus */
-      opacity: 0.05; /* Transparenz: 0.03 sehr dezent – 0.1 sichtbar */
+      background-size: 350px;
+      opacity: 0.05;
       z-index: -1;
-      pointer-events: none; /* Keine Klicks blockieren */
+      pointer-events: none;
     }
     .site-header {
       background: linear-gradient(135deg, #32b8c6, #1f5669);
@@ -389,10 +389,10 @@
       <p class="intro">Was als Hobby begann, ist heute mein Kleingewerbe – Ich nehme mir Zeit für jedes Projekt, berate dich ehrlich und drucke erst, wenn alles passt.</p>
       <h3>Mein Equipment</h3>
       <ul class="equipment-list">
-        <li><strong>Bambu Lab P2S</strong>– Profi-Drucker für höchste Qualität</li>
-        <li><strong>Anycubic Kobra S1</strong>– Zuverlässiger Arbeitsdrucker</li>
-        <li><strong>Große Filament-Auswahl</strong>– PLA, PETG, TPU, ASA & mehr</li>
-        <li><strong>Präzision bis ins Detail</strong>– Saubere Verarbeitung garantiert</li>
+        <li><strong>Bambu Lab P2S</strong> – Profi-Drucker für höchste Qualität</li>
+        <li><strong>Anycubic Kobra S1</strong> – Zuverlässiger Arbeitsdrucker</li>
+        <li><strong>Große Filament-Auswahl</strong> – PLA, PETG, TPU, ASA & mehr</li>
+        <li><strong>Präzision bis ins Detail</strong> – Saubere Verarbeitung garantiert</li>
       </ul>
     </section>
     <div class="media-container">
@@ -402,7 +402,7 @@
         <img src="WhatsApp Image 2025-10-24 at 17.19.23.jpeg" alt="3D-Druck Beispiel 3" />
       </div>
       <div class="video-wrapper">
-        <video controls autoplay muted loop>
+        <video autoplay muted loop playsinline>
           <source src="WhatsApp Video 2025-10-25 at 17.21.35.mp4" type="video/mp4" />
           Dein Browser unterstützt keine Videos.
         </video>
@@ -442,11 +442,11 @@
     <section>
       <h2>🎯 Meine Leistungen</h2>
       <ul class="services-list">
-        <li><strong>Ersatzteile</strong>– Wenn's nirgends mehr zu kaufen gibt</li>
-        <li><strong>Deko & Geschenke</strong>– Individuelle Designs nach Wunsch</li>
-        <li><strong>Prototypen</strong>– Teste deine Idee bevor sie in Serie geht</li>
-        <li><strong>Haushaltshelfer</strong>– Praktische Lösungen für den Alltag</li>
-        <li><strong>Modellbau & Hobby</strong>– Miniaturteile, Figuren, Zubehör</li>
+        <li><strong>Ersatzteile</strong> – Wenn's nirgends mehr zu kaufen gibt</li>
+        <li><strong>Deko & Geschenke</strong> – Individuelle Designs nach Wunsch</li>
+        <li><strong>Prototypen</strong> – Teste deine Idee bevor sie in Serie geht</li>
+        <li><strong>Haushaltshelfer</strong> – Praktische Lösungen für den Alltag</li>
+        <li><strong>Modellbau & Hobby</strong> – Miniaturteile, Figuren, Zubehör</li>
       </ul>
     </section>
     <section style="text-align: center; background: linear-gradient(135deg, #f8f9fa 0%, #e3f2fd 100%);">
@@ -460,27 +460,33 @@
   </footer>
   <script>
     let currentIndex = 0;
+    let currentIndex4 = 0;
     const slides = document.querySelectorAll('#slider img');
     const slides4 = document.querySelectorAll('#slider-4 img');
+    
     function showSlide(index) {
       slides.forEach((slide, i) => {
         slide.classList.toggle('active', i === index);
       });
     }
+    
     function nextSlide() {
       currentIndex = (currentIndex + 1) % slides.length;
       showSlide(currentIndex);
     }
+    
     function showSlide4(index) {
       slides4.forEach((slide, i) => {
         slide.style.opacity = i === index ? '1' : '0';
         slide.style.zIndex = i === index ? '2' : '1';
       });
     }
+    
     function nextSlide4() {
-      currentIndex = (currentIndex + 1) % slides4.length;
-      showSlide4(currentIndex);
+      currentIndex4 = (currentIndex4 + 1) % slides4.length;
+      showSlide4(currentIndex4);
     }
+    
     setInterval(nextSlide, 3000);
     setInterval(nextSlide4, 4000);
   </script>
