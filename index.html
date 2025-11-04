@@ -267,6 +267,28 @@
       opacity: 1;
       z-index: 2;
     }
+      position: relative;
+      width: 100%;
+      height: 600px;
+      overflow: hidden;
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+      margin: 2rem auto;
+      max-width: 1100px;
+    }
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      opacity: 0;
+      transition: opacity 1.2s ease-in-out;
+      z-index: 1;
+    }
+      opacity: 1;
+      z-index: 2;
+    }
     .video-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -414,13 +436,13 @@
     <div class="video-grid">
       <div class="video-wrapper">
         <video autoplay muted loop playsinline>
-          <source src="WhatsApp Video 2025-11-04 at 22.24.31 (1).mp4" type="video/mp4" />
+          <source src="WhatsApp Video 2025-10-25 at 17.21.35.mp4" type="video/mp4" />
           Dein Browser unterstützt keine Videos.
         </video>
       </div>
       <div class="video-wrapper">
         <video autoplay muted loop playsinline>
-          <source src="WhatsApp Video 2025-11-04 at 23.01.34.mp4" type="video/mp4" />
+          <source src="WhatsApp Video 2025-11-04 at 22.24.31 (1).mp4" type="video/mp4" />
           Dein Browser unterstützt keine Videos.
         </video>
       </div>
@@ -431,6 +453,15 @@
         </video>
       </div>
     </div>
+    
+    <div id="slider-2">
+      <img src="braun.png" alt="3D-Druck Beispiel 6" class="active" />
+      <img src="gelb.png" alt="3D-Druck Beispiel 7" />
+      <img src="grün.png" alt="3D-Druck Beispiel 8" />
+      <img src="lila.png" alt="3D-Druck Beispiel 9" />
+      <img src="rot.png" alt="3D-Druck Beispiel 10" />
+    </div>
+    
     <section>
       <h2>📷 Weitere Galerie</h2>
       <div id="slider-4">
@@ -483,8 +514,10 @@
   </footer>
   <script>
     let currentIndex = 0;
+    let currentIndex2 = 0;
     let currentIndex4 = 0;
     const slides = document.querySelectorAll('#slider img');
+    const slides2 = document.querySelectorAll('#slider-2 img');
     const slides4 = document.querySelectorAll('#slider-4 img');
     
     function showSlide(index) {
@@ -496,6 +529,17 @@
     function nextSlide() {
       currentIndex = (currentIndex + 1) % slides.length;
       showSlide(currentIndex);
+    }
+    
+    function showSlide2(index) {
+      slides2.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
+    }
+    
+    function nextSlide2() {
+      currentIndex2 = (currentIndex2 + 1) % slides2.length;
+      showSlide2(currentIndex2);
     }
     
     function showSlide4(index) {
@@ -511,6 +555,7 @@
     }
     
     setInterval(nextSlide, 3000);
+    setInterval(nextSlide2, 3500);
     setInterval(nextSlide4, 4000);
   </script>
 </body>
