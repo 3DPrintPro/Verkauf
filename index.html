@@ -253,15 +253,9 @@
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
     }
     #slider img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0;
-      transition: opacity 1.2s ease-in-out;
-      z-index: 1;
+      height: 100%; /* Bilder füllen die Slider-Höhe */
+      object-fit: contain; /* Bild vollständig sichtbar, keine Beschnitte */
+
     }
     #slider img.active {
       opacity: 1;
