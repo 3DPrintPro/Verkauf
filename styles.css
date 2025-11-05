@@ -506,11 +506,12 @@ button:hover {
    ======================================== */
 
 footer {
-  background: var(--color-text);
-  color: white;
+  background: #fcfcf9;
+  color: #13343b;
   text-align: center;
   padding: 1.5rem;
   margin-top: 3rem;
+  border-top: 1px solid rgba(94, 82, 64, 0.2);
 }
 
 /* ========================================
@@ -611,5 +612,6 @@ footer {
     font-size: 1.8rem;
   }
 }
+
 
 
