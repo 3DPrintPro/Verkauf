@@ -6,111 +6,78 @@
   <title>3D-Druck Service - Leistungen</title>
   <style>
     :root {
-      --color-primary: #33808d;
-      --color-primary-hover: #1d7480;
-      --color-background: #fcfcf9;
-      --color-surface: #fffffe;
-      --color-text: #13343b;
-      --color-text-secondary: #626c71;
-      --color-border: rgba(94, 82, 64, 0.2);
-      --color-accent: #32b8c6;
+      --primary-color: #33808d;
+      --accent-color: #32b8c6;
+      --background-color: #fcfcf9;
+      --surface-color: #fffffe;
+      --text-color: #13343b;
+      --text-secondary: #626c71;
+      --border-color: rgba(94, 82, 64, 0.2);
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background-color: var(--color-background);
-      color: var(--color-text);
-      line-height: 1.6;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--background-color);
+      color: var(--text-color);
       margin: 0;
       padding: 2rem;
       max-width: 900px;
       margin-left: auto;
       margin-right: auto;
+      line-height: 1.6;
     }
 
     h2 {
-      color: var(--color-primary);
-      border-bottom: 3px solid var(--color-accent);
+      color: var(--primary-color);
+      border-bottom: 3px solid var(--accent-color);
       padding-bottom: 0.5rem;
       margin-bottom: 1.5rem;
       font-weight: 700;
       font-size: 2rem;
     }
 
-    h3 {
-      color: var(--color-text);
-      margin-top: 2rem;
-      margin-bottom: 1rem;
-      font-size: 1.3rem;
+    section {
+      background: var(--surface-color);
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      padding: 1.5rem 2rem;
+      margin-bottom: 2rem;
     }
 
     p {
-      margin-bottom: 1rem;
-      line-height: 1.8;
+      margin: 0.5rem 0 1rem 0;
     }
 
-    .services-list {
+    .prices, .materials, .shipping, .times {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 1.5rem;
-      padding-left: 0;
-      margin-bottom: 2rem;
-      list-style: none;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
     }
 
-    .services-list li {
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
-      border-radius: 12px;
-      padding: 1rem 1.5rem;
-      color: var(--color-text);
-      font-weight: 600;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-      position: relative;
-    }
-
-    .services-list li::before {
-      content: "✓";
-      color: var(--color-accent);
-      position: absolute;
-      left: 12px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-weight: bold;
-      font-size: 1.5rem;
-    }
-
-    .info-box {
-      background: var(--color-primary-hover);
+    .btn-contact {
+      background: var(--accent-color);
       color: white;
-      padding: 1.2rem 2rem;
-      border-radius: 10px;
-      margin: 2rem 0;
-      box-shadow: 0 4px 20px rgba(50, 184, 198, 0.4);
-    }
-
-    .btn-primary {
-      display: inline-block;
-      background-color: var(--color-accent);
-      color: var(--color-surface);
-      padding: 0.8rem 2rem;
+      padding: 1rem 2rem;
+      border: none;
       border-radius: 30px;
-      text-decoration: none;
-      font-weight: 600;
       font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
       transition: background-color 0.3s ease;
-      margin-bottom: 3rem;
+      margin-top: 1rem;
     }
 
-    .btn-primary:hover {
-      background-color: var(--color-primary-hover);
+    .btn-contact:hover {
+      background: var(--primary-color);
     }
 
     @media (max-width: 600px) {
       body {
         padding: 1rem;
       }
-      .services-list {
+      .prices, .materials, .shipping, .times {
         grid-template-columns: 1fr;
       }
     }
@@ -120,30 +87,30 @@
 
   <h2>🎯 Meine Leistungen im Detail</h2>
 
-  <ul class="services-list">
-    <li>Ersatzteile<br/><small>Passgenau und individuell</small></li>
-    <li>Deko & Geschenke<br/><small>Kreative Ideen zum Verschenken</small></li>
-    <li>Prototypen<br/><small>Teste deine Produkte</small></li>
-    <li>Haushaltshelfer<br/><small>Praktische Lösungen</small></li>
-    <li>Modellbau & Hobby<br/><small>Miniaturteile und Zubehör</small></li>
-    <li>Design-Beratung<br/><small>Ich helfe bei der Umsetzung deiner Ideen</small></li>
-  </ul>
-
-  <section class="info-box">
-    <h3>💰 Preise & Ablauf</h3>
-    <p>Die Kosten hängen von Größe, Material und Komplexität deines Projekts ab.</p>
-    <p>Mengenrabatte bei mehreren Teilen sind möglich.</p>
+  <section class="services">
+    <p><strong>Ersatzteile</strong> – Passgenau und individuell</p>
+    <p><strong>Deko &amp; Geschenke</strong> – Kreative und persönliche Designs</p>
+    <p><strong>Prototypen</strong> – Teste deine Produktideen</p>
+    <p><strong>Haushaltshelfer</strong> – Praktische Lösungen für den Alltag</p>
+    <p><strong>Modellbau &amp; Hobby</strong> – Miniaturteile, Figuren &amp; Zubehör</p>
+    <p><strong>Design-Beratung</strong> – Unterstützung bei der 3D-Modellierung</p>
   </section>
 
-  <section>
+  <section class="prices">
+    <h3>💰 Preise &amp; Ablauf</h3>
+    <p>Die Kosten hängen von Größe, Material und Komplexität ab.</p>
+    <p>Mengenrabatte sind möglich.</p>
+  </section>
+
+  <section class="materials">
     <h3>📦 Materialien</h3>
-    <p><strong>PLA</strong> – Umweltfreundlich, ideal für Deko und Prototypen.</p>
-    <p><strong>PETG</strong> – Stabil, temperatur- und lebensmittelecht für funktionale Teile.</p>
-    <p><strong>TPU</strong> – Flexibel, stoßdämpfend für Handyhüllen oder Dichtungen.</p>
-    <p><strong>ASA</strong> – Besonders widerstandsfähig für Außenbereiche.</p>
+    <p><strong>PLA</strong> – Umweltfreundlich, ideal für Dekorationen und Prototypen.</p>
+    <p><strong>PETG</strong> – Stabil &amp; temperaturbeständig, lebensmittelecht.</p>
+    <p><strong>TPU</strong> – Flexibel, stoßdämpfend, perfekt für Dichtungen und Handyhüllen.</p>
+    <p><strong>ASA</strong> – Robust, UV-beständig, ideal für Außeneinsatz.</p>
   </section>
 
-  <section class="info-box">
+  <section class="shipping">
     <h3>📦 Versandkosten</h3>
     <p>Bis 1 kg – 2,70 € (Büchersendung)</p>
     <p>Bis 2 kg – 3,55 € (Büchersendung)</p>
@@ -152,16 +119,16 @@
 
   <section>
     <h3>📬 Kostenlose Anfrage</h3>
-    <p>Schick mir einfach deine STL, OBJ, 3MF-Datei oder eine Projektbeschreibung – ich erstelle dir ein unverbindliches Angebot mit Preis und Lieferzeit!</p>
-    <a href="mailto:deine-email@example.com" class="btn-primary" target="_blank" rel="noopener">Jetzt Anfrage stellen</a>
+    <p>Schick mir deine STL, OBJ, 3MF-Datei oder eine Projektbeschreibung – ich erstelle dir ein unverbindliches Angebot.</p>
+    <a href="mailto:deine-email@example.com" class="btn-contact" target="_blank" rel="noopener">Jetzt Anfrage stellen</a>
   </section>
 
-  <section>
-    <h3>⏱️ Lieferzeit</h3>
+  <section class="times">
+    <h3>⏱️ Lieferzeiten</h3>
     <p>Kleine Teile (bis 5 cm) – 1-3 Tage</p>
     <p>Mittlere Teile (5-15 cm) – 2-4 Tage</p>
     <p>Große Teile (über 15 cm) – 4-7 Tage</p>
-    <p>Express-Bearbeitung bei Bedarf möglich.</p>
+    <p>Express-Bearbeitung möglich, sprich mich gerne an.</p>
   </section>
 
 </body>
