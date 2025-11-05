@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Service - 3D-Druck Service</title>
+  <title>Startseite - 3D-Druck Service</title>
   <style>
     :root {
       --color-primary: #33808d;
@@ -11,10 +11,11 @@
       --color-background: #fcfcf9;
       --color-surface: #fffffe;
       --color-text: #13343b;
+      --color-text-secondary: #626c71;
       --color-border: rgba(94, 82, 64, 0.2);
       --color-accent: #32b8c6;
     }
-    *, *::before, *::after {
+    * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -24,9 +25,23 @@
       background-color: var(--color-background);
       color: var(--color-text);
       line-height: 1.6;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 2rem 1.5rem;
+      position: relative;
+    }
+
+    /* Transparentes Firmenlogo als wiederholter Hintergrund */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('WhatsApp Image 2025-10-26 at 20.09.01.jpeg');
+      background-repeat: repeat;
+      background-size: 350px;
+      opacity: 0.05;
+      z-index: -1;
+      pointer-events: none;
     }
     .site-header {
       background: linear-gradient(135deg, #32b8c6, #1f5669);
@@ -34,10 +49,6 @@
       box-shadow: 0 4px 20px rgba(0,0,0,0.15);
       position: sticky;
       top: 0;
-      width: 100vw;
-      left: 0;
-      margin: 0;
-      box-sizing: border-box;
       z-index: 1000;
     }
     .header-content {
@@ -47,12 +58,17 @@
       align-items: center;
       justify-content: center;
       gap: 1rem;
-      color: white;
     }
     .header-icon {
       font-size: 2.5rem;
       animation: pulse 2s infinite;
       color: white;
+    }
+    .header-content h1 {
+      color: white;
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-shadow: 0 3px 6px rgba(0,0,0,0.3);
     }
     @keyframes pulse {
       0%, 100% {transform: scale(1); color: #32b8c6;}
