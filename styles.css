@@ -4,7 +4,7 @@
 
 :root {
   --color-primary: #1a1a1a;
-  --color-primary-hover: #000000;
+  --color-primary-hover: #333333;
   --color-background: #fcfcf9;
   --color-surface: #fffffe;
   --color-text: #13343b;
@@ -611,3 +611,4 @@ footer {
     font-size: 1.8rem;
   }
 }
+
