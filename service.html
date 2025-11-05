@@ -1,105 +1,160 @@
 <!DOCTYPE html>
 <html lang="de">
-<header class="site-header">
-  <div class="header-content">
-    <span class="header-icon">🖨️</span>
-    <h1>3D-Druck Service</h1>
-  </div>
-  <nav>
-    <ul>
-      <li><a href="index.html">Startseite</a></li>
-      <li><a href="service.html" class="active">Service</a></li>
-      <li><a href="impressum.html">Impressum</a></li>
-      <li><a href="contact.html">Kontakt</a></li>
-    </ul>
-  </nav>
-</header>
-
-<style>
-  /* Header-Balken: volle Breite, keine Außenabstände */
-  .site-header {
-    background: linear-gradient(135deg, #32b8c6, #1f5669);
-    padding: 1.5rem 0;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-    position: sticky;
-    top: 0;
-    width: 100%;
-    margin: 0;
-    box-sizing: border-box;
-    z-index: 1000;
-  }
-  /* Container für Inhalte zentriert und max-Breite */
-  .header-content {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    color: white;
-  }
-  /* Icon animiert */
-  .header-icon {
-    font-size: 2.5rem;
-    animation: pulse 2s infinite;
-    color: white;
-  }
-  @keyframes pulse {
-    0%, 100% {transform: scale(1); color: #32b8c6;}
-    50% {transform: scale(1.1); color: #7ad7e6;}
-  }
-  /* Titel */
-  .header-content h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    text-shadow: 0 3px 6px rgba(0,0,0,0.3);
-    margin: 0;
-  }
-  /* Navigation zentriert */
-  nav {
-    margin-top: 0.5rem;
-  }
-  nav ul {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0;
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-  }
-  nav a {
-    text-decoration: none;
-    color: white;
-    font-weight: 600;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    transition: background-color 0.3s ease;
-  }
-  nav a:hover {
-    background-color: rgba(255, 255, 255, 0.15);
-  }
-  nav a.active {
-    background-color: rgba(255, 255, 255, 0.3);
-  }
-  /* Responsive Navigation */
-  @media (max-width: 768px) {
-    nav ul {
-      justify-content: center;
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Service - 3D-Druck Service</title>
+  <style>
+    :root {
+      --color-primary: #33808d;
+      --color-primary-hover: #1d7480;
+      --color-background: #fcfcf9;
+      --color-surface: #fffffe;
+      --color-text: #13343b;
+      --color-border: rgba(94, 82, 64, 0.2);
+      --color-accent: #32b8c6;
     }
-  }
-  @media (max-width: 480px) {
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--color-background);
+      color: var(--color-text);
+      line-height: 1.6;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+    .site-header {
+      background: linear-gradient(135deg, #32b8c6, #1f5669);
+      padding: 1.5rem 1rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      position: sticky;
+      top: 0;
+      width: 100vw;
+      left: 0;
+      margin: 0;
+      box-sizing: border-box;
+      z-index: 1000;
+    }
+    .header-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      color: white;
+    }
+    .header-icon {
+      font-size: 2.5rem;
+      animation: pulse 2s infinite;
+      color: white;
+    }
+    @keyframes pulse {
+      0%, 100% {transform: scale(1); color: #32b8c6;}
+      50% {transform: scale(1.1); color: #7ad7e6;}
+    }
+    .header-content h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-shadow: 0 3px 6px rgba(0,0,0,0.3);
+    }
+    nav {
+      margin-top: 0.5rem;
+    }
     nav ul {
-      flex-direction: column;
-      gap: 0.8rem;
-      padding: 0 1rem;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      list-style: none;
+      padding: 0;
+      max-width: 1100px;
+      margin: 0 auto;
     }
     nav a {
-      font-size: 1.4rem;
+      text-decoration: none;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
     }
-  }
-</style>
-
+    nav a:hover {
+      background-color: rgba(255, 255, 255, 0.15);
+    }
+    nav a.active {
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+    @media (max-width: 768px) {
+      nav ul {
+        justify-content: center;
+      }
+    }
+    @media (max-width: 480px) {
+      nav ul {
+        flex-direction: column;
+        gap: 0.8rem;
+        padding: 0 1rem;
+      }
+      nav a {
+        font-size: 1.4rem;
+      }
+    }
+    section {
+      background: var(--color-surface);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    section h2 {
+      color: var(--color-primary);
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+      border-bottom: 3px solid var(--color-accent);
+      padding-bottom: 0.5rem;
+    }
+    p, ul {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+    ul {
+      list-style: none;
+      padding-left: 1.5rem;
+    }
+    ul li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.6rem;
+    }
+    ul li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--color-accent);
+      font-weight: bold;
+    }
+    .contact-button {
+      display: inline-block;
+      background: var(--color-primary);
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      margin-top: 1rem;
+    }
+    .contact-button:hover {
+      background: var(--color-primary-hover);
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -116,6 +171,7 @@
       </ul>
     </nav>
   </header>
+
   <main>
     <section>
       <h2>🎯 Meine Leistungen</h2>
@@ -128,11 +184,13 @@
         <li><strong>Design-Beratung</strong> – Unterstützung bei der 3D-Modellierung</li>
       </ul>
     </section>
+
     <section>
       <h2>💰 Preise & Ablauf</h2>
       <p>Die Kosten hängen von Größe, Material und Komplexität ab.</p>
       <p>Mengenrabatte sind möglich.</p>
     </section>
+
     <section>
       <h2>📦 Materialien</h2>
       <ul>
@@ -142,6 +200,7 @@
         <li><strong>ASA</strong> – Robust, UV-beständig, ideal für Außeneinsatz.</li>
       </ul>
     </section>
+
     <section>
       <h2>📦 Versandkosten</h2>
       <ul>
@@ -150,11 +209,13 @@
         <li>Ab 2 kg – 7,69 € (Paket mit Sendungsverfolgung)</li>
       </ul>
     </section>
+
     <section>
       <h2>📬 Kostenlose Anfrage</h2>
       <p>Schick mir deine STL, OBJ, 3MF-Datei oder eine Projektbeschreibung – ich erstelle dir ein unverbindliches Angebot.</p>
       <a href="contact.html" class="contact-button">Jetzt Anfrage stellen</a>
     </section>
+
     <section>
       <h2>⏱️ Lieferzeiten</h2>
       <ul>
