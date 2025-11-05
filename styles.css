@@ -3,14 +3,14 @@
    ======================================== */
 
 :root {
-  --color-primary: #33808d;
-  --color-primary-hover: #1d7480;
+  --color-primary: #1a1a1a;
+  --color-primary-hover: #000000;
   --color-background: #fcfcf9;
   --color-surface: #fffffe;
   --color-text: #13343b;
   --color-text-secondary: #626c71;
   --color-border: rgba(94, 82, 64, 0.2);
-  --color-accent: #32b8c6;
+  --color-accent: #333333;
 }
 
 *, *::before, *::after {
@@ -57,7 +57,7 @@ body::before {
    ======================================== */
 
 .site-header {
-  background: linear-gradient(135deg, #32b8c6, #1f5669);
+  background: linear-gradient(135deg, #1a1a1a, #000000);
   padding: 1.5rem 0;
   box-shadow: 0 4px 20px rgba(0,0,0,0.15);
   position: relative;
@@ -91,8 +91,8 @@ body::before {
 }
 
 @keyframes pulse {
-  0%, 100% {transform: scale(1); color: #32b8c6;}
-  50% {transform: scale(1.1); color: #7ad7e6;}
+  0%, 100% {transform: scale(1); color: #666666;}
+  50% {transform: scale(1.1); color: #999999;}
 }
 
 nav {
@@ -162,7 +162,7 @@ main {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(51, 128, 141, 0.8) 0%, rgba(50, 184, 198, 0.6) 100%);
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.8) 0%, rgba(0, 0, 0, 0.6) 100%);
   z-index: 1;
 }
 
@@ -339,6 +339,7 @@ a.step-link {
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
   margin: 2rem auto;
   max-width: 1100px;
+  background-color: white;
 }
 
 #slider img {
@@ -347,7 +348,7 @@ a.step-link {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   opacity: 0;
   transition: opacity 1.2s ease-in-out;
   z-index: 1;
@@ -420,6 +421,7 @@ a.step-link {
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
   margin: 2rem auto;
   max-width: 1100px;
+  background-color: white;
 }
 
 #slider-4 img {
