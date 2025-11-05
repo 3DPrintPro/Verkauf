@@ -1,358 +1,424 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Startseite - 3D-Druck Service</title>
-  <style>
-    :root {
-      --color-primary: #33808d;
-      --color-primary-hover: #1d7480;
-      --color-background: #fcfcf9;
-      --color-surface: #fffffe;
-      --color-text: #13343b;
-      --color-text-secondary: #626c71;
-      --color-border: rgba(94, 82, 64, 0.2);
-      --color-accent: #32b8c6;
-    }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background-color: var(--color-background);
-      color: var(--color-text);
-      line-height: 1.6;
-      position: relative;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 2rem 1.5rem;
-    }
-    /* Header und Navigation */
-    .site-header {
-      background: linear-gradient(135deg, #32b8c6, #1f5669);
-      padding: 1.5rem 1rem;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      width: 100vw;
-      left: 0;
-      margin: 0;
-      box-sizing: border-box;
-    }
-    .header-content {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      color: white;
-    }
-    .header-icon {
-      font-size: 2.5rem;
-      animation: pulse 2s infinite;
-      color: white;
-    }
-    @keyframes pulse {
-      0%, 100% {transform: scale(1); color: #32b8c6;}
-      50% {transform: scale(1.1); color: #7ad7e6;}
-    }
-    .header-content h1 {
-      color: white;
-      font-size: 2.5rem;
-      font-weight: 700;
-      text-shadow: 0 3px 6px rgba(0,0,0,0.3);
-    }
-    nav {
-      margin-top: 0.5rem;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Startseite - 3D-Druck Service</title>
+<style>
+  :root {
+    --color-primary: #33808d;
+    --color-primary-hover: #1d7480;
+    --color-background: #fcfcf9;
+    --color-surface: #fffffe;
+    --color-text: #13343b;
+    --color-text-secondary: #626c71;
+    --color-border: rgba(94, 82, 64, 0.2);
+    --color-accent: #32b8c6;
+  }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    line-height: 1.6;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+  }
+  /* Header */
+  .site-header {
+    background: linear-gradient(135deg, #32b8c6, #1f5669);
+    padding: 1.5rem 1rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    position: sticky;
+    top: 0;
+    width: 100vw;
+    left: 0;
+    margin: 0;
+    box-sizing: border-box;
+    z-index: 1000;
+  }
+  .header-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    color: white;
+  }
+  .header-icon {
+    font-size: 2.5rem;
+    animation: pulse 2s infinite;
+    color: white;
+  }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); color: #32b8c6; }
+    50% { transform: scale(1.1); color: #7ad7e6; }
+  }
+  .header-content h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-shadow: 0 3px 6px rgba(0,0,0,0.3);
+  }
+  /* Navigation */
+  nav {
+    margin-top: 0.5rem;
+  }
+  nav ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    list-style: none;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  nav a {
+    text-decoration: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+  }
+  nav a:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+  nav a.active {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+  @media (max-width: 768px) {
     nav ul {
-      display: flex;
       justify-content: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-      list-style: none;
-      padding: 0;
-      max-width: 1100px;
-      margin: 0 auto;
+    }
+  }
+  @media (max-width: 480px) {
+    nav ul {
+      flex-direction: column;
+      gap: 0.8rem;
+      padding: 0 1rem;
     }
     nav a {
-      text-decoration: none;
-      color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      transition: background-color 0.3s ease;
-      font-weight: 600;
-    }
-    nav a:hover {
-      background-color: rgba(255, 255, 255, 0.15);
-    }
-    nav a.active {
-      background-color: rgba(255, 255, 255, 0.3);
-    }
-    @media (max-width: 768px) {
-      nav ul {
-        justify-content: center;
-      }
-    }
-    @media (max-width: 480px) {
-      nav ul {
-        flex-direction: column;
-        gap: 0.8rem;
-        padding: 0 1rem;
-      }
-      nav a {
-        font-size: 1.4rem;
-      }
-    }
-    /* Hero Section */
-    .hero-section {
-      position: relative;
-      height: 400px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      text-align: center;
-      border-radius: 20px;
-      margin-bottom: 3rem;
-      background-image: url('dein-hintergrundbild.jpg');
-      background-size: cover;
-      background-position: center;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-      overflow: hidden;
-    }
-    .hero-section::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(51, 128, 141, 0.8) 0%, rgba(50, 184, 198, 0.6) 100%);
-      z-index: 1;
-    }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 800px;
-      padding: 1rem 2rem;
-      animation: fadeInUp 1.2s ease forwards;
-    }
-    .hero-content h2 {
-      font-size: 3rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      text-shadow: 0 3px 6px rgba(0,0,0,0.4);
-    }
-    .hero-content p {
-      font-size: 1.3rem;
-      font-weight: 400;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-    }
-    @keyframes fadeInUp {
-      from {opacity: 0; transform: translateY(25px);}
-      to {opacity: 1; transform: translateY(0);}
-    }
-    /* Sections */
-    section {
-      background: var(--color-surface);
-      border-radius: 12px;
-      padding: 2rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    }
-    section h2 {
-      color: var(--color-primary);
-      margin-bottom: 1.5rem;
-      font-size: 1.8rem;
-      border-bottom: 3px solid var(--color-accent);
-      padding-bottom: 0.5rem;
-    }
-    section h3 {
-      color: var(--color-text);
-      margin-top: 1.5rem;
-      margin-bottom: 1rem;
-      font-size: 1.3rem;
-    }
-    .intro {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      margin-bottom: 1.5rem;
-    }
-    .equipment-list, .services-list {
-      list-style: none;
-      padding: 0;
-    }
-    .equipment-list li, .services-list li {
-      padding: 0.8rem 0;
-      padding-left: 2rem;
-      position: relative;
-      line-height: 1.7;
-    }
-    .equipment-list li:before {
-      content: "⚙️";
-      position: absolute;
-      left: 0;
-      font-size: 1.2rem;
-    }
-    .services-list li:before {
-      content: "✓";
-      position: absolute;
-      left: 0;
-      color: var(--color-accent);
-      font-weight: bold;
       font-size: 1.4rem;
     }
-    /* Weitere Galerie Slider */
-    #slider-4 {
-      position: relative;
-      width: 100%;
-      height: 700px;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
-      margin: 2rem auto;
-      max-width: 1100px;
-    }
-    #slider-4 img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
-      z-index: 1;
-    }
-    #slider-4 img.active {
-      opacity: 1;
-      z-index: 2;
-    }
-    /* Kontakt Anfrage Button */
-    .contact-button {
-      display: inline-block;
-      background: var(--color-primary);
-      color: white;
-      padding: 1rem 2rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
-      margin-top: 1rem;
-    }
-    .contact-button:hover {
-      background: var(--color-primary-hover);
-    }
-  </style>
+  }
+  /* Hero */
+  .hero-section {
+    position: relative;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('dein-hintergrundbild.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    margin-bottom: 3rem;
+    overflow: hidden;
+    color: white;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+  .hero-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(51,128,141,0.8) 0%, rgba(50,184,198,0.6) 100%);
+    z-index: 1;
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 1rem 2rem;
+    animation: fadeInUp 1.2s ease forwards;
+  }
+  .hero-content h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 0 3px 6px rgba(0,0,0,0.4);
+  }
+  .hero-content p {
+    font-size: 1.3rem;
+    font-weight: 400;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  }
+  @keyframes fadeInUp {
+    from {opacity: 0; transform: translateY(25px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+  /* Sections */
+  section {
+    background: var(--color-surface);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  }
+  section h2 {
+    color: var(--color-primary);
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    border-bottom: 3px solid var(--color-accent);
+    padding-bottom: 0.5rem;
+  }
+  .services-list {
+    list-style: none;
+    padding: 0;
+  }
+  .services-list li {
+    padding: 0.8rem 0;
+    padding-left: 2rem;
+    position: relative;
+    line-height: 1.7;
+  }
+  .services-list li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+    font-weight: bold;
+    font-size: 1.4rem;
+  }
+  /* Slider #slider */
+  #slider {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    margin-bottom: 3rem;
+  }
+  #slider img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out;
+    z-index: 1;
+  }
+  #slider img.active {
+    opacity: 1;
+    z-index: 2;
+  }
+  /* Slider #slider-4 */
+  #slider-4 {
+    position: relative;
+    width: 100%;
+    height: 700px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    margin: 2rem auto;
+    max-width: 1100px;
+  }
+  #slider-4 img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    z-index: 1;
+  }
+  #slider-4 img.active {
+    opacity: 1;
+    z-index: 2;
+  }
+  /* Kontakt Button */
+  .contact-button {
+    display: inline-block;
+    background: var(--color-primary);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  .contact-button:hover {
+    background: var(--color-primary-hover);
+  }
+</style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="header-content">
-      <span class="header-icon">🖨️</span>
-      <h1>3D-Druck Service</h1>
+<header class="site-header">
+  <div class="header-content">
+    <span class="header-icon">🖨️</span>
+    <h1>3D-Druck Service</h1>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="index.html" class="active">Startseite</a></li>
+      <li><a href="service.html">Service</a></li>
+      <li><a href="impressum.html">Impressum</a></li>
+      <li><a href="contact.html">Kontakt</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <section class="hero-section">
+    <div class="hero-content">
+      <h2>Von der Idee zum fertigen Teil</h2>
+      <p>Professioneller 3D-Druck – präzise, individuell & zu fairen Preisen</p>
     </div>
-    <nav>
-      <ul>
-        <li><a href="index.html" class="active">Startseite</a></li>
-        <li><a href="service.html">Service</a></li>
-        <li><a href="impressum.html">Impressum</a></li>
-        <li><a href="contact.html">Kontakt</a></li>
-      </ul>
-    </nav>
-  </header>
-  <main>
-    <section class="hero-section">
-      <div class="hero-content">
-        <h2>Von der Idee zum fertigen Teil</h2>
-        <p>Professioneller 3D-Druck – präzise, individuell & zu fairen Preisen</p>
-      </div>
-    </section>
-    <section>
-      <h2>✨ Über mich</h2>
-      <p class="intro">Hi! Ich bin Jan und drucke mit Leidenschaft 3D-Teile aller Art.</p>
-      <p class="intro">Was als Hobby begann, ist heute mein Kleingewerbe – Ich nehme mir Zeit für jedes Projekt, berate dich ehrlich und drucke erst, wenn alles passt.</p>
-      <h3>Mein Equipment</h3>
-      <ul class="equipment-list">
-        <li><strong>Bambu Lab P2S</strong> – Profi-Drucker für höchste Qualität</li>
-        <li><strong>Anycubic Kobra S1</strong> – Zuverlässiger Arbeitsdrucker</li>
-        <li><strong>Große Filament-Auswahl</strong> – PLA, PETG, TPU, ASA & mehr</li>
-        <li><strong>Präzision bis ins Detail</strong> – Saubere Verarbeitung garantiert</li>
-      </ul>
-    </section>
-    <section>
-      <h2>📷 Weitere Galerie</h2>
-      <div id="slider-4">
-        <img src="WhatsApp Image 2025-10-26 at 17.38.09 (1).jpeg" alt="Foto 1" class="active" />
-        <img src="WhatsApp Image 2025-10-26 at 17.38.09.jpeg" alt="Foto 2" />
-        <img src="WhatsApp Image 2025-10-26 at 17.38.09 (3).jpeg" alt="Foto 3" />
-        <img src="WhatsApp Image 2025-10-26 at 17.38.09 (2).jpeg" alt="Foto 4" />
-        <img src="WhatsApp Image 2025-11-05 at 01.15.06.jpeg" alt="Foto 5" />
-        <img src="WhatsApp Image 2025-11-05 at 01.15.06 (1).jpeg" alt="Foto 6" />
-      </div>
-    </section>
-    <section>
-      <h2>📋 In 3 Schritten zu deinem 3D-Druck</h2>
-      <div class="steps">
-        <a href="contact.html" class="step-link">
-          <div class="step">
-            <div class="step-number">1</div>
-            <h4>Anfrage schicken</h4>
-            <p>Beschreib dein Projekt oder schick mir die STL, 3MF-Datei</p>
-          </div>
-        </a>
+  </section>
+  <section>
+    <h2>✨ Über mich</h2>
+    <ul class="equipment-list">
+      <li><strong>Bambu Lab P2S</strong> – Profi-Drucker für höchste Qualität</li>
+      <li><strong>Anycubic Kobra S1</strong> – Zuverlässiger Arbeitsdrucker</li>
+      <li><strong>Große Filament-Auswahl</strong> – PLA, PETG, TPU, ASA & mehr</li>
+      <li><strong>Präzision bis ins Detail</strong> – Saubere Verarbeitung garantiert</li>
+    </ul>
+  </section>
+
+  <!-- Hauptslider -->
+  <div id="slider">
+    <img src="WhatsApp Image 2025-10-24 at 17.19.23 (3).jpeg" alt="3D-Druck Beispiel 1" class="active" />
+    <img src="WhatsApp Image 2025-10-24 at 17.19.23 (4).jpeg" alt="3D-Druck Beispiel 2" />
+    <img src="WhatsApp Image 2025-10-24 at 17.19.23.jpeg" alt="3D-Druck Beispiel 3" />
+    <img src="WhatsApp Image 2025-11-04 at 22.27.21 (1).jpeg" alt="3D-Druck Beispiel 4" />
+    <img src="WhatsApp Image 2025-11-04 at 22.27.21.jpeg" alt="3D-Druck Beispiel 5" />
+  </div>
+
+  <!-- Video Grid -->
+  <div class="video-grid">
+    <div class="video-wrapper">
+      <video autoplay muted loop playsinline>
+        <source src="WhatsApp Video 2025-10-25 at 17.21.35.mp4" type="video/mp4" />
+        Dein Browser unterstützt keine Videos.
+      </video>
+    </div>
+    <div class="video-wrapper">
+      <video autoplay muted loop playsinline>
+        <source src="WhatsApp Video 2025-11-04 at 22.24.31 (1).mp4" type="video/mp4" />
+        Dein Browser unterstützt keine Videos.
+      </video>
+    </div>
+    <div class="video-wrapper">
+      <video autoplay muted loop playsinline>
+        <source src="WhatsApp Video 2025-11-04 at 22.24.31.mp4" type="video/mp4" />
+        Dein Browser unterstützt keine Videos.
+      </video>
+    </div>
+  </div>
+
+  <!-- Filament Grid -->
+  <div class="filament-grid">
+    <img src="grün.png" alt="Filament Grün" />
+    <img src="gelb.png" alt="Filament Gelb" />
+    <img src="braun.png" alt="Filament Braun" />
+    <img src="lila.png" alt="Filament Lila" />
+    <img src="rot.png" alt="Filament Rot" />
+  </div>
+
+  <!-- Weitere Galerie Slider -->
+  <section>
+    <h2>📷 Weitere Galerie</h2>
+    <div id="slider-4">
+      <img src="WhatsApp Image 2025-10-26 at 17.38.09 (1).jpeg" alt="Foto 1" class="active" />
+      <img src="WhatsApp Image 2025-10-26 at 17.38.09.jpeg" alt="Foto 2" />
+      <img src="WhatsApp Image 2025-10-26 at 17.38.09 (3).jpeg" alt="Foto 3" />
+      <img src="WhatsApp Image 2025-10-26 at 17.38.09 (2).jpeg" alt="Foto 4" />
+      <img src="WhatsApp Image 2025-11-05 at 01.15.06.jpeg" alt="Foto 5" />
+      <img src="WhatsApp Image 2025-11-05 at 01.15.06 (1).jpeg" alt="Foto 6" />
+    </div>
+  </section>
+
+  <section>
+    <h2>📋 In 3 Schritten zu deinem 3D-Druck</h2>
+    <div class="steps">
+      <a href="contact.html" class="step-link">
         <div class="step">
-          <div class="step-number">2</div>
-          <h4>Angebot erhalten</h4>
-          <p>Ich kalkuliere Preis & Lieferzeit für dich</p>
+          <div class="step-number">1</div>
+          <h4>Anfrage schicken</h4>
+          <p>Beschreib dein Projekt oder schick mir die STL, 3MF-Datei</p>
         </div>
-        <div class="step">
-          <div class="step-number">3</div>
-          <h4>Druck & Versand</h4>
-          <p>Dein Teil wird gedruckt und kommt sicher bei dir an</p>
-        </div>
+      </a>
+      <div class="step">
+        <div class="step-number">2</div>
+        <h4>Angebot erhalten</h4>
+        <p>Ich kalkuliere Preis & Lieferzeit für dich</p>
       </div>
-    </section>
-    <section>
-      <h2>🎯 Meine Leistungen</h2>
-      <ul class="services-list">
-        <li><strong>Ersatzteile</strong> – Wenn's nirgends mehr zu kaufen gibt</li>
-        <li><strong>Deko & Geschenke</strong> – Individuelle Designs nach Wunsch</li>
-        <li><strong>Prototypen</strong> – Teste deine Idee bevor sie in Serie geht</li>
-        <li><strong>Haushaltshelfer</strong> – Praktische Lösungen für den Alltag</li>
-        <li><strong>Modellbau & Hobby</strong> – Miniaturteile, Figuren, Zubehör</li>
-      </ul>
-    </section>
-    <section style="text-align: center; background: linear-gradient(135deg, #f8f9fa 0%, #e3f2fd 100%);">
-      <h2>🚀 Bereit für dein Projekt?</h2>
-      <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">Ich freue mich auf deine Anfrage und darauf, dein Projekt mit meinen 3D-Drucken zu unterstützen!</p>
-      <a href="contact.html" class="contact-button">Jetzt Anfrage stellen</a>
-    </section>
-  </main>
-  <footer>
-    <p>&copy; 2025 3DPrintPro</p>
-  </footer>
-  <script>
-    let currentIndex4 = 0;
-    const slides4 = document.querySelectorAll('#slider-4 img');
+      <div class="step">
+        <div class="step-number">3</div>
+        <h4>Druck & Versand</h4>
+        <p>Dein Teil wird gedruckt und kommt sicher bei dir an</p>
+      </div>
+    </div>
+  </section>
 
-    function showSlide4(index) {
-      slides4.forEach((slide, i) => {
-        slide.style.opacity = i === index ? '1' : '0';
-        slide.style.zIndex = i === index ? '2' : '1';
-      });
-    }
+  <section>
+    <h2>🎯 Meine Leistungen</h2>
+    <ul class="services-list">
+      <li><strong>Ersatzteile</strong> – Wenn's nirgends mehr zu kaufen gibt</li>
+      <li><strong>Deko & Geschenke</strong> – Individuelle Designs nach Wunsch</li>
+      <li><strong>Prototypen</strong> – Teste deine Idee bevor sie in Serie geht</li>
+      <li><strong>Haushaltshelfer</strong> – Praktische Lösungen für den Alltag</li>
+      <li><strong>Modellbau & Hobby</strong> – Miniaturteile, Figuren, Zubehör</li>
+    </ul>
+  </section>
 
-    function nextSlide4() {
-      currentIndex4 = (currentIndex4 + 1) % slides4.length;
-      showSlide4(currentIndex4);
-    }
+  <section style="text-align:center; background: linear-gradient(135deg, #f8f9fa 0%, #e3f2fd 100%);">
+    <h2>🚀 Bereit für dein Projekt?</h2>
+    <p style="font-size:1.1rem; margin-bottom:1.5rem;">Ich freue mich auf deine Anfrage und darauf, dein Projekt mit meinen 3D-Drucken zu unterstützen!</p>
+    <a href="contact.html" class="contact-button">Jetzt Anfrage stellen</a>
+  </section>
+</main>
+<footer>
+  <p>&copy; 2025 3DPrintPro</p>
+</footer>
 
-    setInterval(nextSlide4, 4000);
+<script>
+  // Slider #slider
+  const slides = document.querySelectorAll('#slider img');
+  let currentIndex = 0;
 
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index);
+    });
+  }
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % slides.length;
+    showSlide(currentIndex);
+  }
+
+  showSlide(currentIndex);
+  setInterval(nextSlide, 3000);
+
+  // Slider #slider-4
+  const slides4 = document.querySelectorAll('#slider-4 img');
+  let currentIndex4 = 0;
+
+  function showSlide4(index) {
+    slides4.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index);
+    });
+  }
+
+  function nextSlide4() {
+    currentIndex4 = (currentIndex4 + 1) % slides4.length;
     showSlide4(currentIndex4);
-  </script>
+  }
+
+  showSlide4(currentIndex4);
+  setInterval(nextSlide4, 4000);
+</script>
 </body>
 </html>
