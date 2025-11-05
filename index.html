@@ -4,117 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Startseite - 3D-Druck Service</title>
+  <link rel="stylesheet" href="styles.css">
   <style>
-    :root {
-      --color-primary: #33808d;
-      --color-primary-hover: #1d7480;
-      --color-background: #fcfcf9;
-      --color-surface: #fffffe;
-      --color-text: #13343b;
-      --color-text-secondary: #626c71;
-      --color-border: rgba(94, 82, 64, 0.2);
-      --color-accent: #32b8c6;
-    }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    html {
-      overflow-x: hidden;
-      width: 100%;
-    }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background-color: var(--color-background);
-      color: var(--color-text);
-      line-height: 1.6;
-      overflow-x: hidden;
-      width: 100%;
-      margin: 0;
-      padding: 0;
-    }
-
-    /* Transparentes Firmenlogo als wiederholter Hintergrund */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: url('WhatsApp Image 2025-10-26 at 20.09.01.jpeg');
-      background-repeat: repeat;
-      background-size: 350px;
-      opacity: 0.05;
-      z-index: -1;
-      pointer-events: none;
-    }
-    .site-header {
-      background: linear-gradient(135deg, #32b8c6, #1f5669);
-      padding: 1.5rem 0;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-      position: relative;
-      width: 100%;
-      z-index: 1000;
-      margin: 0;
-    }
-    .header-content {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-    }
-    .header-icon {
-      font-size: 2.5rem;
-      animation: pulse 2s infinite;
-      color: white;
-    }
-    .header-content h1 {
-      color: white;
-      font-size: 2.5rem;
-      font-weight: 700;
-      text-shadow: 0 3px 6px rgba(0,0,0,0.3);
-    }
-    @keyframes pulse {
-      0%, 100% {transform: scale(1); color: #32b8c6;}
-      50% {transform: scale(1.1); color: #7ad7e6;}
-    }
-    nav {
-      margin-top: 0.5rem;
-    }
-    nav ul {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-      list-style: none;
-      padding: 0 1.5rem;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    nav a {
-      text-decoration: none;
-      color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      transition: background-color 0.3s ease;
-      font-weight: 600;
-    }
-    nav a:hover {
-      background-color: rgba(255, 255, 255, 0.15);
-    }
-    nav a.active {
-      background-color: rgba(255, 255, 255, 0.3);
-    }
-    main {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 2rem 1.5rem;
-    }
+    /* Zusätzliche Styles nur für index.html */
     .hero-section {
       position: relative;
       height: 400px;
@@ -159,26 +51,6 @@
     @keyframes fadeInUp {
       from {opacity: 0; transform: translateY(25px);}
       to {opacity: 1; transform: translateY(0);}
-    }
-    section {
-      background: var(--color-surface);
-      border-radius: 12px;
-      padding: 2rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    }
-    section h2 {
-      color: var(--color-primary);
-      margin-bottom: 1.5rem;
-      font-size: 1.8rem;
-      border-bottom: 3px solid var(--color-accent);
-      padding-bottom: 0.5rem;
-    }
-    section h3 {
-      color: var(--color-text);
-      margin-top: 1.5rem;
-      margin-bottom: 1rem;
-      font-size: 1.3rem;
     }
     .intro {
       font-size: 1.1rem;
@@ -312,6 +184,7 @@
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
       margin: 2rem auto;
       max-width: 1100px;
+      background-color: white;
     }
     #slider-4 img {
       position: absolute;
@@ -328,18 +201,7 @@
       opacity: 1;
       z-index: 2;
     }
-    footer {
-      background: var(--color-text);
-      color: white;
-      text-align: center;
-      padding: 1.5rem;
-      margin-top: 3rem;
-    }
     @media (max-width: 768px) {
-      nav a {
-        padding: 0.85rem 1.5rem;
-        font-size: 1.2rem;
-      }
       .hero-section {
         height: 300px;
       }
@@ -348,9 +210,6 @@
       }
       .hero-content p {
         font-size: 1rem;
-      }
-      section {
-        padding: 1.5rem;
       }
       .video-grid {
         grid-template-columns: 1fr;
@@ -369,14 +228,6 @@
       }
     }
     @media (max-width: 480px) {
-      nav ul {
-        flex-direction: column;
-        gap: 0.8rem;
-        padding: 0 1rem;
-      }
-      nav a {
-        font-size: 1.4rem;
-      }
       .hero-section {
         height: 250px;
       }
@@ -440,13 +291,13 @@
     <div class="video-grid">
       <div class="video-wrapper">
         <video autoplay muted loop playsinline>
-          <source src="WhatsApp Video 2025-11-04 at 22.24.31 (1).mp4" type="video/mp4" />
+          <source src="WhatsApp Video 2025-10-25 at 17.21.35.mp4" type="video/mp4" />
           Dein Browser unterstützt keine Videos.
         </video>
       </div>
       <div class="video-wrapper">
         <video autoplay muted loop playsinline>
-          <source src="WhatsApp Video 2025-11-04 at 23.01.34.mp4" type="video/mp4" />
+          <source src="WhatsApp Video 2025-11-04 at 22.24.31 (1).mp4" type="video/mp4" />
           Dein Browser unterstützt keine Videos.
         </video>
       </div>
@@ -473,8 +324,8 @@
         <img src="WhatsApp Image 2025-10-26 at 17.38.09.jpeg" alt="Foto 2" />
         <img src="WhatsApp Image 2025-10-26 at 17.38.09 (3).jpeg" alt="Foto 3" />
         <img src="WhatsApp Image 2025-10-26 at 17.38.09 (2).jpeg" alt="Foto 4" />
-        <img src="WhatsApp Image 2025-11-05 at 01.15.06 (1).jpeg" alt="Foto 5" />
-        <img src="WhatsApp Image 2025-11-05 at 01.15.06.jpeg" alt="Foto 6" />
+        <img src="WhatsApp Image 2025-11-05 at 19.05.13.jpeg" alt="Foto 5" />
+        <img src="WhatsApp Image 2025-11-05 at 19.05.14.jpeg" alt="Foto 6" />
       </div>
     </section>
     <section>
