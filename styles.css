@@ -57,14 +57,13 @@ body::before {
    ======================================== */
 
 .site-header {
-  background: #fcfcf9;
+  background: #2a2a2a;
   padding: 1.5rem 0;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
   position: relative;
   width: 100%;
   z-index: 1000;
   margin: 0;
-  border-bottom: 1px solid rgba(94, 82, 64, 0.2);
 }
 
 .header-content {
@@ -80,20 +79,20 @@ body::before {
 .header-icon {
   font-size: 2.5rem;
   animation: pulse 2s infinite;
-  color: #333333;
+  color: white;
 }
 
 .header-content h1 {
-  color: #13343b;
+  color: white;
   font-size: 2.5rem;
   font-weight: 700;
-  text-shadow: none;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
   margin: 0;
 }
 
 @keyframes pulse {
-  0%, 100% {transform: scale(1); color: #333333;}
-  50% {transform: scale(1.1); color: #666666;}
+  0%, 100% {transform: scale(1); color: white;}
+  50% {transform: scale(1.1); color: #cccccc;}
 }
 
 nav {
@@ -113,7 +112,7 @@ nav ul {
 
 nav a {
   text-decoration: none;
-  color: #13343b;
+  color: white;
   padding: 0.5rem 1rem;
   border-radius: 6px;
   transition: background-color 0.3s ease;
@@ -121,11 +120,11 @@ nav a {
 }
 
 nav a:hover {
-  background-color: rgba(51, 51, 51, 0.1);
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
 nav a.active {
-  background-color: rgba(51, 51, 51, 0.15);
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 /* ========================================
@@ -507,12 +506,11 @@ button:hover {
    ======================================== */
 
 footer {
-  background: #fcfcf9;
-  color: #13343b;
+  background: #2a2a2a;
+  color: white;
   text-align: center;
   padding: 1.5rem;
   margin-top: 3rem;
-  border-top: 1px solid rgba(94, 82, 64, 0.2);
 }
 
 /* ========================================
