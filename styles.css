@@ -10,7 +10,7 @@
   --color-text: #13343b;
   --color-text-secondary: #626c71;
   --color-border: rgba(94, 82, 64, 0.2);
-  --color-accent: #333333;
+  --color-accent: #ff0000;
 }
 
 *, *::before, *::after {
@@ -611,3 +611,4 @@ footer {
     font-size: 1.8rem;
   }
 }
+
