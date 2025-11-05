@@ -3,133 +3,216 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>3D-Druck Service - Leistungen</title>
+  <title>Service - 3D-Druck Service</title>
   <style>
     :root {
-      --primary-color: #33808d;
-      --accent-color: #32b8c6;
-      --background-color: #fcfcf9;
-      --surface-color: #fffffe;
-      --text-color: #13343b;
-      --text-secondary: #626c71;
-      --border-color: rgba(94, 82, 64, 0.2);
+      --color-primary: #33808d;
+      --color-primary-hover: #1d7480;
+      --color-background: #fcfcf9;
+      --color-surface: #fffffe;
+      --color-text: #13343b;
+      --color-text-secondary: #626c71;
+      --color-border: rgba(94, 82, 64, 0.2);
+      --color-accent: #32b8c6;
     }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: var(--background-color);
-      color: var(--text-color);
+    * {
       margin: 0;
-      padding: 2rem;
-      max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--color-background);
+      color: var(--color-text);
       line-height: 1.6;
+      position: relative;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
     }
-
-    h2 {
-      color: var(--primary-color);
-      border-bottom: 3px solid var(--accent-color);
-      padding-bottom: 0.5rem;
-      margin-bottom: 1.5rem;
-      font-weight: 700;
-      font-size: 2rem;
+    /* Header und Navigation */
+    .site-header {
+      background: linear-gradient(135deg, #32b8c6, #1f5669);
+      padding: 1.5rem 1rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      margin: -2rem -1.5rem 2rem -1.5rem;
     }
-
-    section {
-      background: var(--surface-color);
-      border-radius: 12px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-      padding: 1.5rem 2rem;
-      margin-bottom: 2rem;
-    }
-
-    p {
-      margin: 0.5rem 0 1rem 0;
-    }
-
-    .prices, .materials, .shipping, .times {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    .header-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       gap: 1rem;
-    }
-
-    .btn-contact {
-      background: var(--accent-color);
       color: white;
-      padding: 1rem 2rem;
-      border: none;
-      border-radius: 30px;
-      font-size: 1.1rem;
-      font-weight: 600;
-      cursor: pointer;
+    }
+    .header-icon {
+      font-size: 2.5rem;
+      animation: pulse 2s infinite;
+      color: white;
+    }
+    @keyframes pulse {
+      0%, 100% {transform: scale(1); color: #32b8c6;}
+      50% {transform: scale(1.1); color: #7ad7e6;}
+    }
+    .header-content h1 {
+      color: white;
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-shadow: 0 3px 6px rgba(0,0,0,0.3);
+    }
+    nav {
+      margin-top: 0.5rem;
+    }
+    nav ul {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      list-style: none;
+      padding: 0;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    nav a {
       text-decoration: none;
-      display: inline-block;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
       transition: background-color 0.3s ease;
-      margin-top: 1rem;
+      font-weight: 600;
+    }
+    nav a:hover {
+      background-color: rgba(255, 255, 255, 0.15);
+    }
+    nav a.active {
+      background-color: rgba(255, 255, 255, 0.3);
     }
 
-    .btn-contact:hover {
-      background: var(--primary-color);
+    /* Hauptbereich */
+    section {
+      background: var(--color-surface);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+    section h2 {
+      color: var(--color-primary);
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+      border-bottom: 3px solid var(--color-accent);
+      padding-bottom: 0.5rem;
+    }
+    section h3 {
+      color: var(--color-text);
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+    .services-list {
+      list-style: none;
+      padding: 0;
+    }
+    .services-list li {
+      padding: 0.8rem 0;
+      padding-left: 2rem;
+      position: relative;
+      line-height: 1.7;
+    }
+    .services-list li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--color-accent);
+      font-weight: bold;
+      font-size: 1.4rem;
     }
 
-    @media (max-width: 600px) {
-      body {
-        padding: 1rem;
+    /* Responsive Navigation Anpassung */
+    @media (max-width: 768px) {
+      nav ul {
+        justify-content: center;
       }
-      .prices, .materials, .shipping, .times {
-        grid-template-columns: 1fr;
+    }
+    @media (max-width: 480px) {
+      nav ul {
+        flex-direction: column;
+        gap: 0.8rem;
+        padding: 0 1rem;
+      }
+      nav a {
+        font-size: 1.4rem;
       }
     }
   </style>
 </head>
 <body>
+  <header class="site-header">
+    <div class="header-content">
+      <span class="header-icon">🖨️</span>
+      <h1>3D-Druck Service</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Startseite</a></li>
+        <li><a href="service.html" class="active">Service</a></li>
+        <li><a href="impressum.html">Impressum</a></li>
+        <li><a href="contact.html">Kontakt</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <h2>🎯 Meine Leistungen im Detail</h2>
+  <main>
+    <section>
+      <h2>🎯 Meine Leistungen im Detail</h2>
+      <ul class="services-list">
+        <li><strong>Ersatzteile</strong> – Passgenau und individuell</li>
+        <li><strong>Deko & Geschenke</strong> – Kreative und persönliche Designs</li>
+        <li><strong>Prototypen</strong> – Teste deine Produktideen</li>
+        <li><strong>Haushaltshelfer</strong> – Praktische Lösungen für den Alltag</li>
+        <li><strong>Modellbau & Hobby</strong> – Miniaturteile, Figuren & Zubehör</li>
+        <li><strong>Design-Beratung</strong> – Unterstützung bei der 3D-Modellierung</li>
+      </ul>
+    </section>
 
-  <section class="services">
-    <p><strong>Ersatzteile</strong> – Passgenau und individuell</p>
-    <p><strong>Deko &amp; Geschenke</strong> – Kreative und persönliche Designs</p>
-    <p><strong>Prototypen</strong> – Teste deine Produktideen</p>
-    <p><strong>Haushaltshelfer</strong> – Praktische Lösungen für den Alltag</p>
-    <p><strong>Modellbau &amp; Hobby</strong> – Miniaturteile, Figuren &amp; Zubehör</p>
-    <p><strong>Design-Beratung</strong> – Unterstützung bei der 3D-Modellierung</p>
-  </section>
+    <section>
+      <h2>💰 Preise & Ablauf</h2>
+      <p>Die Kosten hängen von Größe, Material und Komplexität ab.</p>
+      <p>Mengenrabatte sind möglich.</p>
+    </section>
 
-  <section class="prices">
-    <h3>💰 Preise &amp; Ablauf</h3>
-    <p>Die Kosten hängen von Größe, Material und Komplexität ab.</p>
-    <p>Mengenrabatte sind möglich.</p>
-  </section>
+    <section>
+      <h2>📦 Materialien</h2>
+      <p><strong>PLA</strong> – Umweltfreundlich, ideal für Dekorationen und Prototypen.</p>
+      <p><strong>PETG</strong> – Stabil & temperaturbeständig, lebensmittelecht.</p>
+      <p><strong>TPU</strong> – Flexibel, stoßdämpfend, perfekt für Dichtungen und Handyhüllen.</p>
+      <p><strong>ASA</strong> – Robust, UV-beständig, ideal für Außeneinsatz.</p>
+    </section>
 
-  <section class="materials">
-    <h3>📦 Materialien</h3>
-    <p><strong>PLA</strong> – Umweltfreundlich, ideal für Dekorationen und Prototypen.</p>
-    <p><strong>PETG</strong> – Stabil &amp; temperaturbeständig, lebensmittelecht.</p>
-    <p><strong>TPU</strong> – Flexibel, stoßdämpfend, perfekt für Dichtungen und Handyhüllen.</p>
-    <p><strong>ASA</strong> – Robust, UV-beständig, ideal für Außeneinsatz.</p>
-  </section>
+    <section>
+      <h2>📦 Versandkosten</h2>
+      <p>Bis 1 kg – 2,70 € (Büchersendung)</p>
+      <p>Bis 2 kg – 3,55 € (Büchersendung)</p>
+      <p>Ab 2 kg – 7,69 € (Paket mit Sendungsverfolgung)</p>
+    </section>
 
-  <section class="shipping">
-    <h3>📦 Versandkosten</h3>
-    <p>Bis 1 kg – 2,70 € (Büchersendung)</p>
-    <p>Bis 2 kg – 3,55 € (Büchersendung)</p>
-    <p>Ab 2 kg – 7,69 € (Paket mit Sendungsverfolgung)</p>
-  </section>
+    <section>
+      <h2>📬 Kostenlose Anfrage</h2>
+      <p>Schick mir deine STL, OBJ, 3MF-Datei oder eine Projektbeschreibung – ich erstelle dir ein unverbindliches Angebot.</p>
+      <a href="contact.html" style="background: var(--color-primary); color: white; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; font-weight: bold;">Jetzt Anfrage stellen</a>
+    </section>
 
-  <section>
-    <h3>📬 Kostenlose Anfrage</h3>
-    <p>Schick mir deine STL, OBJ, 3MF-Datei oder eine Projektbeschreibung – ich erstelle dir ein unverbindliches Angebot.</p>
-    <a href="mailto:deine-email@example.com" class="btn-contact" target="_blank" rel="noopener">Jetzt Anfrage stellen</a>
-  </section>
-
-  <section class="times">
-    <h3>⏱️ Lieferzeiten</h3>
-    <p>Kleine Teile (bis 5 cm) – 1-3 Tage</p>
-    <p>Mittlere Teile (5-15 cm) – 2-4 Tage</p>
-    <p>Große Teile (über 15 cm) – 4-7 Tage</p>
-    <p>Express-Bearbeitung möglich, sprich mich gerne an.</p>
-  </section>
-
+    <section>
+      <h2>⏱️ Lieferzeiten</h2>
+      <p>Kleine Teile (bis 5 cm) – 1-3 Tage</p>
+      <p>Mittlere Teile (5-15 cm) – 2-4 Tage</p>
+      <p>Große Teile (über 15 cm) – 4-7 Tage</p>
+      <p>Express-Bearbeitung möglich, sprich mich gerne an.</p>
+    </section>
+  </main>
 </body>
 </html>
