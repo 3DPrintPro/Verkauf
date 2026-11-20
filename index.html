@@ -9,7 +9,7 @@
     /* Zusätzliche Styles nur für index.html */
     .hero-section {
       position: relative;
-      height: 400px;
+      height: 420px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -17,6 +17,7 @@
       text-align: center;
       border-radius: 20px;
       margin-bottom: 3rem;
+      /* Tipp: Hier Dateinamen deines eigenen Hero-Fotos eintragen */
       background-image: url('dein-hintergrundbild.jpg');
       background-size: cover;
       background-position: center;
@@ -27,7 +28,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(26, 26, 26, 0.8) 0%, rgba(0, 0, 0, 0.6) 100%);
+      background: linear-gradient(135deg, rgba(26, 26, 26, 0.82) 0%, rgba(0, 0, 0, 0.65) 100%);
       z-index: 1;
     }
     .hero-content {
@@ -46,7 +47,24 @@
     .hero-content p {
       font-size: 1.3rem;
       font-weight: 400;
+      margin-bottom: 1.8rem;
       text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    .cta-button {
+      display: inline-block;
+      background: var(--color-primary);
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+    .cta-button:hover {
+      transform: translateY(-2px);
+      opacity: 0.92;
     }
     @keyframes fadeInUp {
       from {opacity: 0; transform: translateY(25px);}
@@ -93,6 +111,10 @@
       border-radius: 10px;
       text-align: center;
       border: 2px solid var(--color-border);
+      transition: transform 0.2s ease;
+    }
+    a.step-link:hover .step {
+      transform: translateY(-3px);
     }
     .step-number {
       background: var(--color-primary);
@@ -201,9 +223,16 @@
       opacity: 1;
       z-index: 2;
     }
+    .cta-box {
+      text-align: center;
+      background: linear-gradient(135deg, #f8f9fa 0%, #e3f2fd 100%);
+      padding: 2.5rem 1.5rem;
+      border-radius: 16px;
+      margin-top: 2rem;
+    }
     @media (max-width: 768px) {
       .hero-section {
-        height: 300px;
+        height: 340px;
       }
       .hero-content h2 {
         font-size: 1.8rem;
@@ -229,7 +258,7 @@
     }
     @media (max-width: 480px) {
       .hero-section {
-        height: 250px;
+        height: 300px;
       }
       .hero-content h2 {
         font-size: 1.5rem;
@@ -261,49 +290,54 @@
       </ul>
     </nav>
   </header>
+
   <main>
     <section class="hero-section">
       <div class="hero-content">
         <h2>Von der Idee zum fertigen Teil</h2>
-        <p>Professioneller 3D-Druck – präzise, individuell & zu fairen Preisen</p>
+        <p>Professioneller 3D-Druck – präzise, individuell &amp; zu fairen Preisen</p>
+        <a href="contact.html" class="cta-button">Jetzt 3D-Datei hochladen &amp; anfragen</a>
       </div>
     </section>
+
     <section>
       <h2>✨ Über mich</h2>
       <p class="intro">Hi! Ich bin Jan und drucke mit Leidenschaft 3D-Teile aller Art.</p>
-      <p class="intro">Was als Hobby begann, ist heute mein Kleingewerbe – Ich nehme mir Zeit für jedes Projekt, berate dich ehrlich und drucke erst, wenn alles passt.</p>
-      <h3>Mein Equipment</h3>
+      <p class="intro">Was als Hobby begann, ist heute mein Kleingewerbe – ich nehme mir Zeit für jedes Projekt, berate dich ehrlich und drucke erst, wenn alles passt.</p>
+
+      <h3>Mein Equipment &amp; Möglichkeiten</h3>
       <ul class="equipment-list">
-        <li><strong>Bambu Lab P2S</strong> – Profi-Drucker für höchste Qualität</li>
-        <li><strong>Anycubic Kobra S1</strong> – Zuverlässiger Arbeitsdrucker</li>
-        <li><strong>Große Filament-Auswahl</strong> – PLA, PETG, TPU, ASA & mehr</li>
-        <li><strong>Präzision bis ins Detail</strong> – Saubere Verarbeitung garantiert</li>
+        <li><strong>Bambu Lab P2S</strong> – Hochgeschwindigkeits-Drucker für höchste Oberflächenqualität</li>
+        <li><strong>Anycubic Kobra S1</strong> – Zuverlässiger Produktionsdrucker für Serien &amp; größere Aufträge</li>
+        <li><strong>Großer Bauraum</strong> – Bauteile bis zu 256 × 256 × 256 mm in einem Stück</li>
+        <li><strong>Breite Materialauswahl</strong> – PLA, PETG, flexibles TPU, witterungsbeständiges ASA sowie hochfeste Carbonfaser-Filamente (PETG-CF, PA-CF)</li>
       </ul>
     </section>
+
     <div id="slider">
       <img src="WhatsApp Image 2025-10-24 at 17.19.23 (3).jpeg" alt="3D-Druck Beispiel 1" class="active" />
-      <img src="WhatsApp Image 2025-10-24 at 17.19.23 (4).jpeg" alt="3D-Druck Beispiel 2" />
-      <img src="WhatsApp Image 2025-10-24 at 17.19.23.jpeg" alt="3D-Druck Beispiel 3" />
-      <img src="WhatsApp Image 2025-11-04 at 22.27.21 (1).jpeg" alt="3D-Druck Beispiel 4" />
-      <img src="WhatsApp Image 2025-11-04 at 22.27.21.jpeg" alt="3D-Druck Beispiel 5" />
-      <img src="WhatsApp Image 2025-11-05 at 20.27.53.jpeg" alt="3D-Druck Beispiel 6" />
+      <img src="WhatsApp Image 2025-10-24 at 17.19.23 (4).jpeg" alt="3D-Druck Beispiel 2" loading="lazy" />
+      <img src="WhatsApp Image 2025-10-24 at 17.19.23.jpeg" alt="3D-Druck Beispiel 3" loading="lazy" />
+      <img src="WhatsApp Image 2025-11-04 at 22.27.21 (1).jpeg" alt="3D-Druck Beispiel 4" loading="lazy" />
+      <img src="WhatsApp Image 2025-11-04 at 22.27.21.jpeg" alt="3D-Druck Beispiel 5" loading="lazy" />
+      <img src="WhatsApp Image 2025-11-05 at 20.27.53.jpeg" alt="3D-Druck Beispiel 6" loading="lazy" />
     </div>
     
     <div class="video-grid">
       <div class="video-wrapper">
-        <video autoplay muted loop playsinline>
+        <video autoplay muted loop playsinline preload="metadata">
           <source src="WhatsApp Video 2025-11-04 at 22.24.31 (1).mp4" type="video/mp4" />
           Dein Browser unterstützt keine Videos.
         </video>
       </div>
       <div class="video-wrapper">
-        <video autoplay muted loop playsinline>
+        <video autoplay muted loop playsinline preload="metadata">
           <source src="WhatsApp Video 2025-11-04 at 23.01.34.mp4" type="video/mp4" />
           Dein Browser unterstützt keine Videos.
         </video>
       </div>
       <div class="video-wrapper">
-        <video autoplay muted loop playsinline>
+        <video autoplay muted loop playsinline preload="metadata">
           <source src="WhatsApp Video 2025-11-04 at 22.24.31.mp4" type="video/mp4" />
           Dein Browser unterstützt keine Videos.
         </video>
@@ -311,24 +345,25 @@
     </div>
     
     <div class="filament-grid">
-      <img src="grün.png" alt="Filament Grün" />
-      <img src="gelb.png" alt="Filament Gelb" />
-      <img src="braun.png" alt="Filament Braun" />
-      <img src="lila.png" alt="Filament Lila" />
-      <img src="rot.png" alt="Filament Rot" />
+      <img src="grün.png" alt="Filament Grün" loading="lazy" />
+      <img src="gelb.png" alt="Filament Gelb" loading="lazy" />
+      <img src="braun.png" alt="Filament Braun" loading="lazy" />
+      <img src="lila.png" alt="Filament Lila" loading="lazy" />
+      <img src="rot.png" alt="Filament Rot" loading="lazy" />
     </div>
     
     <section>
       <h2>📷 Druckplatten für ein Muster im Druck</h2>
       <div id="slider-4">
-        <img src="WhatsApp Image 2025-10-26 at 17.38.09 (1).jpeg" alt="Foto 1" class="active" />
-        <img src="WhatsApp Image 2025-10-26 at 17.38.09.jpeg" alt="Foto 2" />
-        <img src="WhatsApp Image 2025-10-26 at 17.38.09 (3).jpeg" alt="Foto 3" />
-        <img src="WhatsApp Image 2025-10-26 at 17.38.09 (2).jpeg" alt="Foto 4" />
-        <img src="WhatsApp Image 2025-11-05 at 01.15.06 (1).jpeg" alt="Foto 5" />
-        <img src="WhatsApp Image 2025-11-05 at 01.15.06.jpeg" alt="Foto 6" />
+        <img src="WhatsApp Image 2025-10-26 at 17.38.09 (1).jpeg" alt="Druckplatte Muster 1" class="active" loading="lazy" />
+        <img src="WhatsApp Image 2025-10-26 at 17.38.09.jpeg" alt="Druckplatte Muster 2" loading="lazy" />
+        <img src="WhatsApp Image 2025-10-26 at 17.38.09 (3).jpeg" alt="Druckplatte Muster 3" loading="lazy" />
+        <img src="WhatsApp Image 2025-10-26 at 17.38.09 (2).jpeg" alt="Druckplatte Muster 4" loading="lazy" />
+        <img src="WhatsApp Image 2025-11-05 at 01.15.06 (1).jpeg" alt="Druckplatte Muster 5" loading="lazy" />
+        <img src="WhatsApp Image 2025-11-05 at 01.15.06.jpeg" alt="Druckplatte Muster 6" loading="lazy" />
       </div>
     </section>
+
     <section>
       <h2>📋 In 3 Schritten zu deinem 3D-Druck</h2>
       <div class="steps">
@@ -336,40 +371,44 @@
           <div class="step">
             <div class="step-number">1</div>
             <h4>Anfrage schicken</h4>
-            <p>Beschreib dein Projekt oder schick mir die STL, 3MF-Datei</p>
+            <p>Beschreib dein Projekt oder schick mir deine STL- oder 3MF-Datei</p>
           </div>
         </a>
         <div class="step">
           <div class="step-number">2</div>
           <h4>Angebot erhalten</h4>
-          <p>Ich kalkuliere Preis & Lieferzeit für dich</p>
+          <p>Ich kalkuliere Preis &amp; Lieferzeit transparent für dich</p>
         </div>
         <div class="step">
           <div class="step-number">3</div>
-          <h4>Druck & Versand</h4>
-          <p>Dein Teil wird gedruckt und kommt sicher bei dir an</p>
+          <h4>Druck &amp; Versand</h4>
+          <p>Dein Teil wird gedruckt und kommt sicher verpackt bei dir an</p>
         </div>
       </div>
     </section>
+
     <section>
       <h2>🎯 Meine Leistungen</h2>
       <ul class="services-list">
-        <li><strong>Ersatzteile</strong> – Wenn's nirgends mehr zu kaufen gibt</li>
-        <li><strong>Deko & Geschenke</strong> – Individuelle Designs nach Wunsch</li>
-        <li><strong>Prototypen</strong> – Teste deine Idee bevor sie in Serie geht</li>
-        <li><strong>Haushaltshelfer</strong> – Praktische Lösungen für den Alltag</li>
-        <li><strong>Modellbau & Hobby</strong> – Miniaturteile, Figuren, Zubehör</li>
+        <li><strong>Ersatzteile &amp; Adapter</strong> – Wenn es nirgends mehr zu kaufen gibt</li>
+        <li><strong>CAD-Anpassung &amp; Konstruktion</strong> – Keine fertige Datei? Ich erstelle oder modifiziere dein Modell nach Maß</li>
+        <li><strong>Prototypen &amp; Kleinserien</strong> – Teste deine Idee vor der Serienfertigung</li>
+        <li><strong>Haushaltshelfer &amp; Halterungen</strong> – Praktische Lösungen für Alltag, Werkstatt &amp; Fahrzeug</li>
+        <li><strong>Modellbau, Hobby &amp; Deko</strong> – Miniaturteile, Zubehör und individuelle Geschenke</li>
       </ul>
     </section>
-    <section style="text-align: center; background: linear-gradient(135deg, #f8f9fa 0%, #e3f2fd 100%);">
+
+    <section class="cta-box">
       <h2>🚀 Bereit für dein Projekt?</h2>
       <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">Ich freue mich auf deine Anfrage und darauf, dein Projekt mit meinen 3D-Drucken zu unterstützen!</p>
-      <a href="contact.html" style="display: inline-block; background: var(--color-primary); color: white; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 1.1rem; transition: all 0.3s ease;">Jetzt Anfrage stellen</a>
+      <a href="contact.html" class="cta-button">Jetzt Anfrage stellen</a>
     </section>
   </main>
+
   <footer>
-    <p>&copy; 2025 3DPrintPro</p>
+    <p>&copy; 2026 3DPrintPro</p>
   </footer>
+
   <script>
     let currentIndex = 0;
     let currentIndex4 = 0;
@@ -389,8 +428,7 @@
     
     function showSlide4(index) {
       slides4.forEach((slide, i) => {
-        slide.style.opacity = i === index ? '1' : '0';
-        slide.style.zIndex = i === index ? '2' : '1';
+        slide.classList.toggle('active', i === index);
       });
     }
     
